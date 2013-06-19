@@ -1,7 +1,7 @@
 App.Store = DS.Store.extend({
   revision: 12,
   adapter: DS.RESTAdapter.extend({
-    url: 'https://taptapbar.firebaseio.com'
+    url: ''
   })
 });
 

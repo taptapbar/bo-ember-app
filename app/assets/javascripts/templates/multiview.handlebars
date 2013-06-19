@@ -35,19 +35,11 @@
 
 <section id="view-container">
   <div class="tabs clearfix">
-    <div class="tab active"></div>
-    <div class="tab"></div>
+    {{#each model}}
+    <div class="tab">{{#linkTo 'big_object_view' this}}{{title}}{{/linkTo}}</div>
+    {{/each}}
     <div class="add-view-btn">{{#linkTo "multiview_new"}}+{{/linkTo}}</div>
   </div>
-  
-  <div class="chart-container">
-    <div class="chart">
-      {{ view App.ColumnChartView id=chart-multiview contentBinding=content categoriesBinding=categories titleBiding="This is a Column Graph" }}
-    </div>
-    
-    <div class="filters clearfix">
-      <div class="filter">{{#linkTo "timeframe"}}Set Timeframe{{/linkTo}}</div>
-      <div class="filter">{{#linkTo "filter"}}Set Filter{{/linkTo}}</div>
-    </div>
-  </div>
+  {{ outlet }}
+
 </section>

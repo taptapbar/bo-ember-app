@@ -1,5 +1,8 @@
 App.Router.map ->
-  @resource 'multiview'
+  @resource 'multiview', ->
+    @resource 'big_object_view', 
+      path: ':big_object_view_id'
+      
   @route 'comparison',       
     path: "/comparison"
   @route 'multiview_new',
@@ -14,3 +17,7 @@ App.Router.map ->
     path: "/filter"
   @route 'timeframe',   
     path: "/timeframe"
+    
+App.MultiviewRoute = Ember.Route.extend
+  model: ->
+    return App.BigObjectView.find()
