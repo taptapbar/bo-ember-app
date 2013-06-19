@@ -1,0 +1,27 @@
+#timeframe-container {
+	border: 1px solid #000;
+	border-radius: 6px;
+	padding: 4px 6px 6px 6px;
+}
+
+ul.none-style {
+	list-style: none;
+}
+ul.content-indent {
+	li{
+		margin-left: 20px;
+		&:first-child {
+			margin-left: 0px;
+			font-weight: bold;
+		}
+	}
+}
+
+.li-datepicker {
+  width: 100px;
+  float: left;
+  input[type=text] {
+  	background-color: #9da2a4;
+  	height: 10px;
+  }
+}

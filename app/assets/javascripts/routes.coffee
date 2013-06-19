@@ -1,0 +1,16 @@
+App.Router.map ->
+  @resource 'multiview'
+  @route 'comparison',       
+    path: "/comparison"
+  @route 'multiview_new',
+    path: "/multiview/new"
+  @route 'item_association',
+    path: "/item_association"
+  @route 'significance',
+    path: "/significance"
+  @route 'diagnosis',   
+    path: "/diagnosis"
+  @route 'filter',      
+    path: "/filter"
+  @route 'timeframe',   
+    path: "/timeframe"

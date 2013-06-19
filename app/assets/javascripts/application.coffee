@@ -1,0 +1,14 @@
+#= require jquery
+#= require handlebars
+#= require ember
+#= require ember-data
+#= require highstock
+#= require_self
+#= require app
+#= require store
+#= require routes
+#= require_tree ./controllers
+#= require_tree ./models
+#= require_tree ./templates
+#= require_tree ./views
+#= require_tree ./helpers

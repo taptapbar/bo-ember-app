@@ -1,0 +1,133 @@
+.popup-window-bg {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: corbel;
+  
+  .popup-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: 340px;
+    margin: -195px 0 0 -170px;
+    background-color: #fff;
+  }
+}
+
+.popup-window-header {
+  background-color: #6c6c6c;
+  color: #fff;
+  font-size: 14px;
+  padding-left: 14px;
+}
+
+.popup-window-body {
+  margin: 14px 14px 6px 14px;
+  font-size: 13px;
+
+  .popup-window-nav {
+    margin-bottom: 0px;
+    border-bottom: 1px solid #6c6c6c;
+  }
+
+  .tab-content-padding {
+    padding: 14px 20px 20px 20px;
+  }
+
+  .tab-content-border {
+    border: 1px solid #6c6c6c;
+    border-top-color: transparent;
+    border-radius: 0 0 4px 4px;
+  }
+
+  li>a {
+    padding: 2px 4px 2px 4px;
+    background-color: #6c6c6c;
+    color: #fff;
+    &:hover {
+      background-color: #fff;
+      border-color: #000;
+      color: #000;
+    }
+  }
+
+  li.active>a, li.active>a:hover {
+    border-color: #6c6c6c;
+    border-bottom-color: transparent;
+    background-color: #fff;
+    color: #000;
+  }
+
+  .btn-popup {
+    background-color: #6c6c6c;
+    border: 1px solid #000;
+    font-size: 12px;
+    color: #fff;
+    width: 50px;
+    margin-right: 10px;
+  }
+
+  .field-block {
+    margin-bottom: 20px;
+  }
+
+  label, input, button, select, textarea {
+    font-size: 12px;
+  }
+
+  .input-filter {
+    width: 100px;
+    height: 10px;
+    background-color: #9c9c9c;
+    border-radius: 0;
+    &:-moz-placeholder{color:#3c3c3c;}
+    &:-ms-input-placeholder{color:#3c3c3c;}
+    &::-webkit-input-placeholder{color:#3c3c3c;}
+  }
+
+  .select {
+    width: 90px;
+    height: 19px;
+    background-color: #9da2a4;
+  }
+
+  .border-box {
+    border: 1px solid #9c9c9c;
+    padding: 10px 5px 10px 5px;
+  }
+}
+
+.popup-window-footer {
+  margin: 14px 14px 14px 14px;
+
+  .btn-popup {
+    a {
+      background-color: #4a4a4a;
+      border: 2px solid #7f7f7f;
+      font-size: 14px;
+      color: #fff;
+      width: 60px;
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+
+  .pull-right {
+    margin-left: 10px;
+  }
+}
+
+.float-right {
+  float:right;
+}
+.float-left {
+  float:left;
+}
+.clear {
+  clear:both;
+}

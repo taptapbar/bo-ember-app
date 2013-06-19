@@ -1,0 +1,190 @@
+<div class="popup-window-bg">
+  <div id="filter-window" class="popup-window">
+  	<div class="popup-window-header">Timeframe setting</div>
+  	<div class="popup-window-body">
+  		<div id="timeframe-container">
+  			<ul class="none-style content-indent">
+  				<li>Range</li>
+  				<li>
+  					<label class="radio">
+                    	<input type="radio" name="timeframeRangeRadios" value=""> All the data
+                	</label>
+                </li>
+                <li class="li-datepicker clearfix">
+                	<label class="radio">
+                		<input type="radio" name="timeframeRangeRadios" value="">
+                		<input class="float-left" type="text" style="width:65px;">
+                		<i class="icon-calendar" style="position:absolute;"></i>
+                	</label>
+                </li>
+                <li class="li-datepicker clearfix">
+                	<label>
+                		<input class="" type="text" style="width:65px;">
+                		<i class="icon-calendar" style="position:absolute;"></i>
+                	</label>
+
+                </li>
+            </ul>
+            <ul class="none-style content-indent clear">
+                <li>Cycle</li>
+                <li>
+                	<label class="radio">
+                    	<input type="radio" name="timeframeCycleRadios" value=""> All
+                	</label>
+                </li>
+                <li>
+                	<label class="radio">
+                    	<input type="radio" name="timeframeCycleRadios" value=""> Specified days
+                	</label>
+                </li>
+                <li class="clearfix">
+                	<section><ul class="none-style">
+                		<li class="float-left">
+                			<select class="select" style="width:80px;">
+                				<option>Every</option>
+                				<option>Exclude</option>
+                				<option>Every first day of the week</option>
+                				<option>Every first 2 days of the week </option>
+                				<option>Every first 3 days of the week</option>
+                			</select>
+                		</li>
+                		<li class="float-left clearfix" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Monday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Tuesday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Wednesday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Thursday
+                			</label>
+                		</li>
+                		<li class="float-left clearfix" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Friday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Saturday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Sunday
+                			</label>
+                		</li>
+                	</ul></section>
+                </li>
+                <li>
+                	<label class="radio">
+                    	<input type="radio" name="timeframeCycleRadios" value=""> Specified weeks
+                	</label>
+                </li>
+                <li class="clearfix">
+                	<ul class="none-style">
+                		<li class="float-left">
+                			<select class="select" style="width:80px;">
+                				<option>1st</option>
+                				<option>2nd</option>
+                				<option>3rd</option>
+                				<option>4th</option>
+                				<option>5th</option>
+                			</select>
+                		</li>
+                		<li class="float-left" style="margin-left:4px;">
+                			Week of every 
+                		</li>
+                		<li class="float-left" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Friday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Saturday
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Sunday
+                			</label>
+                		</li>
+                	</ul>
+                </li>
+                <li>
+	                <label class="radio">
+                    	<input type="radio" name="timeframeCycleRadios" value=""> Specified months
+                	<ul class="none-style clearfix">
+                		<li class="float-left" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				January
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Febuary
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				March
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				April
+                			</label>
+                		</li>
+                		<li class="float-left" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				May
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				June
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				July
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				Augus
+                			</label>
+                		</li>
+                		<li class="float-left" style="margin-left:4px;">
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				September
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				October
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				November
+                			</label>
+                			<label class="checkbox">
+                  				<input type="checkbox" value="">
+                  				December
+                			</label>
+                		</li>
+                	</ul>
+                	</label>
+                </li>
+  			</ul>
+  		</div>
+  	</div>
+  	<div class="popup-window-footer">
+    	<button class="btn-popup "><a>Reset</a></button>
+    	<button type="submit" class="btn-popup pull-right">{{#linkTo "multiview"}}Confirm{{/linkTo}}</button>
+    	<button class="btn-popup pull-right">{{#linkTo "multiview"}}Cancel{{/linkTo}}</button>
+  </div>
+  </div>
+</div>

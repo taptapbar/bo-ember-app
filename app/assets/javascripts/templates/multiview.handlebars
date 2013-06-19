@@ -1,0 +1,53 @@
+<section id="view-detail-container">
+  <div class="detail-block">
+    <h3>Dimension</h3>
+    
+    <div class="dimension">
+      <h4>User</h4>
+      
+      <div class="attributes">
+        <div class="attribute">Age</div>
+        <div class="attribute selected">Region</div>
+        <div class="attribute">Constellation</div>
+        <div class="attribute">Purchase Power</div>
+      </div>
+    </div>
+    
+    <div class="dimension">
+      <h4>Product</h4>
+      
+      <div class="attributes">
+        <div class="attribute selected">Category</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="detail-block">
+    <h3>Measure</h3>
+    
+    <div class="inner">
+      <div class="attribute">Count</div>
+      <div class="attribute">Sales</div>
+      <div class="attribute">Profit</div>
+    </div>
+  </div>
+</section>
+
+<section id="view-container">
+  <div class="tabs clearfix">
+    <div class="tab active"></div>
+    <div class="tab"></div>
+    <div class="add-view-btn">{{#linkTo "multiview_new"}}+{{/linkTo}}</div>
+  </div>
+  
+  <div class="chart-container">
+    <div class="chart">
+      {{ view App.ColumnChartView id=chart-multiview contentBinding=content categoriesBinding=categories titleBiding="This is a Column Graph" }}
+    </div>
+    
+    <div class="filters clearfix">
+      <div class="filter">{{#linkTo "timeframe"}}Set Timeframe{{/linkTo}}</div>
+      <div class="filter">{{#linkTo "filter"}}Set Filter{{/linkTo}}</div>
+    </div>
+  </div>
+</section>

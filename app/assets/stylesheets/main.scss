@@ -1,0 +1,111 @@
+@import 'bootstrap';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  
+}
+
+html, body * {
+  margin: 0;
+  padding: 0;
+}
+
+#nav {
+  background-color: #e7e7e7;
+}
+
+#top-nav {
+  padding: 15px 20px 20px 20px;
+}
+
+#logo {
+  float: left;
+  a {
+    text-decoration: none;
+  }
+}
+
+#top-links {
+  float: right;
+  a {
+    margin: 0 0 0 10px;
+    padding-left: 15px;
+    color: #323232;
+    border-left: 1px solid #323232;
+    
+    &.first {
+      border: none;
+    }
+  }
+}
+
+#menu-nav {
+  margin: 20px 0 0;
+  border-bottom: 20px solid #94b3c6;
+  position: relative;
+}
+
+#menu-tabs {
+  list-style: none;
+  float: left;
+  padding: 0 20px;
+  
+  li {
+    list-style: none;
+    float: left;
+    margin: 0 -18px 0 0;
+    height: 30px;
+    
+    a {
+      .title {
+        float: left;
+        z-index: 1;
+        position: relative;
+        text-decoration: none;
+        font-size: 18px;
+        color: #646464;
+        background-color: #ecf8ff;
+        padding: 6px 15px;
+      }
+      
+      .corner {
+        background: url(/assets/sprite.png) no-repeat;
+        background-position: -223px -4px;
+        width: 35px;
+        height: 30px;
+        display: inline-block;
+        z-index: 10;
+        position: relative;
+      }
+      
+      &.active {
+        .title {
+          background-color: #94b3c6;
+        }
+        
+        .corner {
+          background-position: -175px -4px;
+        }
+      }
+    }
+  }
+}
+
+#upload-btn {
+  position: absolute;
+  right: 20px;
+  top: -5px;
+  cursor: pointer;
+  
+  padding: 2px 6px;
+  color: #fff;
+  background-color: #0f6b93;
+  border: 2px solid #04344b;
+}
+
+#main-container {
+  background-color: #fff;
+  padding: 20px;
+  width: 1240px;
+}

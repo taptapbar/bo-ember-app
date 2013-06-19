@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <%= stylesheet_link_tag :application, :media => :all %>
+  <%= javascript_include_tag :application %>
+  <title>Big Object</title>
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <section id="nav">
+      <section id="top-nav" class="clearfix">
+        <h1 id="logo">{{#linkTo "index"}}Logo{{/linkTo}}</h1>
+    
+        <div id="top-links">
+          <a href="#" class="first">about</a>
+          <a href="#">demo</a>
+          <a href="#">admin</a>
+          <a href="#" class="last">log-out</a>
+        </div>
+      </section>
+    
+      <section id="menu-nav" class="clearfix">
+        <ul id="menu-tabs" class="clearfix">
+          <li>
+            {{#linkTo "multiview"}}
+              <span class="title">Multi-View</span>
+              <span class="corner"></span>
+            {{/linkTo}}
+          </li>
+          <li>
+            {{#linkTo "comparison"}}
+              <span class="title">Comparison</span>
+              <span class="corner"></span>
+            {{/linkTo}}
+          </li>
+          <li>
+            {{#linkTo "item_association"}}
+              <span class="title">Item Association</span>
+              <span class="corner"></span>
+            {{/linkTo}}
+          </li>
+          <li>
+            {{#linkTo "significance"}}
+              <span class="title">Significance</span>
+              <span class="corner"></span>
+            {{/linkTo}}
+          </li>
+          <li>
+            {{#linkTo "diagnosis"}}
+              <span class="title">Sales Diagnosis</span>
+              <span class="corner"></span>
+            {{/linkTo}}
+          </li>
+        </ul>
+      
+        <div id="upload-btn">upload</div>
+      </section>
+    </section>
+    
+    <section id="main-container" class="clearfix">
+      {{outlet}}
+    </section>
+  </script>
+</body>
+</html>
