@@ -48,14 +48,19 @@
   width: 900px;
   
   .tab {
-    margin: 0 2px 0 0;
-    width: 350px;
-    height: 25px;
-    background-color: #a4b0b4;
-    float: left;
+    a {
+      display: block;
+      float: left;
+      margin: 0 2px 0 0;
+      width: 30%;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      background-color: #a4b0b4;
     
-    &.active {
-      background-color: #e0e4e6;
+      &.active {
+        background-color: #e0e4e6;
+      }
     }
   }
   

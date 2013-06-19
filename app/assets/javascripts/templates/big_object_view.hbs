@@ -1,6 +1,7 @@
 <div class="chart-container">
   <div class="chart">
-    {{ view App.ColumnChartView id=chart-multiview contentBinding=content categoriesBinding=categories titleBiding="This is a Column Graph" }}
+    {{ drawChart id }}
+    <div id="highchart"></div>
   </div>
   
   <div class="filters clearfix">
