@@ -1,0 +1,199 @@
+/* line 1, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container {
+  float: left;
+  width: 300px;
+}
+/* line 5, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container .detail-block {
+  border: 1px solid #7792a2;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+}
+/* line 10, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container .detail-block .inner {
+  padding: 0 0 0 14px;
+}
+/* line 15, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container h3 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+  background-color: #7792a2;
+  padding: 3px 14px 5px;
+  margin: 0 0 10px 0;
+}
+/* line 25, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container h4 {
+  font-size: 15px;
+  padding: 0 0 1px 14px;
+  border-bottom: 1px solid #333;
+  display: inline-block;
+  margin: 0px 0 10px 0px;
+}
+/* line 33, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container .attributes {
+  margin: 0 0 10px 0;
+}
+/* line 36, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container .attributes .attribute {
+  padding: 0 0 0 35px;
+}
+/* line 39, ../../app/assets/stylesheets/multiview.scss */
+#view-detail-container .attributes .attribute.selected {
+  background-color: #e7e7e7;
+}
+
+/* line 46, ../../app/assets/stylesheets/multiview.scss */
+#view-container {
+  float: right;
+  width: 900px;
+}
+/* line 51, ../../app/assets/stylesheets/multiview.scss */
+#view-container .tab a {
+  display: block;
+  float: left;
+  margin: 0 2px 0 0;
+  width: 30%;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: #a4b0b4;
+}
+/* line 61, ../../app/assets/stylesheets/multiview.scss */
+#view-container .tab a.active {
+  background-color: #e0e4e6;
+}
+/* line 67, ../../app/assets/stylesheets/multiview.scss */
+#view-container .add-view-btn {
+  float: left;
+  margin: 0 2px 0 0;
+}
+/* line 71, ../../app/assets/stylesheets/multiview.scss */
+#view-container .add-view-btn a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0px 6px 0px;
+  background-color: #a4b0b4;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 25px;
+  cursor: pointer;
+}
+/* line 81, ../../app/assets/stylesheets/multiview.scss */
+#view-container .add-view-btn a:hover {
+  background-color: #7792a2;
+}
+/* line 87, ../../app/assets/stylesheets/multiview.scss */
+#view-container .chart-container {
+  background-color: #e0e4e6;
+  padding: 10px 10px;
+  text-align: center;
+}
+/* line 93, ../../app/assets/stylesheets/multiview.scss */
+#view-container .chart {
+  margin: 0 0 10px 0;
+}
+/* line 95, ../../app/assets/stylesheets/multiview.scss */
+#view-container .chart img {
+  max-width: 700px;
+  margin: auto;
+}
+/* line 102, ../../app/assets/stylesheets/multiview.scss */
+#view-container .filters .filter {
+  float: left;
+}
+/* line 105, ../../app/assets/stylesheets/multiview.scss */
+#view-container .filters .filter a {
+  color: #fff;
+  background-color: #a4b0b4;
+  margin: 0 0 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* line 113, ../../app/assets/stylesheets/multiview.scss */
+#view-container .filters .filter a:hover {
+  background-color: #7792a2;
+}
+
+/* line 122, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container h2 {
+  color: #fff;
+  background-color: #4f6b7d;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 30px;
+  padding: 0 10px 2px;
+}
+/* line 131, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .step {
+  border: 1px solid #4f6b7d;
+}
+/* line 135, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container h3 {
+  color: #000;
+  background-color: #7792a2;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 23px;
+  padding: 0 10px 2px;
+}
+/* line 144, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .sub-step {
+  float: left;
+  border: 1px solid #7792a2;
+  margin: 20px;
+  width: 575px;
+  height: 300px;
+}
+/* line 151, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .sub-step .inner {
+  margin: 20px 30px;
+}
+/* line 156, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .options {
+  float: left;
+  background-color: #9da2a4;
+  width: 200px;
+  height: 200px;
+  padding: 10px 0;
+}
+/* line 163, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .options .option {
+  color: #fff;
+  padding: 0 0 0 10px;
+}
+/* line 167, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .options .option:hover {
+  background-color: #169ca1;
+}
+/* line 173, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .right-arrow {
+  float: left;
+  background: url(../img/sprite.png);
+  background-position: -266px 0;
+  width: 27px;
+  height: 43px;
+  margin: 80px 30px 0 40px;
+}
+/* line 182, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .radio-input {
+  float: left;
+  margin: 0 20px 0 0;
+}
+/* line 186, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .radio-input input {
+  float: left;
+}
+/* line 190, ../../app/assets/stylesheets/multiview.scss */
+#create-view-container .radio-input span {
+  float: left;
+  margin: 0 0 0 5px;
+}
+
+/* line 197, ../../app/assets/stylesheets/multiview.scss */
+#chart-multiview {
+  width: 100%;
+  height: 425px;
+}
