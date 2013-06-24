@@ -10,7 +10,7 @@ App.BigObjectView = DS.Model.extend({
     // 2-4 data http://www.json-generator.com/j/erYf?indent=4
     // 2-4 data w/o stacking http://www.json-generator.com/j/eqSt?indent=4
     // for rendered http://server/any_prefix/big_object_view?
-    return $.getJSON("http://www.json-generator.com/j/eqSt?indent=4").then(
+    return $.getJSON("http://www.json-generator.com/j/erYf?indent=4").then(
       function(response) {
         // fetching succeeded
         var chartDatas = [];

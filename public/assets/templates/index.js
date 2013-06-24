@@ -1,1 +1,0 @@
-window.Ember.TEMPLATES["index"] = Ember.Handlebars.compile("awesome\n");
