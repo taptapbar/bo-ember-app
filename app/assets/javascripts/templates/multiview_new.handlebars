@@ -12,7 +12,7 @@
         </ul>
         <div class="right-arrow"></div>
         <ul id="sortable-di-selected" class="selected-options options connectedSortable">
-          <li class="option ui-state-default">Income<div class="delete-white pull-right">x</div></li>
+          <li class="option ui-state-default">Continent<div class="delete-white pull-right">x</div></li>
           <li class="option ui-state-default">Region<div class="delete-white pull-right">x</div></li>
           <li class="option ui-state-default">Country<div class="delete-white pull-right">x</div></li>
         </li>
@@ -25,7 +25,7 @@
       <form class="half-inner">
         <div class="clearfix">
           <div class="radio-input clearfix">
-            <input type="radio" name="measure" value="revenue">
+            <input type="radio" name="measure" value="revenue" checked="checked">
             <span>Revenue</span>
           </div>
           <div class="radio-input">
@@ -43,16 +43,16 @@
       <form class="half-inner">
         <div class="clearfix">
           Title : 
-          <input type="text" name="title" value="" placeholder="Name the view...">
+          <input id="create-new-view-title" type="text" name="title" value="" placeholder="Name the view...">
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
 
     <div class="action pull-right">
-      <button type="reset" class="">Reset</button>
+      <button id="create-new-view-reset" type="reset" class="">Reset</button>
       <div class="pull-right">
         <button class="">{{#linkTo "multiview"}}Cancel{{/linkTo}}</button>
-        <button type="submit" class="">{{#linkTo "multiview"}}Confirm{{/linkTo}}</button>
+        <button id="create-new-view-confirm" type="" class="">Confirm</button>
       </div>
     </div>
   </section>

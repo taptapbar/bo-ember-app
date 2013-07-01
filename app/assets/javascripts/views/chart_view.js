@@ -24,7 +24,7 @@ App.ChartView = Ember.View.extend({
     });
         
     //view.then(function(){
-    //  renderedChart = chartGenerator.render(that.elementId, that.type, chartData.get('dataValues'), chartData.get('categories'), that.title, view.get('measurement'));
+    //  renderedChart = chartGenerator.render(that.elementId, that.type, chartData.get('dataValues'), chartData.get('categories'), that.title, view.get('measure'));
     //});
     //return renderedChart;
   },

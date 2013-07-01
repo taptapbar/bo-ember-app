@@ -1,10 +1,10 @@
 App.BigObjectView = DS.Model.extend({
   title: DS.attr('string'),
-  measurement: DS.attr('string'),
+  measure: DS.attr('string'),
   dimensions: DS.attr('array'),
   filters: DS.attr('array'),
   timescope: DS.attr('array'),
-  saved: DS.attr('boolean'),
+  //saved: DS.attr('boolean'),
 
 
   fetchChartData: function(view) {
@@ -78,7 +78,7 @@ App.ChartData = Ember.Object.extend({
 //                 data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1, 54.4, 54.4, 54.4, 54.4, 54.4, 54.4, 54.4, 54.4, 54.4, 54.4]
     
 //               }],
-//   measurement: "Count"
+//   measure: "Count"
 // }];
 
 

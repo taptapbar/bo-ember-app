@@ -13,7 +13,7 @@ App.ChartGenerator = Ember.Object.extend({
     }
   },
   
-  render: function(render_to, type, data, categories, title, measurement) {
+  render: function(render_to, type, data, categories, title, measure) {
     var chart     = this.chartConfig(type).create();
     var chartType = this.chartType(type);
     var plotOptions = chart.get('plotOptions');
@@ -27,7 +27,7 @@ App.ChartGenerator = Ember.Object.extend({
     chart.set('series', data);
     chart.set('categories', categories);
     chart.set('title', title);
-    chart.set('measurement', measurement);
+    chart.set('measure', measure);
     chart.initialize();
     return new Highcharts.Chart(chart);
   }
@@ -41,7 +41,7 @@ App.ChartConfig = Ember.Object.create({
   series: null,
   categories: null,
   initialize: function() {
-    var chart, title, xAxis, measurement;
+    var chart, title, xAxis, measure;
     //this.sub_initialize();
     chart = {
       renderTo: this.get('renderToId'),
@@ -53,7 +53,7 @@ App.ChartConfig = Ember.Object.create({
     };
     yAxis = {
       title: {
-        text: this.get('measurement')
+        text: this.get('measure')
       }
     };
     title = {
@@ -75,7 +75,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     var yAxis, plotOptions;
     /*yAxis = {
       title: {
-        text: "Measurement"
+        text: "Measure"
       }
     };*/
     plotOptions = {

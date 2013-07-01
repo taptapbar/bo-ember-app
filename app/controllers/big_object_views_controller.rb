@@ -5,31 +5,31 @@ class BigObjectViewsController < ApplicationController
         { 
           'id' => '1',
           'title' => 'Graph',
-          'measurement' => 'Revenue',
+          'measure' => 'Revenue',
           'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
         },
         { 
           'id' => '2',
           'title' => 'Graph 2',
-          'measurement' => 'Revenue',
+          'measure' => 'Revenue',
           'dimensions' => ['dimension-a', 'dimension-b']
         },
         { 
           'id' => '3',
           'title' => 'Graph 3',
-          'measurement' => 'Revenue',
+          'measure' => 'Revenue',
           'dimensions' => ['dimension-a']
         },
         { 
           'id' => '4',
           'title' => 'Graph 4',
-          'measurement' => 'Revenue',
+          'measure' => 'Revenue',
           'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
         },
         { 
           'id' => '5',
           'title' => 'Graph 5',
-          'measurement' => 'Revenue',
+          'measure' => 'Revenue',
           'dimensions' => ['dimension-a', 'dimension-b']
         }
       ]
