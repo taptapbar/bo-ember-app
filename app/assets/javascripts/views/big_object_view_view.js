@@ -3,5 +3,6 @@ App.BigObjectViewView = Ember.View.extend({
   
   didInsertElement: function() {
     //console.log("render BigObjectViewView");
+    checkChartTabs();
   }
 });

@@ -45,4 +45,13 @@ class BigObjectViewsController < ApplicationController
       }
     }
   end
+
+  def destroy
+    render json: nil, status: :ok
+  end
+
+  def new_id
+    render json: nil, status: :ok
+  end
+
 end

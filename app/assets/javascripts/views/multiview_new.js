@@ -109,3 +109,9 @@ $(document).on('click', '#create-new-view-reset', function(event) {
     this.reset();
   });
 });
+$(document).on('dblclick', '#sortable-di-list li', function(event) {
+  $('#sortable-di-selected').append($(this).html(toggleString($(this).html(), '<div class="delete-white pull-right">x</div>')));
+});
+$(document).on('click', '#sortable-di-selected .delete-white', function(event) {
+  $('#sortable-di-list').append($(this).parent().html(toggleString($(this).parent().html(), '<div class="delete-white pull-right">x</div>')));
+});

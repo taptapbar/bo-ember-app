@@ -18,9 +18,10 @@ ul.content-indent {
 }
 
 .li-datepicker {
-  width: 100px;
-  float: left;
   input[type=text] {
   	background-color: #9da2a4;
   }
+}
+input[type="image"], input[type="checkbox"], input[type="radio"] {
+	margin: 0px 0px;
 }

@@ -49,7 +49,7 @@ App.ChartConfig = Ember.Object.create({
     };
     xAxis = {
       categories: this.get('categories'),
-      max: 10
+      max: appConfig.chartSettings.xAxis.max
     };
     yAxis = {
       title: {
@@ -97,7 +97,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
       useHTML: true
     };
     scrollbar = {
-      enabled: true
+      enabled: appConfig.chartSettings.scrollbar.enabled
     },
     //this.set('yAxis', yAxis);
     this.set('plotOptions', plotOptions);

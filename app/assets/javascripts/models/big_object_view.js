@@ -4,28 +4,14 @@ App.BigObjectView = DS.Model.extend({
   dimensions: DS.attr('array'),
   filters: DS.attr('array'),
   timescope: DS.attr('array'),
-  //saved: DS.attr('boolean'),
 
 
   fetchChartData: function(view) {
     // single data http://www.json-generator.com/j/esKB?indent=4
-    // 2-4 data http://www.json-generator.com/j/erYf?indent=4
-    // 2-4 data w/o stacking http://www.json-generator.com/j/eqSt?indent=4
-    // for rendered http://server/any_prefix/big_object_view?
+    // for rendered http://server/any_prefix/big_object_view/:id
     return $.getJSON("http://www.json-generator.com/j/esKB?indent=4").then(
       function(response) {
         // fetching succeeded
-        /* Old version for multiple datas
-        var chartDatas = [];
-        response.result.forEach(function (chartData) {
-          chartDatas.push(App.ChartData.create({
-            // subject to the JSON format
-            categories: chartData.xAxis.categories,
-            dataValues: chartData.series
-          }));
-        })
-        return chartDatas;
-        */
         var chartData = response.result[0];
         return App.ChartData.create({
           categories: chartData.xAxis.categories,

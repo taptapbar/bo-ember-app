@@ -36,7 +36,7 @@
 <section id="view-container">
   <div class="tabs clearfix">
     {{#each model}}
-    <div class="tab">{{#linkTo 'big_object_view' this}}{{title}}{{/linkTo}}</div>
+    <div class="tab">{{#linkTo 'big_object_view' this}}{{title}}{{/linkTo}}<div class="delete-white pull-right icon">x<span style="display:none">{{id}}</span></div></div>
     {{/each}}
     <div class="add-view-btn">{{#linkTo "multiview_new"}}+{{/linkTo}}</div>
   </div>

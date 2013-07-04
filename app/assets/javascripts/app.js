@@ -28,20 +28,14 @@ App.MultiviewRoute = Ember.Route.extend({
 Ember.Handlebars.registerBoundHelper('drawChart', function(id){
   console.log('draw: ', id);
   var chartGenerator = new App.ChartGenerator();
-  // probably should have moved rendered Charts to global scope to maintain charts on each tab
-  //var renderedCharts = [];
   var view = App.BigObjectView.find(id);
   view.fetchChartData(view).then(function (chartData) {
-    //chartDatas.forEach(function (chartData) {
-    //  renderedCharts.push(
         chartGenerator.render('highchart', 
                               'column', 
                               chartData.get('dataValues'), 
                               chartData.get('categories'), 
                               view.get('title'), 
                               view.get('measure'))
-    //  );
-    //})
   });
 });
 

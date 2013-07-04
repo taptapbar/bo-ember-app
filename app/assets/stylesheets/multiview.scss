@@ -48,19 +48,34 @@
   width: 1000px;
   
   .tab {
+    background-color: #a4b0b4;
+    width: 19%;
+    display: block;
+    height: 25px;
+    float: left;
+    margin: 0 2px 0 0;
     a {
-      display: block;
-      float: left;
-      margin: 0 2px 0 0;
-      width: 19%;
+      float:left;      
       height: 25px;
+      width: 90%;
       line-height: 25px;
       text-align: center;
-      background-color: #a4b0b4;
     
       &.active {
         background-color: #e0e4e6;
       }
+    }
+    .delete-white {
+      float:left;
+      width: 10%;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #666;
+    }
+
+    .active {
+      background-color: #e0e4e6;
     }
   }
   
@@ -257,6 +272,20 @@
 .i-minus-white {
   background: url(/assets/glyphicons-halflings-white.png);
   background-position: -24px -96px;
+  width: 14px;
+  height: 14px;
+  margin: 8px 4px 8px 0;
+}
+.i-star-solid-white {
+  background: url(/assets/glyphicons-halflings-white.png);
+  background-position: -120px 0;
+  width: 14px;
+  height: 14px;
+  margin: 8px 4px 8px 0;
+}
+.i-star-hollow-white {
+  background: url(/assets/glyphicons-halflings-white.png);
+  background-position: -144px 0;
   width: 14px;
   height: 14px;
   margin: 8px 4px 8px 0;
