@@ -31,6 +31,8 @@ var appConfig = {
 		// Request a new ID at create-new-view, for newly created but not saved in the database big_object_view.
 		newIdURL: "big_object_views/new_id/"
 
+		//Request Dimensions & Measures
+
 	}
 
 		

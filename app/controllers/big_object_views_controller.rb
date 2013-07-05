@@ -54,4 +54,15 @@ class BigObjectViewsController < ApplicationController
     render json: nil, status: :ok
   end
 
+  def dimensions_and_measures
+    render json: {
+      'dimensions' => {
+        'CAT-A' => ['a', 'b', 'c', 'd'], 
+        'CAT-B' => ['d', 'e', 'f', 'g', 'h', 'i', 'j'], 
+        'CAT-C' => ['k', 'l', 'm']
+      },
+      'measures' => ['Revenue', 'Cost', 'Sales']
+    }
+  end
+
 end
