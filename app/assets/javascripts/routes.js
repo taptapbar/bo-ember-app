@@ -1,7 +1,7 @@
 App.Router.map(function(){
   this.resource('multiview', function() {
     this.resource('big_object_view', { path: ':big_object_view_id' }, function(){
-      this.route('timeframe');
+      //this.resource('timeframe', { path: "/:big_object_view_id" });
     });
   });
   
@@ -15,7 +15,7 @@ App.Router.map(function(){
   this.route('timeframe', { path: "/timeframe" });
 });
 
-App.MultiviewRoute = Ember.Route.extend(function(){
+App.MultiviewRoute = Ember.Route.extend({
   model: function() {
     return App.BigObjectView.find();
   }
