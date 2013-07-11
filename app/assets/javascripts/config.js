@@ -21,7 +21,7 @@ var appConfig = {
 		/************************************************************
 		// Use model name as URL to fit RESTful convention
 		// FindALL	GET 	big_object_views.json
-		// Find 		GET 	big_object_views/:id.json
+		// Find 	GET 	big_object_views/:id.json
 		// UPDATE 	PUT 	big_object_views/:id.json
 		// CREATE 	POST 	big_object_views.json
 		// DESTROY	DELETE 	big_object_views/:id.json
