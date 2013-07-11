@@ -2,16 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'rails-api'
 
 gem 'sqlite3'
 
-gem 'ember-rails'
-gem 'ember-source', '1.0.0.rc5' # or the version you need
+gem 'ember-rails', '0.13.0'
+gem 'ember-source', '1.0.0.rc6' # or the version you need
+gem 'ember-data-source', '0.13'
 gem 'handlebars-source', '1.0.0.rc4' # or the version you need
 
 gem 'thin'

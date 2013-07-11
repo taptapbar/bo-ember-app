@@ -1,11 +1,5 @@
 App = Ember.Application.create();
 
-App.MultviewRoute = Ember.Route.extend({
-  model: function() {
-    // get saved/created(not saved yet) BigObjectViews's settings related to current user
-    return App.BigObjectView.find();
-  }
-});
 /*
 App.MultiviewRoute = Ember.Route.extend({
   model: function() {
