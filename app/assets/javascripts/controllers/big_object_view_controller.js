@@ -1,12 +1,17 @@
 App.BigObjectViewController = Ember.ObjectController.extend(App.ModalControllerMixin, {  
-  showTimeframeModal: function() {
-    this.showModalView();
+  showTimescopeModal: function() {
+    modalView = App.TimeframeModalView.create({
+        controller: this,
+        baseView: this.get('view')
+      });
+    this.showModalView(modalView);
   },
   
-  createModalView: function() {
-    return App.TimeframeModalView.create({
-      controller: this,
-      baseView: this.get('view')
-    });
+  showFilterModal: function() {
+    modalView = App.FilterModalView.create({
+        controller: this,
+        baseView: this.get('view')
+      });
+    this.showModalView(modalView);
   }
 });
