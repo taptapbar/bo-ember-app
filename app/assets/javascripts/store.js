@@ -1,7 +1,8 @@
 App.Store = DS.Store.extend({
   revision: 12,
   adapter: DS.RESTAdapter.extend({
-    url: appConfig.store.adapter.URL
+    url: appConfig.store.adapter.URL,
+    namespace: appConfig.store.adapter.namespace
   })
 });
 

@@ -1,3 +1,4 @@
+#= require config
 #= require jquery
 #= require jquery-ui
 #= require handlebars
@@ -5,7 +6,6 @@
 #= require ember-data
 #= require highstock
 #= require_self
-#= require config
 #= require app
 #= require store
 #= require routes

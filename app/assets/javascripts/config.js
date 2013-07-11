@@ -1,13 +1,11 @@
 var appConfig = {
 
-	server: {
-		URL: "http://localhost:3000/"
-	},
-
 	store: {
 		adapter: {
+			// Data Store's server URL
+			URL: "http://localhost:3000",
 			// Data Store's URL prefix ex. "api/v1"
-			URL: ""
+			namespace: ""
 		}
 	},
 
