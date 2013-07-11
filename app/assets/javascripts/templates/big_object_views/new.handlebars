@@ -1,0 +1,83 @@
+<div id="create-new-view-container">
+  <div id="create-view-container">
+    <section class="step clearfix">
+      <h2>Create your view</h2>
+      <div class="sub-step">
+        <h3>(1) Select up to 3 dimensions</h3>
+      
+        <div class="inner clearfix">
+          <ul id="sortable-di-list" class="options connectedSortable">
+            <li class="option">Age</li>
+            <li class="option">Gender</li>
+            <li class="option">Income</li>
+          </ul>
+          <div class="right-arrow"></div>
+          <ul id="sortable-di-selected" class="selected-options options connectedSortable">
+            <li class="option">Continent<div class="delete-white pull-right">x</div></li>
+            <li class="option">Region<div class="delete-white pull-right">x</div></li>
+            <li class="option">Country<div class="delete-white pull-right">x</div></li>
+          </li>
+        </div>
+      </div>
+    
+      <div class="sub-step">
+        <h3>(2) Choose the measure you want to see</h3>
+      
+        <form class="half-inner">
+          <div class="clearfix">
+            <div class="radio-input clearfix">
+              <input type="radio" name="measure" value="revenue" checked="checked">
+              <span>Revenue</span>
+            </div>
+            <div class="radio-input">
+              <input type="radio" name="measure" value="cost">
+              <span>Cost</span>
+            </div>
+            <div class="radio-input">
+              <input type="radio" name="measure" value="forecast">
+              <span>Forecast</span>
+            </div>
+          </div>
+        </form>
+        <h3>(3) Name this view</h3>
+
+        <form class="half-inner">
+          <div class="clearfix">
+            Title : 
+            <input id="create-new-view-title" type="text" name="title" value="" placeholder="Name the view...">
+          </div>
+        </div>
+      </form>
+
+      <div class="action pull-right">
+        <button id="create-new-view-reset" type="reset" class="" {{ action "resetForm" this }}>Reset</button>
+        <div class="pull-right">
+          <button class="">{{#linkTo "big_object_views"}}Cancel{{/linkTo}}</button>
+          <button id="create-new-view-confirm" type="" class="" {{ action "createNewView" this }}>Confirm</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="create-view-filter-container">
+    <section class="step clearfix">
+      <h2>
+        <div id="create-view-filter-toggler" class="pull-left i-plus-white clickable toggler"></div> 
+        Filter
+      </h2>
+      <div id="create-view-filter-panel" style="display: none;">
+        awesome
+      </div>
+    </section>
+  </div>
+  <div id="create-view-timescope-container">
+    <section class="step clearfix">
+      <h2>
+        <div id="create-view-timescope-toggler" class="pull-left i-plus-white clickable"></div> 
+        Time Scope
+      </h2>
+      <div id="create-view-timescope-panel" style="display: none;">
+        awesome
+      </div>
+    </section>
+  </div>
+</div>

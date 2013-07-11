@@ -105,19 +105,20 @@ html, body * {
 }
 
 #main-container {
+  position: relative;
   background-color: #fff;
-  padding: 20px;
-  width: 1240px;
+  padding: 2%;
+  width: 96%;
 }
 
 .clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }

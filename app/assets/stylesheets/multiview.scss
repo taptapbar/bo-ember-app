@@ -133,6 +133,12 @@
   }
 }
 
+#create-new-view-container {
+  position: absolute;
+  background: #fff;
+  width: 96%;
+}
+
 #create-view-container, #create-view-filter-container, #create-view-timescope-container {
   h2 {
     color: #fff;
@@ -160,7 +166,7 @@
     float: left;
     border: 1px solid #7792a2;
     margin: 20px;
-    width: 575px;
+    width: 46%;
     height: 300px;
     
     .inner {

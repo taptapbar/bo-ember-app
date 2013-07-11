@@ -1,10 +1,11 @@
 App.Router.map(function(){
   this.resource('big_object_views', { path: '/multiview' }, function() {
     this.resource('big_object_view', { path: ':big_object_view_id' });
+    this.route('new');
   });
   
   this.route('comparison', { path: "/comparison" });
-  this.route('multiview_new', { path: "/multiview/new" });
+  
   this.route('item_association', { path: "/item_association" });
   this.route('significance', { path: "/significance" });
   this.route('diagnosis', { path: "/diagnosis" });
@@ -36,6 +37,13 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     //    this.transitionTo('big_object_view', bigObjectView);
     //  }
     //});
+  }
+});
+
+App.BigObjectViewsNewRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    console.log('new');
+    this.render({ outlet: 'main_window' });
   }
 });
     

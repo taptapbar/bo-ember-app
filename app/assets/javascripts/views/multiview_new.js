@@ -1,12 +1,3 @@
-App.MultiviewNewView = Ember.View.extend({
-  templateName: 'multiview_new',
-
-  didInsertElement: function() {
-    // Display dimensions & measures retrieved from fetchDimensionsAndMeasures()
-  }
-
-});
-
 function fetchDimensionsAndMeasures() {
   // fetch dimensions and measures with one call. 
   // sample data in rails's BigObjectViewController#dimensions_and_measures 

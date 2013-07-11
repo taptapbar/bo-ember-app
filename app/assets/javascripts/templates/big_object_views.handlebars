@@ -1,3 +1,5 @@
+{{ outlet main_window }}
+
 <section id="view-detail-container">
   <div class="detail-block">
     <h3>Dimension</h3>
@@ -38,7 +40,7 @@
     {{#each model}}
     <div class="tab">{{#linkTo 'big_object_view' this}}{{title}}{{/linkTo}}<div class="delete-white pull-right icon">x<span style="display:none">{{id}}</span></div></div>
     {{/each}}
-    <div class="add-view-btn">{{#linkTo "multiview_new"}}+{{/linkTo}}</div>
+    <div class="add-view-btn">{{#linkTo "big_object_views.new"}}+{{/linkTo}}</div>
   </div>
   {{ outlet }}
 
