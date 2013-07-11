@@ -18,3 +18,12 @@ DS.RESTAdapter.registerTransform('array', {
     return value;
   }
 });
+
+DS.RESTAdapter.registerTransform('object', {
+  deserialize: function(serialized) {
+    return Em.none(serialized) ? {} : serialized;
+  },
+  serialize: function(deserialized) {
+    return Em.none(deserialized) ? {} : deserialized;
+  }
+});
