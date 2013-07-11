@@ -21,9 +21,9 @@ DS.RESTAdapter.registerTransform('array', {
 
 DS.RESTAdapter.registerTransform('object', {
   deserialize: function(serialized) {
-    return Em.none(serialized) ? {} : serialized;
+    return Em.isNone(serialized) ? {} : serialized;
   },
   serialize: function(deserialized) {
-    return Em.none(deserialized) ? {} : deserialized;
+    return Em.isNone(deserialized) ? {} : deserialized;
   }
 });

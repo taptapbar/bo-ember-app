@@ -13,7 +13,11 @@ BoEmberApp::Application.routes.draw do
   end
 
   match '/big_object_views/new_id', :to => 'BigObjectViews#new_id', :constraints => FormatTest.new(:json)
-  resources :big_object_views, :constraints => FormatTest.new(:json)
+  resources :big_object_views, :constraints => FormatTest.new(:json) do
+    collection do
+      get 'dimensions_and_measures'
+    end
+  end
   get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
   get '/', :to => 'ember#index', :constraints => FormatTest.new(:html)
   
