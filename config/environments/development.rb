@@ -37,5 +37,5 @@ BoEmberApp::Application.configure do
   
   config.ember.variant = :development
   
-  # config.assets.precompile += %w( *.js *.css )
+  config.assets.precompile += %w( *.js *.css )
 end

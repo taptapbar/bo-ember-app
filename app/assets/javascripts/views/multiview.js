@@ -20,7 +20,7 @@ $(document).on('click', '#view-container > .tabs .icon', function (event) {
 
 function deleteBOViewInstance(id) {
 	return $.ajax({
-		url: appConfig.server.URL+ appConfig.store.adapter.URL + appConfig.multiview.restfulURL + id + ".json",
+		url: appConfig.server.URL+ appConfig.store.adapter.URL + appConfig.multiview.bigObjectViewRestfulURL + id + ".json",
 		type: "DELETE",
 	}).then(
       function(response) {

@@ -1,17 +1,34 @@
+App.MultiviewNewView = Ember.View.extend({
+  templateName: 'multiview_new',
+
+  didInsertElement: function() {
+    // Display dimensions & measures retrieved from fetchDimensionsAndMeasures()
+  }
+
+});
+
+function fetchDimensionsAndMeasures() {
+  // fetch dimensions and measures with one call. 
+  // sample data in rails's BigObjectViewController#dimensions_and_measures 
+  return $.getJSON().then( function(response) {
+
+  });
+}
+
 /******************************
 For Dragable dimension list and 
 toggle panels of Filter and TimeScope
 /******************************/
 function sortableConnectList(selector) {
 	$(selector).sortable({
-      placeholder: "ui-state-highlight",
-      connectWith: ".connectedSortable",
-      receive: function( event, ui ) {
-      	var originHTML = ui.item[0].innerHTML
-      	var deleteIconHTML = '<div class="delete-white pull-right">x</div>'
-      	ui.item[0].innerHTML = toggleString(originHTML, deleteIconHTML);
-      }
-    }).disableSelection();
+    placeholder: "ui-state-highlight",
+    connectWith: ".connectedSortable",
+    receive: function( event, ui ) {
+    	var originHTML = ui.item[0].innerHTML
+    	var deleteIconHTML = '<div class="delete-white pull-right">x</div>'
+    	ui.item[0].innerHTML = toggleString(originHTML, deleteIconHTML);
+    }
+  }).disableSelection();
 }
 function toggleString(originString, matchString) {
 	if(originString.match(matchString)) { return originString.replace(matchString, ""); }
