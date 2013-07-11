@@ -1,10 +1,7 @@
 App.Router.map(function(){
   this.resource('multiview', function() {
-    this.resource('big_object_view', { path: ':big_object_view_id' }, function(){
-      //this.resource('timeframe', { path: "/:big_object_view_id" });
-    });
+    this.resource('big_object_view', { path: ':big_object_view_id' });
   });
-  
   
   this.route('comparison', { path: "/comparison" });
   this.route('multiview_new', { path: "/multiview/new" });
