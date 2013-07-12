@@ -4,16 +4,17 @@
   <div class="detail-block">
     <h3>Dimension</h3>
     
+    {{#each dimension in App.formData.dimensions}}
     <div class="dimension">
-      <h4>User</h4>
+      <h4>{{ dimension.name }}</h4>
       
       <div class="attributes">
-        <div class="attribute">Age</div>
-        <div class="attribute selected">Region</div>
-        <div class="attribute">Constellation</div>
-        <div class="attribute">Purchase Power</div>
+        {{#each sub in dimension.sub_dimensions}}
+        <div class="attribute">{{ sub }}</div>
+        {{/each}}
       </div>
     </div>
+    {{/each}}
     
     <div class="dimension">
       <h4>Product</h4>
@@ -28,9 +29,9 @@
     <h3>Measure</h3>
     
     <div class="inner">
-      <div class="attribute">Count</div>
-      <div class="attribute">Sales</div>
-      <div class="attribute">Profit</div>
+      {{#each measure in App.formData.measures}}
+      <div class="attribute">{{ measure }}</div>
+      {{/each}}
     </div>
   </div>
 </section>

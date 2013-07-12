@@ -56,11 +56,16 @@ class BigObjectViewsController < ApplicationController
 
   def dimensions_and_measures
     render json: {
-      'dimensions' => {
-        'CAT-A' => ['a', 'b', 'c', 'd'], 
-        'CAT-B' => ['d', 'e', 'f', 'g', 'h', 'i', 'j'], 
-        'CAT-C' => ['k', 'l', 'm']
-      },
+      #'dimensions' => {
+      #  'CAT-A' => ['a', 'b', 'c', 'd'], 
+      #  'CAT-B' => ['d', 'e', 'f', 'g', 'h', 'i', 'j'], 
+      #  'CAT-C' => ['k', 'l', 'm']
+      #},
+      'dimensions' => [
+        { name: 'CAT-A', sub_dimensions: ['a', 'b', 'c', 'd']}, 
+        { name: 'CAT-B', sub_dimensions: ['d', 'e', 'f', 'g', 'h', 'i', 'j']}, 
+        { name: 'CAT-C', sub_dimensions: ['k', 'l', 'm']}
+      ],
       'measures' => ['Revenue', 'Cost', 'Sales']
     }
   end
