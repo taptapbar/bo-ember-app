@@ -4,23 +4,24 @@
   <div class="detail-block">
     <h3>Dimension</h3>
     
-    {{#each dimension in App.formData.dimensions}}
-    <div class="dimension">
-      <h4>{{ dimension.name }}</h4>
+    <div class="block">
+      {{#each dimension in App.formData.dimensions}}
+      <div class="dimension">
+        <h4>{{ dimension.name }}</h4>
       
-      <div class="attributes">
-        {{#each sub in dimension.sub_dimensions}}
-        <div class="attribute">{{ sub }}</div>
-        {{/each}}
+        <div class="attributes">
+          {{#each sub in dimension.sub_dimensions}}
+          <div class="attribute">{{ sub }}</div>
+          {{/each}}
+        </div>
       </div>
-    </div>
-    {{/each}}
-    
-    <div class="dimension">
-      <h4>Product</h4>
+      {{/each}}
+      <div class="dimension">
+        <h4>Product</h4>
       
-      <div class="attributes">
-        <div class="attribute selected">Category</div>
+        <div class="attributes">
+          <div class="attribute selected">Category</div>
+        </div>
       </div>
     </div>
   </div>
@@ -28,10 +29,12 @@
   <div class="detail-block">
     <h3>Measure</h3>
     
-    <div class="inner">
-      {{#each measure in App.formData.measures}}
-      <div class="attribute">{{ measure }}</div>
-      {{/each}}
+    <div class="block">
+      <div class="inner">
+        {{#each measure in App.formData.measures}}
+        <div class="attribute">{{ measure }}</div>
+        {{/each}}
+      </div>
     </div>
   </div>
 </section>

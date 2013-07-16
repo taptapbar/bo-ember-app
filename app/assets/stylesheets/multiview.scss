@@ -1,13 +1,18 @@
 #view-detail-container {
   float: left;
   width: 200px;
+  height: 400px;
   
   .detail-block {
     border: 1px solid #7792a2;
     margin: 0 0 20px 0;
     padding: 0 0 20px 0;
-    height: 200px;
-    overflow: scroll;
+    height: 50%;
+    
+    .block {
+      height: 80%;
+      overflow: scroll;
+    }
     
     .inner {
       padding: 0 0 0 14px;
