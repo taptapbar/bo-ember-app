@@ -114,11 +114,13 @@ $(document).on('keydown', '#create-new-view-title', function(event) {
     return createNewBOViewInstance();
   }
 });
+/*
 $(document).on('click', '#create-new-view-reset', function(event) {
   $('form').each(function (index) {
     this.reset();
   });
 });
+*/
 $(document).on('dblclick', '#sortable-di-list li', function(event) {
   $('#sortable-di-selected').append($(this).html(toggleString($(this).html(), '<div class="delete-white pull-right">x</div>')));
 });

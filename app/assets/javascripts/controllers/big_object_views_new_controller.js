@@ -47,7 +47,17 @@ App.BigObjectViewsNewController = Ember.Controller.extend({
   },
   
   resetForm: function() {
-    console.log('resetForm');
+    //console.log('resetForm');
+    $.each(Ember.View.views,function(){
+      var templateName = 'big_object_views/select_dimensions';
+      if (this.get('templateName') == templateName) {
+        this.rerender();
+      }
+    });
+    
+    $('#create-new-view-container form').each(function (index) {
+      this.reset();
+    });
   },
   
   getFormAttributes: function() {
