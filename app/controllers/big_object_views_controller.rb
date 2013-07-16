@@ -70,4 +70,15 @@ class BigObjectViewsController < ApplicationController
     }
   end
 
+  def filter_list
+    render json: {
+      'filter_list' => [
+        { name: 'Dimension-A', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e',]},
+        { name: 'Dimension-A', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o']},
+        { name: 'Dimension-A', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d']}        
+      ],
+      'id' => params[:id]
+    }
+  end
+
 end

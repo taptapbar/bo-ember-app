@@ -8,7 +8,7 @@ App.ApplicationController = Ember.Controller.extend({
   
   fetchDimensionAndMeasureData: function() {
     var requestURI = [appConfig.store.adapter.URL, 
-                      '/', appConfig.multiview.dimensionsAndMeasuresURL, '.json'].join('');
+                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.dimensionsAndMeasuresURL, '.json'].join('');
     $.getJSON(requestURI, function(data) {
       formData = data;
       Ember.set('App.formData', formData);

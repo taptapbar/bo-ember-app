@@ -36,7 +36,10 @@ var appConfig = {
 		fetchChartDataURL: "fetch_chart_data/",
 
 		// Request a new ID at create-new-view, for newly created but not saved in the database big_object_view.
-		newIdURL: "big_object_views/new_id/"
+		newIdURL: "big_object_views/new_id/",
+
+		//Request the filter_list for rendering filter fields
+		filterListURL: "filter_list"
 
 	}
 
