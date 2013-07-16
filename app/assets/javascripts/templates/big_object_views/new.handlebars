@@ -7,16 +7,18 @@
       
         <div class="inner clearfix">
           <ul id="sortable-di-list" class="options connectedSortable">
-            <li class="option">Age</li>
-            <li class="option">Gender</li>
-            <li class="option">Income</li>
+            {{#each dimension in App.formData.dimensions}}
+            {{#each sub in dimension.sub_dimensions}}
+            <li class="option" {{bindAttr data-dimension="sub"}}>
+              <span class="cat-name">{{ dimension.name }}</span>
+              <span class="sub-name">{{ sub }}</span>
+            </li>
+            {{/each}}
+            {{/each}}
           </ul>
           <div class="right-arrow"></div>
           <ul id="sortable-di-selected" class="selected-options options connectedSortable">
-            <li class="option">Continent<div class="delete-white pull-right">x</div></li>
-            <li class="option">Region<div class="delete-white pull-right">x</div></li>
-            <li class="option">Country<div class="delete-white pull-right">x</div></li>
-          </li>
+          </ul>
         </div>
       </div>
     
@@ -25,18 +27,12 @@
       
         <form class="half-inner">
           <div class="clearfix">
+            {{#each measure in App.formData.measures}}
             <div class="radio-input clearfix">
-              <input type="radio" name="measure" value="revenue" checked="checked">
-              <span>Revenue</span>
+              <input type="radio" name="measure" {{bindAttr value="measure"}}>
+              <span>{{ measure }}</span>
             </div>
-            <div class="radio-input">
-              <input type="radio" name="measure" value="cost">
-              <span>Cost</span>
-            </div>
-            <div class="radio-input">
-              <input type="radio" name="measure" value="forecast">
-              <span>Forecast</span>
-            </div>
+            {{/each}}
           </div>
         </form>
         <h3>(3) Name this view</h3>

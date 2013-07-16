@@ -188,6 +188,7 @@
     height: 200px;
     padding: 10px 0;
     list-style-type: none;
+    overflow: auto;
     
     .option {
       color: #fff;
@@ -195,6 +196,14 @@
       
       &:hover {
         background-color: #169ca1;
+      }
+      
+      .cat-name {
+        color: #ddd;
+        margin: 0 5px 0 0;
+      }
+      
+      .sub-name {
       }
     }
   }

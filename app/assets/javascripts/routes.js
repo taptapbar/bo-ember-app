@@ -42,7 +42,6 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
 
 App.BigObjectViewsNewRoute = Ember.Route.extend({
   renderTemplate: function() {
-    console.log('new');
     this.render({ outlet: 'main_window' });
   }
 });

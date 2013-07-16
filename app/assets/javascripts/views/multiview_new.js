@@ -46,7 +46,7 @@ function createNewBOViewInstance() {
   measure = $('input[name="measure"]:checked').val().capitalize();
   dimensions = [];
   $('#sortable-di-selected li[class*=option]:lt(3)').each(function(index) {
-      dimensions.push($(this).text().slice(0, -1));
+    dimensions.push($(this).attr('data-dimension'));
   });
   var params = {dimensions: dimensions, measure: measure, title: title};
   console.log(params);
@@ -103,9 +103,11 @@ $(document).on('click', '#create-view-timescope-toggler', function(event) {
     togglePanel('create-view-timescope');
     return false;
 });
+/*
 $(document).on('click', '#create-new-view-confirm', function(event) {
     return createNewBOViewInstance();
 });
+*/
 $(document).on('keydown', '#create-new-view-title', function(event) {
   if(event.keyCode == 13) {
     event.preventDefault();
