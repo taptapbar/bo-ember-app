@@ -114,31 +114,53 @@
   
   .chart {
     margin: 0 0 10px 0;
+    min-height: 400px;
     img {
       max-width: 700px;
       margin: auto;
     }
   }
-}
-
-.filters {
-  .filter, .timeframe {
-    float: left;
+  
+  .actions {
+    float: right;
     
-    a {
+    button {
+      padding: 2px 6px;
       color: #fff;
-      background-color: #a4b0b4;
-      margin: 0 0 0 10px;
-      padding: 5px 10px;
-      cursor: pointer;
-      text-decoration: none;
-      
-      &:hover {
-        background-color: #7792a2;
+      background-color: #0f6b93;
+      border: 2px solid #04344b;
+      a {
+        color: #fff;
+        text-decoration: none;
       }
     }
   }
 }
+
+.filters-container {
+  float: left;
+  margin: 0;
+  
+  .filters {
+    .filter, .timeframe {
+      float: left;
+    
+      a {
+        color: #fff;
+        background-color: #a4b0b4;
+        margin: 0 10px 0 0;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-decoration: none;
+      
+        &:hover {
+          background-color: #7792a2;
+        }
+      }
+    }
+  }
+}
+
 
 #create-new-view-container {
   position: absolute;
@@ -146,8 +168,12 @@
   width: 96%;
   
   .filters-container {
-    float: left;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 20px;
+  }
+  
+  .actions-container {
+    float: right;
+    margin: 0 13px 0 0;
   }
 }
 
@@ -234,7 +260,6 @@
     }
   }
 
-  
   .right-arrow {
     float: left;
     background: url(/assets/sprite.png);

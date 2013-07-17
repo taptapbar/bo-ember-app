@@ -59,6 +59,10 @@ class BigObjectViewsController < ApplicationController
       render json: nil, status: :unprocessable_entity
     end
   end
+  
+  def update
+    render json: nil, status: :ok
+  end
 
   def destroy
     render json: nil, status: :ok

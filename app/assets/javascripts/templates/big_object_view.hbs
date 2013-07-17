@@ -4,8 +4,17 @@
     <div id="highchart"></div>
   </div>
   
-  <div class="filters clearfix">
-    <div class="filter"><a {{ action "showTimescopeModal" this }}>Set Time Scope</a></div>
-    <div class="filter"><a {{ action "showFilterModal" this }}>Set Filter</a></div>
+  <div class="clearfix">
+    <div class="filters-container">
+      <div class="filters clearfix">
+        <div class="filter"><a {{ action "showTimescopeModal" this }}>Set Time Scope</a></div>
+        <div class="filter"><a {{ action "showFilterModal" this }}>Set Filter</a></div>
+      </div>
+    </div>
+  
+    <div class="actions">
+      <button><a {{ action "deleteObject" this }}>Delete</a></button>
+      <button><a {{ action "saveObject" this }}>Save</a></button>
+    </div>
   </div>
 </div>
