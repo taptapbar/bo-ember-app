@@ -9,7 +9,7 @@
       {{/each}}
     </div>
     <div class="popup-window-footer">
-      <button class="btn-popup"><a>Reset</a></button>
+      <button class="btn-popup" {{ action "resetFilter" this }}>Reset</button>
       <button type="submit" class="btn-popup pull-right" {{ action "confirmFilter" this }}>Confirm</button>
       <button class="btn-popup pull-right" {{ action "closeModalView" this }}>Cancel</button>
     </div>

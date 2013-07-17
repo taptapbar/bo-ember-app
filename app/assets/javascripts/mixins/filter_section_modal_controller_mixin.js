@@ -75,5 +75,13 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   
   getFilterFormAttributes: function() {
     return { 'filterA': true, 'filterB': false };
+  },
+  
+  resetTimeScope: function() {
+    console.log("resetTimeScope");
+  },
+  
+  resetFilter: function() {
+    console.log("resetFilter");
   }
 });
