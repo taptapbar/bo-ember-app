@@ -3,7 +3,10 @@
     
     <div class="popup-window-header">Set Filters</div>
     <div class="popup-window-body">
-      
+      {{ modalView.model.title }}
+      {{#each dimension in modalView.model.dimensions }}
+      {{ dimension }}
+      {{/each}}
     </div>
     <div class="popup-window-footer">
       <button class="btn-popup"><a>Reset</a></button>

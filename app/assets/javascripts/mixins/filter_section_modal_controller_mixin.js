@@ -35,7 +35,8 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   showFilterModal: function() {
     modalView = App.FilterModalView.create({
         controller: this,
-        baseView: this.get('view')
+        baseView: this.get('view'),
+        model: this.get('model')
       });
       
     console.log('showFilterModal: ', this.get('model').get('filters'));
