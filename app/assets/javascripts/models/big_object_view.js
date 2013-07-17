@@ -24,6 +24,17 @@ App.BigObjectView = DS.Model.extend({
     );
   },
   
+  fetchFilterList: function(callback) {
+    $.getJSON("http://www.json-generator.com/j/esKB?indent=4").then(
+      function(response) {
+        callback(response);
+      },
+      function(error) {
+        console.log("fetchFilterList failed");
+      }
+    );
+  },
+  
   didCreate: function() {
     console.log('didCreate');
   },
