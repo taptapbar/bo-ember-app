@@ -4,9 +4,34 @@
     <div class="popup-window-header">Set Filters</div>
     <div class="popup-window-body">
       {{ modalView.model.title }}
-      {{#each dimension in modalView.model.dimensions }}
-      {{ dimension }}
-      {{/each}}
+      <form>
+        <section>
+          <div class="clearfix">
+            <div class="radio-input clearfix">
+              <input type="radio" name="filter-method"  value="include" class="checked">
+              <span>View</span>
+            </div>
+            <div class="radio-input clearfix">
+              <input type="radio" name="filter-method"  value="exclude">
+              <span>Exclude</span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <!-- Add class="toggler" for the trigger, and add class="toggleable-panel" and corresponding data-panel to the panel div -->
+          {{#each filter in modalView.filterList}}
+          <div class="clearfix">
+          <input type="checkbox" name="" class="toggler" {{bindAttr value="filter.name"}}>
+          <span>{{filter.name}}</span>
+          <div class="toggleable-panel" {{bindAttr data-panel="filter.name"}} style="display:none;">
+            {{#each sub in filter.sub_filters}}
+            <input type="checkbox" name="filter[:dimension][]" {{bindAttr data-dimension="filter.name"}}><span>{{sub}}</span>
+              {{/each}}
+          </div>
+          {{/each}}
+        </section>
+
+      </form>
     </div>
     <div class="popup-window-footer">
       <button class="btn-popup" {{ action "resetFilter" this }}>Reset</button>

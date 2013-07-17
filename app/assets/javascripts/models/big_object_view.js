@@ -24,12 +24,19 @@ App.BigObjectView = DS.Model.extend({
     );
   },
   
-  fetchFilterList: function(callback) {
-    $.getJSON("http://www.json-generator.com/j/esKB?indent=4").then(
+  fetchFilterList: function() {
+    var requestURI = [appConfig.store.adapter.URL, 
+                      '/', appConfig.store.adapter.namespace, 
+                      '/', 'big_object_views', '/', this.get('id'), 
+                      '/', 'filter_list', '.json'].join('');
+    return $.getJSON(requestURI).then(
       function(response) {
-        callback(response);
+        //fetching succeeded
+        //callback(response);
+        return response;
       },
       function(error) {
+        //fetching failed
         console.log("fetchFilterList failed");
       }
     );

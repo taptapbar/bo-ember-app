@@ -17,6 +17,7 @@ BoEmberApp::Application.routes.draw do
     collection do
       get 'dimensions_and_measures'
     end
+    get 'filter_list', on: :member
   end
   get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
   get '/', :to => 'ember#index', :constraints => FormatTest.new(:html)

@@ -34,17 +34,29 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   
   showFilterModal: function() {
     var self = this;
-    this.get('model').fetchFilterList(function(listData) {
+    this.get('model').fetchFilterList().then(function (listData) {
       console.log("listData: ", listData);
       modalView = App.FilterModalView.create({
           controller: self,
           baseView: self.get('view'),
-          model: self.get('model')
-        });
+          model: self.get('model'),
+          filterList: listData.filter_list
+      });
       
       console.log('showFilterModal: ', self.get('model').get('filters'));
       self.showModalView(modalView);
     });
+    // this.get('model').fetchFilterList(function(listData) {
+    //   console.log("listData: ", listData);
+    //   modalView = App.FilterModalView.create({
+    //       controller: self,
+    //       baseView: self.get('view'),
+    //       model: self.get('model')
+    //     });
+      
+    //   console.log('showFilterModal: ', self.get('model').get('filters'));
+    //   self.showModalView(modalView);
+    // });
   },
   
   confirmTimeScope: function() {
