@@ -119,22 +119,22 @@
       margin: auto;
     }
   }
-  
-  .filters {
-    .filter, .timeframe {
-      float: left;
+}
+
+.filters {
+  .filter, .timeframe {
+    float: left;
+    
+    a {
+      color: #fff;
+      background-color: #a4b0b4;
+      margin: 0 0 0 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
       
-      a {
-        color: #fff;
-        background-color: #a4b0b4;
-        margin: 0 0 0 10px;
-        padding: 5px 10px;
-        cursor: pointer;
-        text-decoration: none;
-        
-        &:hover {
-          background-color: #7792a2;
-        }
+      &:hover {
+        background-color: #7792a2;
       }
     }
   }
@@ -144,6 +144,11 @@
   position: absolute;
   background: #fff;
   width: 96%;
+  
+  .filters-container {
+    float: left;
+    margin: 0 0 0 10px;
+  }
 }
 
 #create-view-container, #create-view-filter-container, #create-view-timescope-container {

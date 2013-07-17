@@ -29,7 +29,14 @@
           </div>
         </div>
       </form>
-
+      
+      <div class="filters-container">
+        <div class="filters clearfix">
+          <div class="filter"><a {{ action "showTimescopeModal" this }}>Set Time Scope</a></div>
+          <div class="filter"><a {{ action "showFilterModal" this }}>Set Filter</a></div>
+        </div>
+      </div>
+      
       <div class="action pull-right">
         <button id="create-new-view-reset" type="reset" class="" {{ action "resetForm" this }}>Reset</button>
         <div class="pull-right">
@@ -39,6 +46,7 @@
       </div>
     </section>
   </div>
+  
   <div id="create-view-filter-container">
     <section class="step clearfix">
       <h2>
@@ -50,6 +58,7 @@
       </div>
     </section>
   </div>
+  
   <div id="create-view-timescope-container">
     <section class="step clearfix">
       <h2>

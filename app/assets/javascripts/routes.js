@@ -40,7 +40,17 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
   }
 });
 
+App.BigObjectViewRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.BigObjectView.findLocally(params.big_object_view_id);
+  }
+});
+
 App.BigObjectViewsNewRoute = Ember.Route.extend({
+  model: function() {
+    return App.BigObjectView.createRecord();
+  },
+  
   renderTemplate: function() {
     this.render({ outlet: 'main_window' });
   }

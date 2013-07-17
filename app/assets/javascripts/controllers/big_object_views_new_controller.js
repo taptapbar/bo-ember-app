@@ -1,22 +1,36 @@
-App.BigObjectViewsNewController = Ember.Controller.extend({
+App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectionModalControllerMixin, {
   newObject: {},
   
   createNewView: function() {
     console.log('createNewView');
+    var model = this.get('model');
     
     this.newObject = this.getFormAttributes();
     result = this.validateNewObject(this.newObject);
     
     if (result.isValid) {
-      this.createNewBOViewInstance(this.newObject);
-      return true;
+      this.setAttributesIntoModel(this.newObject);
+      // .save() will send request to server, which we don't want
+      App.BigObjectView.saveLocally(model);
+      
+      //this.createNewBOViewInstance(this.newObject);
+      
+      // console.log('Model: ', model);
+      this.transitionToRoute('big_object_view', model);
     } else {
       console.log(result.message);
       return false;
     }
-    // 1. grab attributes from form
-    // 2. save them into model
-    // 3. remove the view
+  },
+  
+  setAttributesIntoModel: function(attributes) {
+    var newObject = this.get('model');
+    var tempId    = new Date().getTime();
+    
+    newObject.set('id', tempId);
+    newObject.set('title', attributes.title);
+    newObject.set('measure', attributes.measure);
+    newObject.set('dimensions', attributes.dimensions);
   },
   
   validateNewObject: function(newObject) {

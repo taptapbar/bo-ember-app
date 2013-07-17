@@ -36,14 +36,28 @@ class BigObjectViewsController < ApplicationController
     }
   end
   
+  def create
+    if ['1', '2', '3', '4', '5'].include? params['big_object_view']['id']
+      render json: nil, status: :unprocessable_entity
+    else    
+      render json: params, status: :ok
+    end
+  end
+  
   def show
-    render json: {
-      'big_object_view' => {
-        'title' => 'Graph',
-          'measurement' => 'Revenue',
-          'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
+    request_id = params['id']
+    if ['1', '2', '3', '4', '5'].include? request_id
+      render json: {
+        'big_object_view' => {
+          'id'    => request_id,
+          'title' => "Graph #{request_id}",
+            'measurement' => 'Revenue',
+            'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
+        }
       }
-    }
+    else
+      render json: nil, status: :unprocessable_entity
+    end
   end
 
   def destroy
