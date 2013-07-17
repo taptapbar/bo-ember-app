@@ -36,12 +36,21 @@ App.BigObjectView = DS.Model.extend({
 App.BigObjectView.reopenClass({
   localObjects: {},
   
+  deleteLocally: function(objectId) {
+    this.localObjects[objectId] = undefined;
+  },
+  
   saveLocally: function(model) {
     this.localObjects[model.get('id')] = model;
   },
 
   findLocally: function(objectId) {
     var model = this.localObjects[objectId];
+    return model;
+  },
+  
+  findLocallyAndRemotely: function(objectId) {
+    var model = this.findLocally(objectId);
     if (model === undefined) {
       console.log('cannot be found locally.', objectId);
       model = this.find(objectId);

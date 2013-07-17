@@ -31,18 +31,24 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     //this.transitionToRoute('big_object_view', bigObjectView);
     
     // Method 2 - try to grab the object after .then
-    //this.modelFor('big_object_views').then(function(objects){
+    //App.BigObjectView.find().then(function(objects){
     //  var bigObjectView = objects.get('firstObject');
     //  if (bigObjectView !== undefined) {
     //    this.transitionTo('big_object_view', bigObjectView);
     //  }
     //});
+    
+    var bigObjectView = App.BigObjectView.find({ limit: 1 });
+    bigObjectView.one('didLoad', this, function () {
+      var firstObject = this.modelFor('big_object_views').get('firstObject');
+      this.transitionTo('big_object_view', firstObject);
+    });
   }
 });
 
 App.BigObjectViewRoute = Ember.Route.extend({
   model: function(params) {
-    return App.BigObjectView.findLocally(params.big_object_view_id);
+    return App.BigObjectView.findLocallyAndRemotely(params.big_object_view_id);
   }
 });
 

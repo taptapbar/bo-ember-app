@@ -8,11 +8,18 @@ App.BigObjectViewController = Ember.ObjectController.extend(App.FilterSectionMod
   
   deleteObject: function() {
     console.log('deleteObject');
-    var model = this.get('model');
-    model.one('didDelete', this, function () {
+    var model       = this.get('model');
+    var localObject = App.BigObjectView.findLocally(model.get('id'));
+    if (localObject === undefined) {
+      model.one('didDelete', this, function () {
+        this.transitionTo('big_object_views.index');
+      });
+      model.deleteRecord();
+      model.get('store').commit();
+    } else {
+      App.BigObjectView.deleteLocally(model.get('id'));
+      model.deleteRecord();
       this.transitionTo('big_object_views.index');
-    });
-    model.deleteRecord();
-    model.get('store').commit();
+    }
   }
 });

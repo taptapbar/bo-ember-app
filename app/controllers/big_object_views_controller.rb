@@ -40,7 +40,7 @@ class BigObjectViewsController < ApplicationController
     if ['1', '2', '3', '4', '5'].include? params['big_object_view']['id']
       render json: nil, status: :unprocessable_entity
     else    
-      render json: params, status: :ok
+      render json: nil, status: :ok
     end
   end
   
