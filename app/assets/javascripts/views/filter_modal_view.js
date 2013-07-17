@@ -13,7 +13,7 @@ App.FilterModalView = Ember.View.extend({
 $(document).on('click', "input[class='toggler']", function() {
 	//console.log('checkbox clicked');
 	var self = this;
-	$.each($(this).siblings(".toggleable-panel"), function (index, item) {
+	$.each($(this).parent().siblings(".toggleable-panel"), function (index, item) {
 		//console.log($(item).data('panel'));
 		if($(item).data('panel') == $(self).val()) {
 			$(item).toggle('blind', 200);

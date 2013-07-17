@@ -77,7 +77,7 @@
   }
 
   label, input, button, select, textarea {
-    font-size: 12px;
+    
   }
 
   .input-filter {
@@ -132,4 +132,16 @@
 }
 .clear {
   clear:both;
+}
+
+label.inline {
+  display: inline;
+  margin-right: 8px;
+  input {
+    margin-right: 2px;
+  }
+}
+
+.toggleable-panel {
+  padding: 5px 5px 5px 20px;
 }

@@ -74,6 +74,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // grab attributes
     var model      = this.get('model');
     var attributes = this.getFilterFormAttributes();
+    console.log("filters: ", attributes);
     
     // save into filter property
     model.set('filters', attributes);
@@ -86,7 +87,17 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   },
   
   getFilterFormAttributes: function() {
-    return { 'filterA': true, 'filterB': false };
+    // return selected filter attributes in hash 
+    // ex { dimension-a: [sub-a, sub-b], dimension-b: [sub-c, sub-d] }
+    var attributes = {};
+    $(':checkbox:checked').filter('.option').each(function () {
+      if(attributes[$(this).data('dimension')] === undefined) {
+        attributes[$(this).data('dimension')] = [];
+      }
+      attributes[$(this).data('dimension')].push($(this).val());
+    });
+    //console.log("attributes: ", attributes);
+    return attributes;
   },
   
   resetTimeScope: function() {
