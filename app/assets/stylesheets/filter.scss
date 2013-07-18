@@ -10,13 +10,17 @@
   
   .popup-window {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    height: auto;
-    width: 340px;
-    margin: -195px 0 0 -170px;
+    max-height: 80%;
+    overflow: auto;
+    margin: 0 0 0 -20%;
     background-color: #fff;
   }
+}
+
+#filter-window {
+  width: 480px;
 }
 
 .popup-window-header {

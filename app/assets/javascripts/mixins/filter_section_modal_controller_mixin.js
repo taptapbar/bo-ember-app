@@ -128,5 +128,5 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
       console.log(filters);
       // bind the filters attributes to the current modal
     }
-  }
+  },
 });
