@@ -4,6 +4,16 @@ App.BigObjectView = DS.Model.extend({
   dimensions: DS.attr('array'),
   filters: DS.attr('object'),
   timescope: DS.attr('object'),
+  
+  state: function() {
+    var state = '';
+    if (this.get('isNew')) {
+      state = "new";
+    } else if (this.get('isDirty')) {
+      state = "unsaved";
+    }
+    return state;
+  }.property('isDirty', 'isNew'),
 
   fetchChartData: function(view) {
     // single data http://www.json-generator.com/j/esKB?indent=4

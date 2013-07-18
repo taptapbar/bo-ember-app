@@ -42,7 +42,12 @@
 <section id="view-container">
   <div class="tabs clearfix">
     {{#each model}}
-    <div class="tab">{{#linkTo 'big_object_view' this}}{{title}}{{/linkTo}}<div class="delete-white pull-right icon">x<span style="display:none">{{id}}</span></div></div>
+    <div class="tab">
+      {{#linkTo 'big_object_view' this}}
+        {{title}}
+        <span class="state">{{ this.state }}</span>
+      {{/linkTo}}
+    </div>
     {{/each}}
     <div class="add-view-btn">{{#linkTo "big_object_views.new"}}+{{/linkTo}}</div>
   </div>

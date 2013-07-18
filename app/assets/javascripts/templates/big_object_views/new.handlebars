@@ -2,30 +2,33 @@
   <div id="create-view-container">
     <section class="step clearfix">
       <h2>Create your view</h2>
-      <div class="sub-step">
-        <h3>(1) Select up to 3 dimensions</h3>
-        {{ view App.SelectDimensionsView }}
-      </div>
-    
-      <div class="sub-step">
-        <h3>(2) Choose the measure you want to see</h3>
       
-        <form class="half-inner">
-          <div class="clearfix">
-            {{#each measure in App.formData.measures}}
-            <div class="radio-input clearfix">
-              <input type="radio" name="measure" {{bindAttr value="measure"}}>
-              <span>{{ measure }}</span>
+      <form>
+        <div class="sub-step">
+          <h3>(1) Select up to 3 dimensions</h3>
+          {{ view App.SelectDimensionsView }}
+        </div>
+    
+        <div class="sub-step">
+          <h3>(2) Choose the measure you want to see</h3>
+      
+          <div class="half-inner">
+            <div class="clearfix">
+              {{#each measure in App.formData.measures}}
+              <div class="radio-input clearfix">
+                <input type="radio" name="measure" {{bindAttr value="measure"}}>
+                <span>{{ measure }}</span>
+              </div>
+              {{/each}}
             </div>
-            {{/each}}
           </div>
-        </form>
-        <h3>(3) Name this view</h3>
+          <h3>(3) Name this view</h3>
 
-        <form class="half-inner">
-          <div class="clearfix">
-            Title : 
-            <input id="create-new-view-title" type="text" name="title" value="" placeholder="Name the view...">
+          <div class="half-inner">
+            <div class="clearfix">
+              Title : 
+              <input id="create-new-view-title" type="text" name="title" value="" placeholder="Name the view...">
+            </div>
           </div>
         </div>
       </form>
