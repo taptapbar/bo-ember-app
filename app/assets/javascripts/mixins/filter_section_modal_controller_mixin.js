@@ -104,10 +104,16 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   
   resetTimeScope: function() {
     console.log("resetTimeScope");
+    $('#filter-window form').each(function (index) {
+      this.reset();
+    });
   },
   
   resetFilter: function() {
     console.log("resetFilter");
+    $('#filter-window form').each(function (index) {
+      this.reset();
+    });
   },
 
   bindFilterDataToCurrentModal: function() {
