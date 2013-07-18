@@ -18,7 +18,7 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
       // console.log('Model: ', model);
       this.transitionToRoute('big_object_view', model);
     } else {
-      console.log(result.message);
+      $('#create-new-view-container .error-message').html(result.message);
       return false;
     }
   },
@@ -36,21 +36,21 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
     
     if (!(newObject.dimensions && (newObject.dimensions.length > 0))) {
       result.field   = 'dimensions';
-      result.message = "Please select at least a dimension";
+      result.message = "Please select at least one dimension.";
       result.isValid = false;
       return result;
     }
     
     if (!(newObject.measure && (newObject.measure.length > 0))) {
       result.field   = 'measure';
-      result.message = "Please select a measure";
+      result.message = "Please select a measure.";
       result.isValid = false;
       return result;
     }
     
     if (!(newObject.title && (newObject.title.length > 0))) {
       result.field   = 'title';
-      result.message = "Title can\'t be blank";
+      result.message = "Title can\'t be blank.";
       result.isValid = false;
       return result;
     }
@@ -70,6 +70,8 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
     $('#create-new-view-container form').each(function (index) {
       this.reset();
     });
+    
+    $('#create-new-view-container .error-message').html('');
   },
   
   getFormAttributes: function() {

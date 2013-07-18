@@ -187,6 +187,16 @@
   .actions-container {
     float: right;
     margin: 0 13px 0 0;
+    
+    .error-message {
+      float: left;
+      line-height: 28px;
+      color: #f55;
+    }
+    
+    .action {
+      float: right;
+    }
   }
 }
 
