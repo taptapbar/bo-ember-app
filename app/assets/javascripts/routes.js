@@ -54,7 +54,12 @@ App.BigObjectViewRoute = Ember.Route.extend({
 
 App.BigObjectViewsNewRoute = Ember.Route.extend({
   model: function() {
-    return App.BigObjectView.createRecord();
+    var newObject = App.BigObjectView.createRecord();
+    var tempId    = new Date().getTime();
+    newObject.set('id', tempId);
+    newObject.set('filters', {});
+    newObject.set('timescope', {});
+    return newObject;
   },
   
   renderTemplate: function() {
