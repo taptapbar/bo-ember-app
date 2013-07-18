@@ -108,12 +108,15 @@ $(document).on('click', '#create-new-view-confirm', function(event) {
     return createNewBOViewInstance();
 });
 */
+
 $(document).on('keydown', '#create-new-view-title', function(event) {
   if(event.keyCode == 13) {
     event.preventDefault();
-    return createNewBOViewInstance();
+    //return createNewBOViewInstance();
+    return false;
   }
 });
+
 /*
 $(document).on('click', '#create-new-view-reset', function(event) {
   $('form').each(function (index) {

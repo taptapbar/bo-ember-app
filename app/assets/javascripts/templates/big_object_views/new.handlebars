@@ -48,7 +48,7 @@
             <div class="action">
               <button id="create-new-view-reset" type="reset" class="" {{ action "resetForm" this }}>Reset</button>
               <div class="pull-right">
-                <button class="">{{#linkTo "big_object_views"}}Cancel{{/linkTo}}</button>
+                <button class="" {{ action "cancelCreateView" this }}>Cancel</button>
                 <button id="create-new-view-confirm" type="" class="" {{ action "createNewView" this }}>Confirm</button>
               </div>
             </div>

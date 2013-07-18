@@ -23,6 +23,13 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
     }
   },
   
+  cancelCreateView: function() {
+    var model = this.get('model');
+    model.deleteRecord();
+    
+    this.transitionToRoute('big_object_views');
+  },
+  
   setAttributesIntoModel: function(attributes) {
     var newObject = this.get('model');
     
