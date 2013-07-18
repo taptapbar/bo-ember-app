@@ -17,17 +17,7 @@
         <section>
           <!-- Add class="toggler" for the trigger, and add class="toggleable-panel" and corresponding data-panel to the panel div -->
           {{#each filter in modalView.filterList}}
-          <div class="clearfix">
-            <label class="checkbox">
-              <input type="checkbox" name="" class="toggler" {{bindAttr value="filter.name"}}>{{filter.name}}
-            </label>
-            <div class="toggleable-panel" {{bindAttr data-panel="filter.name"}} style="display:none;">
-            {{#each sub in filter.sub_filters}}
-              <label class="inline"  class="checkbox">
-                <input type="checkbox" name="filter[:dimension][]" class="option" {{bindAttr value="sub"}} {{bindAttr data-dimension="filter.name"}}>{{sub}}
-              </label>
-            {{/each}}
-          </div>
+          {{ renderFilterGroups filter modalView.filterValues }}
           {{/each}}
         </section>
 

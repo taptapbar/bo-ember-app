@@ -40,7 +40,8 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
           controller: self,
           baseView: self.get('view'),
           model: self.get('model'),
-          filterList: listData.filter_list
+          filterList: listData.filter_list,
+          filterValues: self.get('model').get('filters')
       });
       
       console.log('showFilterModal: ', self.get('model').get('filters'));
@@ -110,14 +111,15 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   },
 
   bindFilterDataToCurrentModal: function() {
+    var filters        = this.get('model').get('filters');
+    var isFiltersEmpty = Ember.isEmpty(Ember.keys(filters));
     console.log("bindFilterDataToCurrentModal");
-    console.log("Ember.isEmpty(object {}): ", Ember.isEmpty(this.get('model').get('filters')));
-    if(Ember.isEmpty(this.get('model').get('filters'))){
+    console.log("isFiltersEmpty: ", isFiltersEmpty);
+    if(isFiltersEmpty){
       console.log("filters is empty");
       // do nothing
-    }
-    else {
-      console.log(modalView.model.filters);
+    } else {
+      console.log(filters);
       // bind the filters attributes to the current modal
     }
   }

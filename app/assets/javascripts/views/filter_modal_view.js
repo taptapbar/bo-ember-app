@@ -4,6 +4,7 @@ App.FilterModalView = Ember.View.extend({
   showHeader: true,
   model: null,
   filterList: null,
+  filterValues: null,
 
   close: function() {
     this.destroy();

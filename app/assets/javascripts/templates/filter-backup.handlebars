@@ -1,3 +1,15 @@
+<div class="clearfix">
+  <label class="checkbox">
+    <input type="checkbox" name="" class="toggler" {{bindAttr value="filter.name"}}>{{filter.name}}
+  </label>
+  <div class="toggleable-panel" {{bindAttr data-panel="filter.name"}} style="display:none;">
+  {{#each sub in filter.sub_filters}}
+    <label class="inline"  class="checkbox">
+      <input type="checkbox" name="filter[:dimension][]" class="option" {{bindAttr value="sub"}} {{bindAttr data-dimension="filter.name"}}>{{sub}}
+    </label>
+  {{/each}}
+</div>
+
 <div class="popup-window-bg">
   <div id="filter-window" class="popup-window">
     
