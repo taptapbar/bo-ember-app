@@ -48,6 +48,18 @@
       }
     }
   }
+  
+  .measures {
+    .inner {
+      padding: 0;
+    }
+    .attributes {
+      margin: 0;
+      .attribute {
+        padding: 0 0 0 14px;
+      }
+    }
+  }
 }
 
 #view-container {

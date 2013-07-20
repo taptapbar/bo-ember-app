@@ -1,43 +1,6 @@
 {{ outlet main_window }}
 
-<section id="view-detail-container">
-  <div class="detail-block">
-    <h3>Dimension</h3>
-    
-    <div class="block">
-      {{#each dimension in App.formData.dimensions}}
-      <div class="dimension">
-        <h4>{{ dimension.name }}</h4>
-      
-        <div class="attributes">
-          {{#each sub in dimension.sub_dimensions}}
-          <div class="attribute">{{ sub }}</div>
-          {{/each}}
-        </div>
-      </div>
-      {{/each}}
-      <div class="dimension">
-        <h4>Product</h4>
-      
-        <div class="attributes">
-          <div class="attribute selected">Category</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="detail-block">
-    <h3>Measure</h3>
-    
-    <div class="block">
-      <div class="inner">
-        {{#each measure in App.formData.measures}}
-        <div class="attribute">{{ measure }}</div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-</section>
+{{ outlet big_object_view_sidebar }}
 
 <section id="view-container">
   <div class="tabs clearfix">
@@ -51,6 +14,6 @@
     {{/each}}
     <div class="add-view-btn">{{#linkTo "big_object_views.new"}}+{{/linkTo}}</div>
   </div>
-  {{ outlet }}
+  {{ outlet chart }}
 
 </section>

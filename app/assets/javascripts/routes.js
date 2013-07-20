@@ -49,6 +49,31 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
 App.BigObjectViewRoute = Ember.Route.extend({
   model: function(params) {
     return App.BigObjectView.findLocallyAndRemotely(params.big_object_view_id);
+  },
+  
+  renderTemplate: function() {
+    var self = this;
+    if (App.formData == undefined) {
+      App.Func.fetchDimensionAndMeasureData(function() {
+        self.renderBigObjectView();
+      });
+    } else {
+      self.renderBigObjectView();
+    }    
+  },
+  
+  renderBigObjectView: function() {
+    console.log('renderBigObjectView');
+    this.render('bigObjectView', {   // the template to render
+      into: 'big_object_views',      // the template to render into
+      outlet: 'chart',               // the name of the outlet in that template
+      controller: 'bigObjectView'    // the controller to use for the template
+    });
+    this.render('bigObjectViewSidebar', {
+      into: 'big_object_views',
+      outlet: 'big_object_view_sidebar',
+      controller: 'bigObjectView'
+    });
   }
 });
 

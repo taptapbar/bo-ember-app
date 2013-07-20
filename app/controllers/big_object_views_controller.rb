@@ -6,31 +6,31 @@ class BigObjectViewsController < ApplicationController
           'id' => '1',
           'title' => 'Graph',
           'measure' => 'Revenue',
-          'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
+          'dimensions' => ['Gender', 'Country', 'Age']
         },
         { 
           'id' => '2',
           'title' => 'Graph 2',
-          'measure' => 'Revenue',
-          'dimensions' => ['dimension-a', 'dimension-b']
+          'measure' => 'Sales',
+          'dimensions' => ['Income', 'Country']
         },
         { 
           'id' => '3',
           'title' => 'Graph 3',
           'measure' => 'Revenue',
-          'dimensions' => ['dimension-a']
+          'dimensions' => ['Continent', 'Age']
         },
         { 
           'id' => '4',
           'title' => 'Graph 4',
-          'measure' => 'Revenue',
-          'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
+          'measure' => 'Cost',
+          'dimensions' => ['Income', 'Age', 'Country']
         },
         { 
           'id' => '5',
           'title' => 'Graph 5',
-          'measure' => 'Revenue',
-          'dimensions' => ['dimension-a', 'dimension-b']
+          'measure' => 'Sales',
+          'dimensions' => ['Age', 'Continent']
         }
       ]
     }
@@ -51,8 +51,8 @@ class BigObjectViewsController < ApplicationController
         'big_object_view' => {
           'id'    => request_id,
           'title' => "Graph #{request_id}",
-            'measurement' => 'Revenue',
-            'dimensions' => ['dimension-a', 'dimension-b', 'dimension-c']
+            'measure' => 'Revenue',
+            'dimensions' => ['Age', 'dimension-b', 'dimension-c']
         }
       }
     else

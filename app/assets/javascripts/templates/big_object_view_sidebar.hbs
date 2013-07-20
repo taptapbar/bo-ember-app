@@ -1,0 +1,36 @@
+<section id="view-detail-container">
+  <div class="detail-block">
+    <h3>Dimension</h3>
+    
+    <div class="block">
+      {{#each dimension in App.formData.dimensions}}
+      <div class="dimension">
+        <h4>{{ dimension.name }}</h4>
+      
+        <div class="attributes">
+          {{#each sub in dimension.sub_dimensions}}
+          <div class="attribute" {{ bindAttr data-value=sub }}>{{ sub }}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  
+  <div class="detail-block">
+    <h3>Measure</h3>
+    
+    <div class="measures block">
+      <div class="inner">
+        <div class="attributes">
+          {{#each possibleMeasure in App.formData.measures}}
+          <div class="attribute" {{ bindAttr data-value=possibleMeasure }}>{{ possibleMeasure }}</div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ setSelectedDimensions dimensions }}
+{{ setSelectedMeasure measure }}
