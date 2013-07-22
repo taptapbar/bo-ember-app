@@ -27,30 +27,5 @@ App.ChartView = Ember.View.extend({
     //  renderedChart = chartGenerator.render(that.elementId, that.type, chartData.get('dataValues'), chartData.get('categories'), that.title, view.get('measure'));
     //});
     //return renderedChart;
-  },
-  
-  fetchChartData: function() {
-    // single data http://www.json-generator.com/j/esKB?indent=4
-    // 2-4 data http://www.json-generator.com/j/erYf?indent=4
-    // 2-4 data w/o stacking http://www.json-generator.com/j/eqSt?indent=4
-    // for rendered http://server/any_prefix/big_object_view?
-    return $.getJSON("http://www.json-generator.com/j/eqSt?indent=4").then(
-      function(response) {
-        // fetching succeeded
-        var chartDatas = [];
-        response.result.forEach(function (chartData) {
-          chartDatas.push(App.ChartData.create({
-            // subject to the JSON format
-            categories: chartData.xAxis.categories,
-            dataValues: chartData.series
-          }));
-        })
-        return chartDatas;
-      },
-      function(error) {
-        // fetching failed
-        console.log("getJSON failed");
-      }
-    );
   }
 });

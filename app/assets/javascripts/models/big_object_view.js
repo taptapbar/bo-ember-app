@@ -17,11 +17,14 @@ App.BigObjectView = DS.Model.extend({
 
   fetchChartData: function(view) {
     // single data http://www.json-generator.com/j/esKB?indent=4
-    // for rendered http://server/any_prefix/big_object_view/:id
-    return $.getJSON("http://www.json-generator.com/j/esKB?indent=4").then(
+    // for rendering http://server/any_prefix/big_object_views/:id
+    var requestURI = [appConfig.store.adapter.URL, 
+                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.fetchChartDataURL.replace(":id", this.get('id')), '.json'].join('');
+    console.log('requestURI of big_object_view/fetchChartData: ', requestURI);
+    return $.getJSON(requestURI).then(
       function(response) {
         // fetching succeeded
-        var chartData = response.result[0];
+        var chartData = response;
         return App.ChartData.create({
           categories: chartData.xAxis.categories,
           dataValues: chartData.series
@@ -37,8 +40,7 @@ App.BigObjectView = DS.Model.extend({
   fetchFilterList: function() {
     var requestURI = [appConfig.store.adapter.URL, 
                       '/', appConfig.store.adapter.namespace, 
-                      '/', 'big_object_views', '/', this.get('id'), 
-                      '/', 'filter_list', '.json'].join('');
+                      appConfig.multiview.filterListURL.replace(':id', this.get('id')), '.json'].join('');
     return $.getJSON(requestURI).then(
       function(response) {
         //fetching succeeded

@@ -18,6 +18,7 @@ BoEmberApp::Application.routes.draw do
       get 'dimensions_and_measures'
     end
     get 'filter_list', on: :member
+    get 'fetch_chart_data', on: :member
   end
   get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
   get '/', :to => 'ember#index', :constraints => FormatTest.new(:html)

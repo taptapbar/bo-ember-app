@@ -33,13 +33,15 @@ var appConfig = {
 		dimensionsAndMeasuresURL: "big_object_views/dimensions_and_measures",
 
 		// Request the data needed to draw in highchart/highstock
-		fetchChartDataURL: "fetch_chart_data",
+		// :id is a variable which will be replaced by a real id when fetching chart_data at runtime
+		fetchChartDataURL: "big_object_views/:id/fetch_chart_data",
 
 		// Request a new ID at create-new-view, for newly created but not saved in the database big_object_view.
 		newIdURL: "big_object_views/new_id",
 
 		//Request the filter_list for rendering filter fields
-		//filterListURL: "big_object_views/:id/filter_list"
+		// :id is a variable which will be replaced by a real id when fetching filter_list at runtime
+		filterListURL: "big_object_views/:id/filter_list"
 
 	}
 
