@@ -88,7 +88,7 @@ App.BigObjectViewsNewRoute = Ember.Route.extend({
   },
   
   renderTemplate: function() {
-    this.render({ outlet: 'main_window' });
+    this.render({ outlet: 'big_object_views_new' });
   }
 });
     
