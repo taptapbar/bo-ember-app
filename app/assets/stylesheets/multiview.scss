@@ -1,6 +1,6 @@
 #view-detail-container {
   float: left;
-  width: 200px;
+  width: 15%;
   height: 400px;
   
   .detail-block {
@@ -63,8 +63,9 @@
 }
 
 #view-container {
-  float: right;
-  width: 1000px;
+  float: left;
+  width: 83%;
+  margin: 0 0 0 2%;
   
   .tab {
     background-color: #a4b0b4;
