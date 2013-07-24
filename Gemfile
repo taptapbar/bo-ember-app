@@ -4,6 +4,8 @@ gem 'rake'
 gem 'rails', '3.2.13'
 gem 'rails-api'
 
+#gem 'sqlite3'
+
 gem 'ember-rails', '0.13.0'
 gem 'ember-source', '1.0.0.rc6' # or the version you need
 gem 'ember-data-source', '0.13'
@@ -32,7 +34,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
