@@ -4,8 +4,6 @@ gem 'rake'
 gem 'rails', '3.2.13'
 gem 'rails-api'
 
-gem 'sqlite3'
-
 gem 'ember-rails', '0.13.0'
 gem 'ember-source', '1.0.0.rc6' # or the version you need
 gem 'ember-data-source', '0.13'
