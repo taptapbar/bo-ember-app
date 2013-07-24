@@ -3,9 +3,23 @@
 	border-radius: 6px;
 	padding: 4px 6px 6px 6px;
 
-	input[type="text"] {
-		width: 80px;
+	input {
 		height: 14px;
+		background-color: #9da2a4;
+		&[type=text] {
+			width: 80px;
+		}
+		&[type="number"]
+		{
+			margin-top: 4px;
+			width: 60px;
+			line-height: 14px;
+		}
+	}
+
+	select {
+		height: 14px;
+		background-color: #9da2a4;
 	}
 }
 
@@ -28,9 +42,7 @@ ul.content-indent {
 }
 
 .li-datepicker {
-  input[type=text] {
-  	background-color: #9da2a4;
-  }
+
 }
 
 .i-calendar {
