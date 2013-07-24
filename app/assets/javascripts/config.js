@@ -3,7 +3,7 @@ var appConfig = {
 	store: {
 		adapter: {
 			// Data Store's server URL
-			URL: "http://localhost:3000",
+			URL: ["http://", location.host].join(''),
 			// Data Store's URL prefix ex. "api/v1"
 			namespace: "",
 		}
