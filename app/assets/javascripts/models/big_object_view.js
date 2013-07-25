@@ -56,6 +56,7 @@ App.BigObjectView = DS.Model.extend({
   
   didCreate: function() {
     console.log('didCreate');
+    this.set('id', null);
   },
   
   didUpdate: function() {
