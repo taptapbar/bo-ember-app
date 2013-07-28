@@ -22,8 +22,8 @@ App.MultiviewRoute = Ember.Route.extend({
 Ember.Handlebars.registerBoundHelper('drawChart', function(id){
   console.log('draw: ', id);
   var chartGenerator = new App.ChartGenerator();
-  var view = App.BigObjectView.find(id);
-  view.fetchChartData(view).then(function (chartData) {
+  var view = App.BigObjectView.findLocallyAndRemotely(id);
+  view.fetchChartData(id).then(function (chartData) {
         chartGenerator.render('highchart', 
                               'column', 
                               chartData.get('dataValues'), 

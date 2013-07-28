@@ -15,13 +15,15 @@ App.BigObjectView = DS.Model.extend({
     return state;
   }.property('isDirty', 'isNew'),
 
-  fetchChartData: function(view) {
+  fetchChartData: function(id) {
     // single data http://www.json-generator.com/j/esKB?indent=4
     // for rendering http://server/any_prefix/big_object_views/:id
     var requestURI = [appConfig.store.adapter.URL, 
-                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.fetchChartDataURL.replace(":id", this.get('id')), '.json'].join('');
-    console.log('requestURI of big_object_view/fetchChartData: ', requestURI);
-    return $.getJSON(requestURI).then(
+                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.fetchChartDataURL.replace(":id", id), '.json'].join('');
+    var data = this.getCurrentAttrs(id);
+    //console.log("fetchChartData-data: ", data);
+    // console.log('requestURI of big_object_view/fetchChartData: ', requestURI);
+    return $.getJSON(requestURI, data).then(
       function(response) {
         // fetching succeeded
         var chartData = response;
@@ -61,6 +63,24 @@ App.BigObjectView = DS.Model.extend({
   
   didUpdate: function() {
     console.log('didUpdate');
+  },
+
+  getCurrentAttrs: function(objectId) {
+    model = App.BigObjectView.findLocallyAndRemotely(objectId);
+    var attrs = {
+                'dimensions': model.get('dimensions'),
+                'measure': model.get('measure'),
+                'title': model.get('title'),
+                'filter': model.get('filter'),
+                'timescope': model.get('timescope')
+              };
+    var data = {};
+    $.each(attrs, function(index, value) {
+      if (value !== undefined) { data[index] = value };
+    });
+    console.log("getCurrentAttrs_attrs: ", attrs);
+    console.log("getCurrentAttrs_data: ", data);
+    return data;
   }
 });
 

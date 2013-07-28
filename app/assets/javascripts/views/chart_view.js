@@ -10,7 +10,9 @@ App.ChartView = Ember.View.extend({
     var chartGenerator = new App.ChartGenerator();
     // probably should have moved rendered Charts to global scope to maintain charts on each tab
     var renderedCharts = [];
+    console.log("test1");
     this.fetchChartData().then(function (chartDatas) {
+      console.log("test2");
       chartDatas.forEach(function (chartData) {
         renderedCharts.push(
           chartGenerator.render(that.elementId, 
