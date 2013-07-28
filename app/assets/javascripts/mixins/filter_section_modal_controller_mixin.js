@@ -81,7 +81,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // save into filter property
     model.set('filters', attributes);
     console.log('confirmFilter: ', model.get('filters'));
-    closeModalView();
+    this.closeModalView();
   },
   
   getTimeScopeFormAttributes: function() {
