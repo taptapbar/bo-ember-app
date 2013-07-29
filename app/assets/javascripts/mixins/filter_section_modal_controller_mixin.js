@@ -85,7 +85,69 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   },
   
   getTimeScopeFormAttributes: function() {
-    return { 'timescopeA': true, 'timescopeB': false };
+    var range = {};
+    var cycle = { 'repeat': {}, 'calendar': {} };
+    var timeScope = { 'range': range, 'cycle': cycle };
+    rangeValue = $("input[name=timeframeRangeRadio]:radio:checked").val();
+    if(rangeValue == "all") { range['period'] = rangeValue; }
+    else { range['period'] = [$("#timeframe-range-from").val(), ":", $("#timeframe-range-to").val()].join(''); };
+    
+    cycleValue = $("input[name=cycle]:radio:checked").val();
+    switch (cycleValue) {
+      case ('all'):
+        cycle.repeat.type = "none";
+        break;
+      case ('week'):
+        cycle.repeat.type = "week";
+        cycle.repeat.number = $("input[name=timeframe-cycle-week-repeat-number]").val();
+        cycle.calendar.weekdays = {};
+        cycle.calendar.weekdays.selected_days = $("input[name=timeframe-cycle-week-weekdays-checkbox]:checkbox:checked").map(function () {
+          return this.value;
+        }).get();
+        break;
+      case ('month'):
+        cycle.repeat.type = "month";
+        if ($("#timeframe-cycle-month-radio-1").is(':checked')) {
+          cycle.calendar.days = {};
+          cycle.calendar.days.number = $("#timeframe-cycle-month-select-1 option:selected").val();
+          cycle.repeat.number = $("input[name=timeframe-cycle-month-repeat-number-1]").val();
+        }
+        else {
+          cycle.calendar.weekdays = {};
+          cycle.calendar.weekdays.number = $("#timeframe-cycle-month-select-2 option:selected").val();
+          cycle.calendar.weekdays.selected_days = $("#timeframe-cycle-month-select-3 option:selected").map(function () {
+            return this.value;
+          }).get();
+          cycle.repeat.number = $("input[name=timeframe-cycle-month-repeat-number-2]").val();
+        }
+        break;
+      case ('year'):
+        cycle.repeat.type = "year";
+        if ($("#timeframe-cycle-year-radio-1").is(':checked')) {
+          cycle.calendar.months = {};
+          cycle.calendar.months.number = $("#timeframe-cycle-year-select-1 option:selected").val();
+          cycle.calendar.months.selected_months = $("#timeframe-cycle-year-select-2 option:selected").map(function () {
+            return this.value;
+          }).get();
+          cycle.repeat.number = $("input[name=timeframe-cycle-year-repeat-number-1]").val();
+        }
+        else {
+          cycle.calendar.weekdays = {};
+          cycle.calendar.months = {};
+          cycle.calendar.weekdays.number = $("#timeframe-cycle-year-select-3 option:selected").val();
+          cycle.calendar.weekdays.selected_days = $("#timeframe-cycle-year-select-4 option:selected").map(function () {
+            return this.value;
+          }).get();
+          cycle.calendar.months.selected_months = $("#timeframe-cycle-year-select-5 option:selected").map(function () {
+            return this.value;
+          }).get();
+          cycle.repeat.number = $("input[name=timeframe-cycle-year-repeat-number-2]").val();
+        }
+        break;
+    };
+    
+    return { "time_scope": timeScope };
+    //return { 'timescopeA': true, 'timescopeB': false };
   },
   
   getFilterFormAttributes: function() {

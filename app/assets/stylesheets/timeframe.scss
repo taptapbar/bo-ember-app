@@ -18,7 +18,8 @@
 	}
 
 	select {
-		height: 14px;
+		height: 22px;
+		margin-top: 4px;
 		background-color: #9da2a4;
 	}
 }
@@ -56,4 +57,9 @@ background: url(/assets/glyphicons-halflings.png);
 .seperator-right {
 	border-right: 1px solid;
 	padding-right: 20px;
+}
+
+.seperator-left {
+	border-left: 1px solid;
+	padding-left: 20px;
 }

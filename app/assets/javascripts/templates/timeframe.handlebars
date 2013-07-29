@@ -8,19 +8,14 @@
   				<li>Range</li>
   				<li>
   					<label class="radio">
-              	<input type="radio" name="timeframeRangeRadios" value="" checked> All the data
+              	<input type="radio" name="timeframeRangeRadio" value="all" checked> All the data
           	</label>
           </li>
           <li class="li-datepicker clearfix">
           	<label class="radio pull-left">
-              <input type="radio" name="timeframeRangeRadios" value="">
+              <input type="radio" name="timeframeRangeRadio" value="range">
               <label for="timeframe-range-from" class="pull-left"><input type="text" id="timeframe-range-from" name="from"></label><span class="i-calendar pull-left"></span>
               <label for="timeframe-range-to" class="pull-left">to <input type="text" id="timeframe-range-to" name="to"></label><span class="i-calendar pull-left"></span>
-          		<!-- <input type="radio" name="timeframeRangeRadios" value="">
-          		<input class="pull-left datepicker" type="text" style="width:65px;">
-          		<i class="i-calendar pull-left"></i>
-              <input class="pull-left datepicker" type="text" style="width:65px;">
-              <i class="i-calendar pull-left"></i> -->
             </label>
           </li>
         </ul>
@@ -28,22 +23,22 @@
             <li>Cycle</li>
             <li class="clearfix">
               <ul class="none-style">
-                <li class="float-left  seperator-right">
+                <li class="float-left ">
                   <label class="radio">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-all-panel" checked> All
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-all-panel" value="all" checked> All
                   </label>
                   <label class="radio">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-week-panel"> Week
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-week-panel" value="week"> Week
                   </label>
                   <label class="radio">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-month-panel"> Month
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-month-panel" value="month"> Month
                   </label>
                   <label class="radio">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-year-panel"> Year
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-year-panel" value="year"> Year
                   </label>
                 </li>
                 
-                <li class="float-left">
+                <li class="float-left seperator-left">
 
                   <div id="timeframe-cycle-all-panel" name="cycle-panel">
                     <!-- timeframe-cycle-all-panel -->
@@ -57,27 +52,27 @@
                         <ul class="none-style clearfix">
                           <li class="pull-left">
                             <label class="checkbox">
-                              <input type="checkbox" name=" timeframe-cycle-week-checkbox" value="monday">Monday
+                              <input type="checkbox" name=" timeframe-cycle-week-weekdays-checkbox" value="monday">Monday
                             </label>
                             <label class="checkbox">
-                              <input type="checkbox" name="timeframe-cycle-week-checkbox" value="tuesday">Tuesday
+                              <input type="checkbox" name="timeframe-cycle-week-weekdays-checkbox" value="tuesday">Tuesday
                             </label>
                             <label class="checkbox">
-                              <input type="checkbox" name="timeframe-cycle-week-checkbox" value="wedensday">Wedensday
+                              <input type="checkbox" name="timeframe-cycle-week-weekdays-checkbox" value="wedensday">Wedensday
                             </label>
                             <label class="checkbox">
-                              <input type="checkbox" name="timeframe-cycle-week-checkbox" value="thursday">Thursday
+                              <input type="checkbox" name="timeframe-cycle-week-weekdays-checkbox" value="thursday">Thursday
                             </label>
                           </li>
                           <li class="pull-left">
                             <label class="checkbox">
-                              <input type="checkbox" name=" timeframe-cycle-week-checkbox" value="friday">Friday
+                              <input type="checkbox" name=" timeframe-cycle-week-weekdays-checkbox" value="friday">Friday
                             </label>
                             <label class="checkbox">
-                              <input type="checkbox" name="timeframe-cycle-week-checkbox" value="saturday">Saturday
+                              <input type="checkbox" name="timeframe-cycle-week-weekdays-checkbox" value="saturday">Saturday
                             </label>
                             <label class="checkbox">
-                              <input type="checkbox" name="timeframe-cycle-week-checkbox" value="sunday">Sunday
+                              <input type="checkbox" name="timeframe-cycle-week-weekdays-checkbox" value="sunday">Sunday
                             </label>
                           </li>
                         </ul>
@@ -85,7 +80,7 @@
                       <li>
                         <label>
                           Repeat every
-                          <input type="number" min="1" max="52" style="width:60px">
+                          <input type="number" name="timeframe-cycle-week-repeat-number" min="1" max="52" style="width:60px">
                           Week
                         </label>  
                       </li>
@@ -95,24 +90,24 @@
                     <!-- timeframe-cycle-month-panel -->
 
                         <label class="radio">
-                          <input type="radio" name="cycle-month"> The 
+                          <input type="radio" id="timeframe-cycle-month-radio-1" name="cycle-month"> The 
                             <select id="timeframe-cycle-month-select-1" class="select" style="width:60px;">
                               {{ renderNumberSelectOptions ordinal 1 31 }}
                             </select>
                             day <br>Repeat every
-                          <input type="number" min="1" max="12" style="width:60px"> month
+                          <input type="number" name="timeframe-cycle-month-repeat-number-1" min="1" max="12" style="width:60px"> month
                         </label>
                         <br>
                         <label class="radio">
-                          <input type="radio" name="cycle-month"> The 
-                            <select id="timeframe-cycle-month-select-3" class="select" style="width:60px;">
+                          <input type="radio" id="timeframe-cycle-month-radio-2" name="cycle-month"> The 
+                            <select id="timeframe-cycle-month-select-2" class="select" style="width:60px;">
                               {{ renderNumberSelectOptions ordinal 1 5 }}
                             </select>
-                            <select id="timeframe-cycle-month-select-4" class="select" style="width:90px;">
+                            <select id="timeframe-cycle-month-select-3" class="select" style="width:90px;">
                               {{ renderWeekdaySelectOptions }}
                             </select>
                             <br> Repeat every
-                            <input type="number" min="1" max="12" style="width:60px"> month
+                            <input type="number" name="timeframe-cycle-month-repeat-number-2" min="1" max="12" style="width:60px"> month
                         </label>
 
                   </div>
@@ -127,7 +122,7 @@
                           {{ renderNumberSelectOptions ordinal 1 31 }}
                         </select>
                         <br> Repeat every
-                        <input type="number" min="1" max="100" style="width:60px"> year
+                        <input type="number" name="timeframe-cycle-year-repeat-number-1" min="1" max="100" style="width:60px"> year
                     </label>
                     <br>
                     <label class="radio">
@@ -143,7 +138,7 @@
                           {{ renderMonthSelectOptions  }}
                         </select>
                         <br> Repeat every
-                        <input type="number" min="1" max="100" style="width:60px"> year
+                        <input type="number" name="timeframe-cycle-year-repeat-number-2" min="1" max="100" style="width:60px"> year
                     </label>
                   </div>
                 </li>

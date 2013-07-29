@@ -71,7 +71,7 @@ App.BigObjectView = DS.Model.extend({
                 'dimensions': model.get('dimensions'),
                 'measure': model.get('measure'),
                 'title': model.get('title'),
-                'filter': model.get('filter'),
+                'filters': model.get('filters'),
                 'timescope': model.get('timescope')
               };
     var data = {};
@@ -115,4 +115,13 @@ App.ChartData = Ember.Object.extend({
   dataValues: null,
 });
 
-
+// App.DataStruct.timeScope = Ember.Object.extend({
+//   range: { period: null },
+//   cycle: { repeat: { type: null, number: null },
+//            calendar: {
+//               days: { selected_days: null,  },
+//               weekdays: {},
+//               months: {}
+//            }
+//   }
+// });
