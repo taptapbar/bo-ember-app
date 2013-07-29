@@ -33,8 +33,6 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
   setAttributesIntoModel: function(attributes) {
     var newObject = this.get('model');
     
-    var tempId = new Date().getTime();
-    newObject.set('id', tempId);
     newObject.set('title', attributes.title);
     newObject.set('measure', attributes.measure);
     newObject.set('dimensions', attributes.dimensions);
@@ -95,7 +93,7 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
     }
     
     $('#sortable-di-selected li[class*=option]:lt(3)').each(function(index) {
-      dimensions.push($(this).attr('data-dimension'));
+      dimensions.push([$(this).attr('data-dimension'), $(this).attr('data-sub')].join('.'));
     });
     
     return { dimensions: dimensions, 

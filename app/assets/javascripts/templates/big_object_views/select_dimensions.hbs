@@ -2,7 +2,7 @@
   <ul id="sortable-di-list" class="options connectedSortable">
     {{#each dimension in App.formData.dimensions}}
     {{#each sub in dimension.sub_dimensions}}
-    <li class="option" {{bindAttr data-dimension="sub"}}>
+    <li class="option" {{bindAttr data-dimension="dimension.name"}} {{bindAttr data-sub="sub"}}>
       <span class="cat-name">{{ dimension.name }}</span>
       <span class="sub-name">{{ sub }}</span>
     </li>
