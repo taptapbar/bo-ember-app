@@ -32,7 +32,10 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
   
   setAttributesIntoModel: function(attributes) {
     var newObject = this.get('model');
-    
+    var tempId = new Date().getTime();
+    var encodedTempId = tempId.toString() + Math.floor(Math.random(tempId)*(999999)+1);
+    debugger;
+    newObject.set('id', encodedTempId);
     newObject.set('title', attributes.title);
     newObject.set('measure', attributes.measure);
     newObject.set('dimensions', attributes.dimensions);
