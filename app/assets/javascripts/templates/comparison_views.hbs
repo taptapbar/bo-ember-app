@@ -1,0 +1,97 @@
+{{ outlet comparison_views_new }}
+
+<section id="view-detail-container">
+  <div class="detail-block">
+    <h3>View</h3>
+    
+    <div class="block">
+      <div class="dimension">
+        <div class="attributes">
+          <ul>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-1" value="day"> Day
+              </label>
+            </li>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-1" value="week" checked> Week
+              </label>
+            </li>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-1" value="month"> Month
+              </label>
+            </li>
+            <li class="attribute">over...</li>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-2" value="month"> Month
+              </label>
+            </li>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-2" value="quoter" checked> Quoter
+              </label>
+            </li>
+            <li class="attribute">
+              <label class="radio">
+                <input type="radio" name="Comparison-sidebar-view-2" value="year"> Year
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="detail-block">
+    <h3>Measure</h3>
+    
+    <div class="measures block">
+      <div class="inner">
+        <div class="attributes">
+          
+          <div class="attribute selected" data-value="Revenue">Revenue</div>
+          <div class="attribute" data-value="Cost" data->Cost</div>
+          <div class="attribute" data-value="Sales">Sales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="view-container">
+  <div class="tabs clearfix">
+    <div class="tab">
+      <a id="ember412" class="ember-view active" href="#/comparison/1">
+        Graph
+      </a>
+    </div>
+    
+    <div class="add-view-btn"><a class="ember-view" href="#/comparison/new">+</a></div>
+  </div>
+
+
+
+  <div class="chart-container">
+    <div class="chart">
+      <img src="assets/comparison_chart.jpg" style="width: 1280px; height: 400px;"></img>
+      <div id="highchart"></div>
+    </div>
+    
+    <div class="clearfix">
+      <div class="filters-container">
+        <div class="filters clearfix">
+          <div class="filter"><a {{ action "showTimescopeModal" this }}>Set Time Scope</a></div>
+          <div class="filter"><a {{ action "saveObject" this }}>Set Filter</a></div>
+        </div>
+      </div>
+    
+      <div class="actions">
+        <button><a >Delete</a></button>
+        <button><a >Save</a></button>
+      </div>
+    </div>
+  </div>
+</section>
