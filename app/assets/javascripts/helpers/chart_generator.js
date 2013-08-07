@@ -29,7 +29,7 @@ App.ChartGenerator = Ember.Object.extend({
     chart.set('title', title);
     chart.set('measure', measure);
     chart.initialize(data, categories);
-    if(params.length > 0) {
+    if(!Ember.isEmpty(params)) {
       $.each(params, function(index, value) {
         // insert other params here
       });
