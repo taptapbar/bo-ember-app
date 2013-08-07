@@ -4,11 +4,11 @@ App.Router.map(function(){
     this.route('new');
   });
   
-  this.resource('comparison_views', { path: '/comparison' }, function() {
-    this.resource('comparison', { path: ':comparison_view_id' });
-    this.route('new');
-  });
-  
+  // this.resource('comparison_views', { path: '/comparison' }, function() {
+  //   this.resource('comparison', { path: ':comparison_view_id' });
+  //   this.route('new');
+  // });
+  this.route('comparison', { path: "/comparison" });
   this.route('item_association', { path: "/item_association" });
   this.route('significance', { path: "/significance" });
   this.route('diagnosis', { path: "/diagnosis" });
@@ -98,17 +98,17 @@ App.BigObjectViewsNewRoute = Ember.Route.extend({
 
 
 // For render comparison_views/new.handlebars
-App.ComparisonViewsNewRoute = Ember.Route.extend({
-  model: function() {
-    var newObject = App.BigObjectView.createRecord();
-    newObject.set('filters', {});
-    newObject.set('timescope', {});
-    return newObject;
-  },
+// App.ComparisonViewsNewRoute = Ember.Route.extend({
+//   model: function() {
+//     var newObject = App.BigObjectView.createRecord();
+//     newObject.set('filters', {});
+//     newObject.set('timescope', {});
+//     return newObject;
+//   },
   
-  renderTemplate: function() {
-    console.log("render comparison_views_new");
-    this.render({ outlet: 'comparison_views_new' });
-  }
-});
+//   renderTemplate: function() {
+//     console.log("render comparison_views_new");
+//     this.render({ outlet: 'comparison_views_new' });
+//   }
+// });
     
