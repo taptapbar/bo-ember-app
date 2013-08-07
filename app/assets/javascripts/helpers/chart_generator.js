@@ -21,7 +21,7 @@ App.ChartGenerator = Ember.Object.extend({
     if(data[0].hasOwnProperty('stack')){ 
       plotOptions.column.stacking = 'normal';
       chart.set('plotOptions', plotOptions);
-    };
+    }
     chart.set('chartType', chartType);
     chart.set('renderToId', render_to);
     chart.set('series', data);
@@ -33,7 +33,7 @@ App.ChartGenerator = Ember.Object.extend({
       $.each(params, function(index, value) {
         // insert other params here
       });
-    };
+    }
     console.log("params: ", params)
     console.log(chart);
     return new Highcharts.Chart(chart);
@@ -101,7 +101,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
         useHTML: true
       };
       this.set('tooltip', tooltip);
-    };
+    }
     
     scrollbar = {
       enabled: false
@@ -121,17 +121,17 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     var groupPadding = appConfig.chartSettings.plotOptions.column.groupPadding;
 
     //calculate the stack number
-    if(data[0].hasOwnProperty('stack')){ 
+    if (data[0].hasOwnProperty('stack')) { 
       $.each(data, function(index, value) {
         stackNames.push(value.stack);
       });
       stackNames = stackNames.getUnique();
       stackNumber = stackNames.length;
-    };
+    }
 
     //set the columnNumber(how many columns within one category)
     // for 1D
-    if(data.length == 1) {
+    if (data.length == 1) {
       console.log("this is a 1D chart");
       columnNumber = 1;
     }
@@ -146,14 +146,14 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     else {
       console.log("this is a 3D chart");
       columnNumber = stackNumber;
-    };
+    }
 
     //set the limit of how many series(columns) will be see 
     //enable the scrollbar if necessary
     if (categoryNumber*columnNumber > maxVisibleSerieNumber && categoryNumber > 1) {
       this.set('xAxis.max', (maxVisibleSerieNumber<=columnNumber) ? (Math.ceil(maxVisibleSerieNumber/columnNumber)) : (Math.floor(maxVisibleSerieNumber/columnNumber)) );
       this.set('scrollbar.enabled', true);
-    };
+    }
 
   }
 });
