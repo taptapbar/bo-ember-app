@@ -45,7 +45,7 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     var bigObjectView = App.BigObjectView.find({ limit: 1 });
     bigObjectView.one('didLoad', this, function () {
       var firstObject = this.modelFor('big_object_views').get('firstObject');
-      if (firstObject !== undefined) {
+      if (!Ember.isNone(firstObject)) {
         this.transitionTo('big_object_view', firstObject);   
       }
     });
@@ -59,7 +59,7 @@ App.BigObjectViewRoute = Ember.Route.extend({
   
   renderTemplate: function() {
     var self = this;
-    if (App.formData == undefined) {
+    if (Ember.isNone(App.formData)) {
       App.Func.fetchDimensionAndMeasureData(function() {
         self.renderBigObjectView();
       });
