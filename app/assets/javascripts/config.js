@@ -10,8 +10,25 @@ var appConfig = {
 	},
 
 	chartSettings: {
-		xAxis: { max: 10 }, // Maximum number of columns user can see within the chart width
-		scrollbar: { enabled: true } // enable/disable the scrollbar
+		xAxis: { 
+			maxColumn: 30, // Maximum number of columns user can see within the chart width
+			labels: { // How to display the labels of xAxis (which means categories)
+				rotation: -20, //default value is 0
+				align: "right" //default value is "center"
+			}
+		}, 
+		//scrollbar: { enabled: true } // enable/disable the scrollbar
+
+		plotOptions: {
+			column: {
+				groupPadding: 0.2, // Width between each group, default value is 0.2
+				pointPadding: 0, //Width between each bar/column, default value is 0.1
+			}
+		},
+
+		groupTooltip: {
+			enabled: false //default tooltip is for individual serie value
+		}
 	},
 
 	multiview: {

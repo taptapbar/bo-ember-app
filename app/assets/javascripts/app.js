@@ -27,7 +27,8 @@ Ember.Handlebars.registerBoundHelper('drawChart', function(id){
         chartGenerator.render('highchart', 
                               'column', 
                               chartData.get('dataValues'), 
-                              chartData.get('categories'), 
+                              chartData.get('categories'),
+                              chartData.get('params'), 
                               view.get('title'), 
                               view.get('measure'))
   });
@@ -36,6 +37,18 @@ Ember.Handlebars.registerBoundHelper('drawChart', function(id){
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
+
+Array.prototype.getUnique = function(){
+   var u = {}, a = [];
+   for(var i = 0, l = this.length; i < l; ++i){
+      if(u.hasOwnProperty(this[i])) {
+         continue;
+      }
+      a.push(this[i]);
+      u[this[i]] = 1;
+   }
+   return a;
+}
 
 // window.onbeforeunload = function(event)
 // {

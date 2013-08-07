@@ -29,7 +29,8 @@ App.BigObjectView = DS.Model.extend({
         var chartData = response;
         return App.ChartData.create({
           categories: chartData.xAxis.categories,
-          dataValues: chartData.series
+          dataValues: chartData.series,
+          params: chartData.params
         });
       },
       function(error) {
@@ -113,6 +114,7 @@ App.BigObjectView.reopenClass({
 App.ChartData = Ember.Object.extend({
   categories: null,
   dataValues: null,
+  params: null,
 });
 
 // App.DataStruct.timeScope = Ember.Object.extend({
