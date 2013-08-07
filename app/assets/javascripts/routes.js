@@ -41,13 +41,12 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     //  }
     //});
     
+    App.Func.fetchDimensionAndMeasureData(function() {});
     var bigObjectView = App.BigObjectView.find({ limit: 1 });
     bigObjectView.one('didLoad', this, function () {
       var firstObject = this.modelFor('big_object_views').get('firstObject');
-      if (firstObject === undefined) {
-        App.Func.fetchDimensionAndMeasureData(function() {});
-      } else {
-        this.transitionTo('big_object_view', firstObject);
+      if (firstObject !== undefined) {
+        this.transitionTo('big_object_view', firstObject);   
       }
     });
   }
