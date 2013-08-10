@@ -90,10 +90,10 @@ Hook up relevant click/keypress events
 
 // Json data for dimension&measure : http://www.json-generator.com/j/eOUr?indent=4
 $(document).on('click', '.add-view-btn', function(event){
-    sortableConnectList("#sortable-di-list, #sortable-di-selected");
+    sortableConnectList("#sortable-di-selected");
 });
 $(function() {
-	sortableConnectList("#sortable-di-list, #sortable-di-selected");
+	sortableConnectList("#sortable-di-selected");
 });
 $(document).on('click', '#create-view-filter-toggler', function(event) {    
     togglePanel('create-view-filter');
@@ -124,9 +124,12 @@ $(document).on('click', '#create-new-view-reset', function(event) {
   });
 });
 */
-$(document).on('dblclick', '#sortable-di-list li', function(event) {
+$(document).on('dblclick, click', '#sortable-di-list li', function(event) {
   $('#sortable-di-selected').append($(this).html(toggleString($(this).html(), '<div class="delete-white pull-right">x</div>')));
 });
 $(document).on('click', '#sortable-di-selected .delete-white', function(event) {
-  $('#sortable-di-list').append($(this).parent().html(toggleString($(this).parent().html(), '<div class="delete-white pull-right">x</div>')));
+  var dimension = $(this).parent().data('dimension');
+  var sub = $(this).parent().data('sub');
+  $('#sortable-di-list .option-dimension[data-dimension="'+dimension+'"]').after($(this).parent().html(toggleString($(this).parent().html(), '<div class="delete-white pull-right">x</div>')));
+  //$('#sortable-di-list').append($(this).parent().html(toggleString($(this).parent().html(), '<div class="delete-white pull-right">x</div>')));
 });

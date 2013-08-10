@@ -1,9 +1,11 @@
 <div class="inner clearfix">
   <ul id="sortable-di-list" class="options connectedSortable">
     {{#each dimension in App.formData.dimensions}}
+    <div class="option option-dimension" {{bindAttr data-dimension="dimension.name"}}>
+      <span class="cat-name">{{ dimension.name }}</span>
+    </div>
     {{#each sub in dimension.sub_dimensions}}
     <li class="option" {{bindAttr data-dimension="dimension.name"}} {{bindAttr data-sub="sub"}}>
-      <span class="cat-name">{{ dimension.name }}</span>
       <span class="sub-name">{{ sub }}</span>
     </li>
     {{/each}}

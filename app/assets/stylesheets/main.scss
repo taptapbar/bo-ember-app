@@ -88,7 +88,7 @@ html, body * {
         }
         
         .corner {
-          background-position: -175px -4px;
+          background-position: -169px -4px;
         }
       }
     }
@@ -110,8 +110,8 @@ html, body * {
 #main-container {
   position: relative;
   background-color: #fff;
-  padding: 2%;
-  width: 96%;
+  padding: 10px;
+  width: auto;
 }
 
 .clearfix:after {

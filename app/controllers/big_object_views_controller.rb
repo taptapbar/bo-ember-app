@@ -87,11 +87,11 @@ class BigObjectViewsController < ApplicationController
       #  'CAT-C' => ['k', 'l', 'm']
       #},
       'dimensions' => [
-        { name: 'CAT-A', sub_dimensions: ['Age', 'Gender', 'Income']}, 
-        { name: 'CAT-B', sub_dimensions: ['Continent', 'Region', 'Country']}, 
+        { name: 'CATEGORY-A', sub_dimensions: ['Age', 'Gender', 'Income', 'Longlonglonglonglonglong']}, 
+        { name: 'CATEGORY-B', sub_dimensions: ['Continent', 'Region', 'Country', 'Age']}, 
         #{ name: 'CAT-C', sub_dimensions: ['k', 'l', 'm']}
       ],
-      'measures' => ['Revenue', 'Cost', 'Sales']
+      'measures' => ['Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong']
     }
   end
 

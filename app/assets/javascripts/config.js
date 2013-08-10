@@ -10,8 +10,12 @@ var appConfig = {
 	},
 
 	chartSettings: {
+		chart: {
+			minHeight: 300 // unit in px
+		},
 		xAxis: { 
 			maxColumn: 30, // Maximum number of columns user can see within the chart width
+			maxGroup: 10, // Show rotated labels when group number reach maxGroup
 			labels: { // How to display the labels of xAxis (which means categories)
 				rotation: -20, //default value is 0
 				align: "right" //default value is "center"

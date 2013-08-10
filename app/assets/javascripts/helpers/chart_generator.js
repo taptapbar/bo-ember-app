@@ -49,20 +49,23 @@ App.ChartConfig = Ember.Object.create({
   categories: null,
   initialize: function(data) {
     var chart, title, xAxis, measure;
+    var minHeight = appConfig.chartSettings.chart.minHeight;
+    var calcHeight = $(window).height() - $('#nav').height() - $('div.tabs').height() - $('div.filters-container').height() - 55;
     //this.sub_initialize();
     chart = {
       renderTo: this.get('renderToId'),
-      type: this.get('chartType')
+      type: this.get('chartType'),
+      height: (calcHeight < minHeight) ? minHeight : calcHeight
     };
     xAxis = {
       categories: this.get('categories'),
-      labels: appConfig.chartSettings.xAxis.labels
+      //labels: appConfig.chartSettings.xAxis.labels
       //max: appConfig.chartSettings.xAxis.max
     };
     yAxis = {
       title: {
         text: this.get('measure')
-      }
+      },
     };
     title = {
       text: this.get('title')
@@ -119,7 +122,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     var stackNumber = 0;
     var stackNames = [];
     var groupPadding = appConfig.chartSettings.plotOptions.column.groupPadding;
-
+    var visibleCatNumber = 0;
     //calculate the stack number
     if (data[0].hasOwnProperty('stack')) { 
       $.each(data, function(index, value) {
@@ -146,14 +149,32 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     else {
       console.log("this is a 3D chart");
       columnNumber = stackNumber;
+      // set the stacked colum label to the first charactor of stack name
+      this.set('yAxis.stackLabels', {
+        enabled: true,
+        style: {
+            fontWeight: 'bold',
+            color: 'gray',
+        },
+        formatter: function() {
+            return  this.stack.slice(0,1).capitalize();
+        }
+      })
+      console.log("yAxis: ", yAxis);
     }
 
     //set the limit of how many series(columns) will be see 
     //enable the scrollbar if necessary
     if (categoryNumber*columnNumber > maxVisibleSerieNumber && categoryNumber > 1) {
-      this.set('xAxis.max', (maxVisibleSerieNumber<=columnNumber) ? (Math.ceil(maxVisibleSerieNumber/columnNumber)) : (Math.floor(maxVisibleSerieNumber/columnNumber)) );
+      visibleCatNumber = (maxVisibleSerieNumber<=columnNumber) ? (Math.ceil(maxVisibleSerieNumber/columnNumber)) : (Math.floor(maxVisibleSerieNumber/columnNumber));
+      this.set('xAxis.max', visibleCatNumber );
       this.set('scrollbar.enabled', true);
+    } else {
+      visibleCatNumber = categoryNumber
     }
 
+    if (visibleCatNumber > appConfig.chartSettings.xAxis.maxGroup) {
+      this.set('xAxis.labels', appConfig.chartSettings.xAxis.labels);
+    }
   }
 });

@@ -12,10 +12,18 @@ App.BigObjectViewSidebarView = Ember.View.extend({
     $.each(dimensions, function(index, dimension){
       $('.dimension .attribute[data-value="'+dimension+'"]').addClass('selected');
     });
+    $('.dimension .attribute').each(function () {
+      var originString = $(this).text();
+      $(this).text(originString.trim(18));
+    });
   },
   
   setSelectedMeasure: function(measure) {
     $('.measures .attribute').removeClass('selected');
     $('.measures .attribute[data-value="'+measure+'"]').addClass('selected');
+    $('.measures .attribute').each(function () {
+      var originString = $(this).text();
+      $(this).text(originString.trim(20));
+    });
   }
 });

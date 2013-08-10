@@ -38,6 +38,10 @@ String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+String.prototype.trim = function(number) {
+  return (this.length > number) ? this.slice(0, number-3) + '...' : this;
+};
+
 Array.prototype.getUnique = function(){
    var u = {}, a = [];
    for(var i = 0, l = this.length; i < l; ++i){

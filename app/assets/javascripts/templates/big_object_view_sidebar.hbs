@@ -9,7 +9,7 @@
       
         <div class="attributes">
           {{#each sub in dimension.sub_dimensions}}
-          <div class="attribute" {{ bindAttr data-value=sub }}>{{ sub }}</div>
+          <div class="attribute" {{ bindAttr data-value=sub }} {{ bindAttr title=sub }}>{{ sub }}</div>
           {{/each}}
         </div>
       </div>

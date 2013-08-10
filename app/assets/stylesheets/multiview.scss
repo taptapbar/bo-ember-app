@@ -1,17 +1,15 @@
 #view-detail-container {
   float: left;
-  width: 15%;
-  height: 400px;
+  width: 160px;
   
   .detail-block {
     border: 1px solid #7792a2;
-    margin: 0 0 20px 0;
-    padding: 0 0 20px 0;
-    height: 50%;
+    margin: 2px 0 10px 0;
+    padding: 0;
+    //height: 50%;
     
     .block {
       height: 80%;
-      overflow: auto;
     }
     
     .inner {
@@ -20,8 +18,8 @@
   }
   
   h3 {
-    line-height: 18px;
-    font-size: 18px;
+    line-height: 16px;
+    font-size: 16px;
     font-weight: normal;
     color: #fff;
     background-color: #7792a2;
@@ -30,7 +28,7 @@
   }
   
   h4 {
-    font-size: 15px;
+    font-size: 14px;
     padding: 0 0 1px 14px;
     border-bottom: 1px solid #333;
     display: inline-block;
@@ -39,12 +37,14 @@
   
   .attributes {
     margin: 0 0 10px 0;
+    font-size: 12px;
     
     .attribute {
-      padding: 0 0 0 35px;
+      padding: 0 0 0 25px;
       
       &.selected {
         background-color: #e7e7e7;
+        border-left: 3px solid #069DB9;
       }
     }
     li.attribute {
@@ -57,7 +57,7 @@
       padding: 0;
     }
     .attributes {
-      margin: 0;
+      margin: 0 0 10px 0;
       .attribute {
         padding: 0 0 0 14px;
       }
@@ -67,21 +67,31 @@
 
 #view-container {
   float: right;
-  width: 83%;
+  width: -webkit-calc(100% - 170px);
+  width: -o-calc(100% - 170px);
+  width: -moz-calc(100% - 170px);
+  width: calc(100% - 170px);
   
   .tab {
     background-color: #a4b0b4;
-    width: 19%;
+    width: -webkit-calc(20% - 8px);
+    width: -o-calc(20% - 8px);
+    width: -moz-calc(20% - 8px);
+    width: calc(20% - 8px);
     display: block;
     height: 25px;
     float: left;
-    margin: 0 2px 0 0;
+    margin: 2px 2px 0 0;
     a {
       float:left;      
       height: 25px;
-      width: 100%;
+      width: -webkit-calc(100% - 9px);
+      width: -o-calc(100% - 9px);
+      width: -moz-calc(100% - 9px);
+      width: calc(100% - 9px);
       line-height: 25px;
       text-align: left;
+      text-decoration: none;
       padding: 0 0 0 10px;
       
       .state {
@@ -116,18 +126,23 @@
   
   .add-view-btn {
     float: left;
-    margin: 0 2px 0 0;
-    
+    margin: 2px 2px 0 0;
+
+    height: 25px;
     a {
       color: #fff;
       text-decoration: none;
       padding: 0px 6px 0px;
       background-color: #a4b0b4;
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
       line-height: 25px;
       cursor: pointer;
-      
+
+      height: 25px;
+      width: 100%;
+      text-align: center;
+
       &:hover {
         background-color: #7792a2;
       }
@@ -142,7 +157,7 @@
   
   .chart {
     margin: 0 0 10px 0;
-    min-height: 400px;
+    min-height: 300px;
     img {
       max-width: 700px;
       margin: auto;
@@ -180,6 +195,10 @@
         padding: 5px 10px;
         cursor: pointer;
         text-decoration: none;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #EEE;
       
         &:hover {
           background-color: #7792a2;
@@ -193,10 +212,13 @@
 #create-new-view-container {
   position: absolute;
   background: #fff;
-  width: 96%;
+  width: -webkit-calc(100% - 20px);
+  width: -o-calc(100% - 20px);
+  width: -moz-calc(100% - 20px);
+  width: calc(100% - 20px);
   
   .filters-container {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 10px;
   }
   
   .actions-container {
@@ -226,7 +248,9 @@
   }
   
   .step {
-    border: 1px solid #4f6b7d;
+    // border: 1px solid #4f6b7d;
+    padding: 10px 0 10px 10px;
+    min-width: 900px;
   }
   
   h3 {
@@ -241,25 +265,35 @@
   .sub-step {
     float: left;
     border: 1px solid #7792a2;
-    margin: 2%;
-    width: 45%;
-    height: 300px;
+    // margin: 2%;
+    &:first-child {
+      width: -webkit-calc(100% - 320px);
+      width: -o-calc(100% - 320px);
+      width: -moz-calc(100% - 320px);
+      width: calc(100% - 320px);
+      min-width: 600px;
+      margin: 0 10px 10px 0;
+    }
+    width: 280px;
+    min-width: 280px;
+    height: 460px;
     
     .inner {
       margin: 20px 5%;
     }
 
     .half-inner {
-      margin: 20px 30px;
-      height: 85px;
+      padding: 20px 10px;
+      height: 300px;
+      overflow-y: auto;
     }
   }
   
   .options {
     float: left;
     background-color: #9da2a4;
-    width: 39%;
-    height: 200px;
+    width: 46%;
+    height: 374px;
     padding: 10px 0;
     list-style-type: none;
     overflow: auto;
@@ -278,7 +312,15 @@
       }
       
       .sub-name {
+        margin-left: 10px;
       }
+    }
+
+    .option-dimension {
+      &:first-child {
+        margin-top: 0px;
+      }
+      margin-top: 10px;
     }
   }
 
@@ -304,7 +346,7 @@
     background-position: -269px 0; 
     width: 27px; 
     height: 43px;
-    margin: 80px 7% 0 8%;
+    margin: 150px 1% 0 2%;
   }
   
   .radio-input {
@@ -328,6 +370,9 @@
 }
 
 #sortable-di-list, #sortable-di-selected {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   li {
     .delete-white {
       margin: 0 4px 0 4px;
@@ -342,13 +387,20 @@
     &:hover {
       cursor: move;
     }
+    margin: 1px 0;
   }
   
   .ui-state-highlight {  
-    border: 1px dashed #aaa;  
-    height: 24px;  
-    width: 198px;  
+    border: 1px solid #ccc;  
+    height: 20px;  
+    width: auto;  
     background: #ccc;  
+  }
+}
+
+#sortable-di-selected {
+  li {
+    border-left: 5px solid #069DB9;
   }
 }
 
@@ -376,6 +428,13 @@
 .i-star-hollow-white {
   background: url(/assets/glyphicons-halflings-white.png);
   background-position: -144px 0;
+  width: 14px;
+  height: 14px;
+  margin: 8px 4px 8px 0;
+}
+.i-check {
+  background: url(/assets/glyphicons-halflings.png);
+  background-position: -288px 0;
   width: 14px;
   height: 14px;
   margin: 8px 4px 8px 0;
