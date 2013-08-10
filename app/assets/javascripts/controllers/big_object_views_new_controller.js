@@ -91,7 +91,7 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
     title = $('#create-new-view-title').val();
     
     if ($('input[name="measure"]:checked').length > 0) {
-      measure = $('input[name="measure"]:checked').val().capitalize();
+      measure = $('input[name="measure"]:checked').val().toLowerCase();
     }
     
     $('#sortable-di-selected li[class*=option]:lt(3)').each(function(index) {

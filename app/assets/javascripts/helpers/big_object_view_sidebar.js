@@ -1,7 +1,11 @@
 Ember.Handlebars.registerBoundHelper('setSelectedDimensions', function(dimensions) {
   $('.dimension .attribute').removeClass('selected');
   $.each(dimensions, function(index, dimension){
-    $('.dimension .attribute[data-value="'+dimension+'"]').addClass('selected');
+      var stringArray = dimension.split('.');
+      var dim = stringArray[0];
+      var sub = stringArray[1];
+      $('.dimension h4[data-value="'+dim+'"]').siblings().children('[data-value="'+sub+'"]').addClass('selected');
+      //$('.dimension .attribute[data-value="'+sub+'"]').addClass('selected');
   });
   $('.dimension .attribute').each(function () {
     var originString = $(this).text();

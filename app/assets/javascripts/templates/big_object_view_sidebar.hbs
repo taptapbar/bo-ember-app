@@ -5,7 +5,7 @@
     <div class="block">
       {{#each dimension in App.formData.dimensions}}
       <div class="dimension">
-        <h4>{{ dimension.name }}</h4>
+        <h4 {{ bindAttr data-value=dimension.name }}>{{ dimension.name }}</h4>
       
         <div class="attributes">
           {{#each sub in dimension.sub_dimensions}}

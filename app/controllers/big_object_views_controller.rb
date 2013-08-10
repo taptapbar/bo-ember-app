@@ -6,31 +6,31 @@ class BigObjectViewsController < ApplicationController
           'id' => '1',
           'title' => 'Graph',
           'measure' => 'Revenue',
-          'dimensions' => ['Gender', 'Country', 'Age']
+          'dimensions' => ['CATEGORY-A.Gender', 'CATEGORY-B.Country', 'CATEGORY-A.Age']
         },
         { 
           'id' => '2',
           'title' => 'Graph 2',
           'measure' => 'Sales',
-          'dimensions' => ['Income', 'Country']
+          'dimensions' => ['CATEGORY-A.Income', 'CATEGORY-B.Country']
         },
         { 
           'id' => '3',
           'title' => 'Graph 3',
           'measure' => 'Revenue',
-          'dimensions' => ['Continent', 'Age']
+          'dimensions' => ['CATEGORY-B.Continent', 'CATEGORY-B.Age']
         },
         { 
           'id' => '4',
           'title' => 'Graph 4',
           'measure' => 'Cost',
-          'dimensions' => ['Income', 'Age', 'Country']
+          'dimensions' => ['CATEGORY-A.Income', 'CATEGORY-B.Age', 'CATEGORY-B.Country']
         },
         { 
           'id' => '5',
           'title' => 'Graph 5',
           'measure' => 'Sales',
-          'dimensions' => ['Age', 'Continent']
+          'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-B.Continent']
         }
       ]
     }
@@ -45,7 +45,7 @@ class BigObjectViewsController < ApplicationController
           'id'    => "8712861876",
           'title' => "Graph From Server",
             'measure' => 'Revenue',
-            'dimensions' => ['Age', 'dimension-b', 'dimension-c']
+            'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.Income', 'CATEGORY-B.Country']
         }
       }, status: :ok
     end
