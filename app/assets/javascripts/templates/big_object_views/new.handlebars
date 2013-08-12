@@ -10,7 +10,7 @@
         </div>
     
         <div class="sub-step">
-          <h3>(2) Choose the measure you want to see</h3>
+          <h3>(2) Choose the measure</h3>
       
           <div class="half-inner">
             <div class="clearfix">
@@ -36,24 +36,22 @@
     </section>
     <div class="clearfix">
         <div class="filters-container">
-          <div class="filters clearfix">
+          <div class="filters clearfix" style="margin-left: 10px">
             <div class="filter"><a {{ action "showTimescopeModal" this }}>Set Time Scope</a></div>
             <div class="filter"><a {{ action "showFilterModal" this }}>Set Filter</a></div>
           </div>
         </div>
         
         <div class="actions-container">
-          <div class="clearfix">
             <div class="error-message"></div>
-          
-            <div class="action">
-              <button id="create-new-view-reset" type="reset" class="" {{ action "resetForm" this }}>Reset</button>
-              <div class="pull-right">
-                <button class="" {{ action "cancelCreateView" this }}>Cancel</button>
-                <button id="create-new-view-confirm" type="" class="" {{ action "createNewView" this }}>Confirm</button>
+            <div class="actions" style="margin-right: 20px;">
+              <div class="action">
+                <a id="create-new-view-reset" type="reset" class="reset" {{ action "resetForm" this }}>Reset</a>
+                <a class="" {{ action "cancelCreateView" this }}>Cancel</a>
+                <a id="create-new-view-confirm" type="" class="" {{ action "createNewView" this }}>Confirm</a>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
   </div>

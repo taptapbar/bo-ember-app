@@ -12,9 +12,12 @@
       </div>
     </div>
   
-    <div class="actions">
-      <button><a {{ action "deleteObject" this }}>Delete</a></button>
-      <button><a {{ action "saveObject" this }}>Save</a></button>
+    <div class="actions-container">
+      <div class="actions">
+        <div class="action">
+          <a {{ action "deleteObject" this }}>Delete</a>
+          <a {{ action "saveObject" this }}>Save</a>
+      </div>
     </div>
   </div>
 </div>
