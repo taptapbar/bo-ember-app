@@ -96,7 +96,14 @@ App.BigObjectViewsNewRoute = Ember.Route.extend({
   },
   
   renderTemplate: function() {
-    this.render({ outlet: 'big_object_views_new' });
+    var self = this;
+    if (Ember.isNone(App.formData)) {
+      App.Func.fetchDimensionAndMeasureData(function() {
+        self.render({ outlet: 'big_object_views_new' });
+      });
+    } else {
+      self.render({ outlet: 'big_object_views_new' });
+    }
   }
 });
 
