@@ -73,6 +73,7 @@
   width: -webkit-calc(100% - 170px);
   width: -o-calc(100% - 170px);
   width: -moz-calc(100% - 170px);
+  width: -ms-calc(100% - 170px);
   width: calc(100% - 170px);
   
   .tab {
@@ -80,6 +81,7 @@
     width: -webkit-calc(20% - 8px);
     width: -o-calc(20% - 8px);
     width: -moz-calc(20% - 8px);
+    width: -ms-calc(20% - 8px);
     width: calc(20% - 8px);
     display: block;
     height: 25px;
@@ -111,6 +113,7 @@
       width: -webkit-calc(100% - 9px);
       width: -o-calc(100% - 9px);
       width: -moz-calc(100% - 9px);
+      width: -ms-calc(100% - 9px);
       width: calc(100% - 9px);
       line-height: 25px;
       text-align: left;
@@ -386,6 +389,7 @@
   width: -webkit-calc(100% - 20px);
   width: -o-calc(100% - 20px);
   width: -moz-calc(100% - 20px);
+  width: -ms-calc(100% - 20px);
   width: calc(100% - 20px);
   
 }
@@ -428,6 +432,7 @@
       width: -webkit-calc(100% - 320px);
       width: -o-calc(100% - 320px);
       width: -moz-calc(100% - 320px);
+      width: -ms-calc(100% - 320px);
       width: calc(100% - 320px);
       min-width: 600px;
       margin: 0 10px 10px 0;
