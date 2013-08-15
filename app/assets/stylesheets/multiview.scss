@@ -637,6 +637,27 @@
   height: 14px;
   margin: 8px 4px 8px 0;
 }
+.i-arrow-right {
+  background: url(/assets/glyphicons-halflings.png);
+  background-position: -456px -72px;
+  width: 14px;
+  height: 14px;
+  margin: 8px 4px 8px 0;
+}
+.i-arrow-down {
+  background: url(/assets/glyphicons-halflings.png);
+  background-position: -312px -120px;
+  width: 14px;
+  height: 14px;
+  margin: 8px 4px 8px 0;
+}
+
+.inline-text-with-icon {
+  margin: 6px 0px;
+}
+.font-bold {
+  font-weight: bold;
+}
 
 .clickable {
   &:hover {

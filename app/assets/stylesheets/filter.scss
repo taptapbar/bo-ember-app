@@ -11,16 +11,35 @@
   .popup-window {
     position: absolute;
     top: 10%;
-    left: 50%;
+    left: -webkit-calc(50% - 330px);
+    left: -o-calc(50% - 330px);
+    left: -moz-calc(50% - 330px);
+    left: -ms-calc(50% - 330px);
+    left: calc(50% - 330px);
     max-height: 80%;
     overflow: auto;
-    margin: 0 0 0 -20%;
+    //margin: 0 0 0 -20%;
     background-color: #fff;
   }
 }
 
 #filter-window {
-  width: 480px;
+  width: 720px;
+  height: 80%;
+
+  ul.inline-block {
+    li {
+      display: block;
+      float: left;
+      width: 150px;
+      margin: 0 15px 0 0;
+      padding-left: 1px;
+      &:last-child {
+        margin: 0;
+      }
+      overflow-x: hidden;
+    }
+  }
 }
 
 .popup-window-header {
@@ -91,7 +110,7 @@
     border-radius: 0;
     &:-moz-placeholder{color:#3c3c3c;}
     &:-ms-input-placeholder{color:#3c3c3c;}
-    &::-webkit-input-placeholder{color:#3c3c3c;}
+    &:-webkit-input-placeholder{color:#3c3c3c;}
   }
 
   .select {

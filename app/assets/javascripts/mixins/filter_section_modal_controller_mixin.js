@@ -156,13 +156,26 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // return selected filter attributes in hash 
     // ex { dimension-a: [sub-a, sub-b], dimension-b: [sub-c, sub-d] }
     var attributes = {};
+    
+    // get checkboxes values
     $(':checkbox:checked').filter('.option').each(function () {
-      if(attributes[$(this).data('dimension')] === undefined) {
+      if(Ember.isNone(attributes[$(this).data('dimension')])) {
         attributes[$(this).data('dimension')] = [];
       }
       attributes[$(this).data('dimension')].push($(this).val());
     });
-    //console.log("attributes: ", attributes);
+
+    // get autocomplete-select values
+    $('.autocomplete-select').each(function (index, item) {
+      console.log(index, item, $(item).val(), $(this), $(this).val());
+      if(!Ember.isEmpty($(item).val())) {
+        if(Ember.isNone(attributes[$(item).data('dimension')])) {
+          attributes[$(item).data('dimension')] = [];
+        }
+        attributes[$(item).data('dimension')] = $(item).val();
+      }
+    });
+    console.log("attributes: ", attributes);
     return attributes;
   },
   

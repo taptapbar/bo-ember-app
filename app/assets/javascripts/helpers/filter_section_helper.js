@@ -2,27 +2,51 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(filterOption
   function subFilters(filterOption) {
     var subFilters = filterOption.sub_filters;
     var subHtmlStr = "";
-    
-    $.each(subFilters, function(index, subFilter){
-      var checkedHtml = 'checked';
-      if ($.inArray(subFilter, filterValues[filterOption.name]) == -1) {
-        checkedHtml = '';
-      }
-      var subHtml = ['<label class="inline"  class="checkbox">',
+
+    if (subFilters.length <= appConfig.filter.maxFiltersPerColumn*4) {
+      var subHtml = '<ul class="inline-block none-style">';
+      $.each(subFilters, function(index, subFilter){
+        var checkedHtml = 'checked';
+        if ($.inArray(subFilter, filterValues[filterOption.name]) == -1) {
+          checkedHtml = '';
+        }
+        if ((index%appConfig.filter.maxFiltersPerColumn) == 0) {
+          if(index != 0) { subHtml += "</li>"; }
+          subHtml += "<li>";
+        }
+        subHtml += ['<label class="checkbox" title="', subFilter, '">',
                      '<input type="checkbox" name="filter[:dimension][]" class="option" value="', subFilter, 
                          '" data-dimension="', filterOption.name, '" ', checkedHtml, '>', subFilter,
                      '</label>'
                      ].join('');
-      subHtmlStr += subHtml;
-    });
+      });
+      subHtml += "</ul>";
+    }
+
+    else {
+      var subHtml = ['<select class="autocomplete-select" data-dimension="', filterOption.name, '" data-placeholder="Select your options" multiple>'].join('');
+      $.each(subFilters, function(index, subFilter) {
+        var selectedHtml = 'selected';
+        if($.inArray(subFilter, filterValues[filterOption.name]) == -1) {
+          selectedHtml = '';
+        }
+        subHtml += ['<option value="', subFilter, '" data-dimension="', filterOption.name, '" ', selectedHtml, '>',
+                     subFilter, '</option>'].join('');
+      });
+      subHtml += '</select>'
+    }
+
+    subHtmlStr += subHtml;
     return subHtmlStr;
   }
-  
+
+  console.log("filterOption: ", filterOption, "filterValues: ", filterValues );
   // var topLevel = ["<input type='checkbox' name='' class='toggler' value='", filterOption.name, "'>", filterOption.name].join('');
   var secondLevelCss = "display:none;";
+  var topLevelArrow = "i-arrow-right";
   if (!Ember.isNone(filterValues[filterOption.name])) {
-    topLevel = ["<input type='checkbox' name='' class='toggler' value='", filterOption.name, "' checked>", filterOption.name].join('');
     secondLevelCss = '';
+    topLevelArrow = "i-arrow-down"
   }
     
   // var html = ['<div class="clearfix">',
@@ -33,7 +57,7 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(filterOption
   //             '</div>'
   //             ].join('');
 
-  var topLevel = ['<label class="toggler" value="', filterOption.name, '">', filterOption.name, "</label>"].join('');
+  var topLevel = ['<div class="toggler clickable clearfix" data-value="', filterOption.name, '"><div class="', topLevelArrow, ' pull-left"></div><div class="pull-left inline-text-with-icon font-bold">', filterOption.name, "</div></div>"].join('');
   var html = ['<div class="clearfix">',
                 topLevel,
                 '<div class="toggleable-panel" data-panel="', filterOption.name, '" style="', secondLevelCss, '">',

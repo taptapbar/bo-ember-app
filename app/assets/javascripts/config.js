@@ -64,6 +64,10 @@ var appConfig = {
 		// :id is a variable which will be replaced by a real id when fetching filter_list at runtime
 		filterListURL: "big_object_views/:id/filter_list"
 
+	},
+
+	filter: {
+		maxFiltersPerColumn: 7
 	}
 
 		
