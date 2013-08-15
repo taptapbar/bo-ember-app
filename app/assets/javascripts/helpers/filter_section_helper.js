@@ -18,15 +18,24 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(filterOption
     return subHtmlStr;
   }
   
-  var topLevel = ["<input type='checkbox' name='' class='toggler' value='", filterOption.name, "'>", filterOption.name].join('');
+  // var topLevel = ["<input type='checkbox' name='' class='toggler' value='", filterOption.name, "'>", filterOption.name].join('');
   var secondLevelCss = "display:none;";
-  if (filterValues[filterOption.name] !== undefined) {
+  if (!Ember.isNone(filterValues[filterOption.name])) {
     topLevel = ["<input type='checkbox' name='' class='toggler' value='", filterOption.name, "' checked>", filterOption.name].join('');
     secondLevelCss = '';
   }
     
+  // var html = ['<div class="clearfix">',
+  //               '<label class="checkbox">', topLevel, '</label>',
+  //               '<div class="toggleable-panel" data-panel="', filterOption.name, '" style="', secondLevelCss, '">',
+  //                 subFilters(filterOption),
+  //               '</div>',
+  //             '</div>'
+  //             ].join('');
+
+  var topLevel = ['<label class="toggler" value="', filterOption.name, '">', filterOption.name, "</label>"].join('');
   var html = ['<div class="clearfix">',
-                '<label class="checkbox">', topLevel, '</label>',
+                topLevel,
                 '<div class="toggleable-panel" data-panel="', filterOption.name, '" style="', secondLevelCss, '">',
                   subFilters(filterOption),
                 '</div>',

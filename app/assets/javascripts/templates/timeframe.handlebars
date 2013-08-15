@@ -42,7 +42,11 @@
 
                   <div id="timeframe-cycle-all-panel" name="cycle-panel">
                     <!-- timeframe-cycle-all-panel -->
-                    Default : Selected all data
+                    Default : All data selected
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                   </div>
                   
                   <div id="timeframe-cycle-week-panel" name="cycle-panel" style="display:none;">
@@ -148,10 +152,17 @@
         </form>
   		</div>
   	</div>
-  	<div class="popup-window-footer">
-    	<button class="btn-popup " {{ action "resetTimeScope" this }}>Reset</button>
-    	<button type="submit" class="btn-popup pull-right" {{ action "confirmTimeScope" this }}>Confirm</button>
-    	<button class="btn-popup pull-right" {{ action "closeModalView" this }}>Cancel</button>
-  </div>
+    
+    <div class="popup-window-footer actions-container clearfix">
+      <div class="error-message"></div>
+      <div class="actions" style="margin-right: 20px;">
+        <div class="action">
+          <a id="create-new-view-reset" type="reset" class="reset" {{ action "resetTimeScope" this }}>Reset</a>
+          <a class="" {{ action "closeModalView" this }}>Cancel</a>
+          <a id="create-new-view-confirm" type="" class="" {{ action "confirmTimeScope" this }}>Confirm</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

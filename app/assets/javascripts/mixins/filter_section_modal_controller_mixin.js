@@ -69,6 +69,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // save into time_scope property
     model.set('timescope', attributes);
     console.log('confirmTimeScope: ', model.get('timescope'));
+    this.rerenderChart(model.get('id'));
     this.closeModalView();
   },
   
@@ -81,6 +82,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // save into filter property
     model.set('filters', attributes);
     console.log('confirmFilter: ', model.get('filters'));
+    this.rerenderChart(model.get('id'));
     this.closeModalView();
   },
   
@@ -190,5 +192,20 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
       console.log(filters);
       // bind the filters attributes to the current modal
     }
+  },
+
+  rerenderChart: function(id) {
+    console.log('rerender chart: ', id);
+    var chartGenerator = new App.ChartGenerator();
+    var view = App.BigObjectView.findLocallyAndRemotely(id);
+    view.fetchChartData(id).then(function (chartData) {
+          chartGenerator.render('highchart', 
+                                'column', 
+                                chartData.get('dataValues'), 
+                                chartData.get('categories'),
+                                chartData.get('params'), 
+                                view.get('title'), 
+                                view.get('measure'))
+    });
   },
 });

@@ -23,10 +23,17 @@
 
       </form>
     </div>
-    <div class="popup-window-footer">
-      <button class="btn-popup" {{ action "resetFilter" this }}>Reset</button>
-      <button type="submit" class="btn-popup pull-right" {{ action "confirmFilter" this }}>Confirm</button>
-      <button class="btn-popup pull-right" {{ action "closeModalView" this }}>Cancel</button>
+
+    <div class="popup-window-footer actions-container clearfix">
+      <div class="error-message"></div>
+      <div class="actions" style="margin-right: 20px;">
+        <div class="action">
+          <a id="create-new-view-reset" type="reset" class="reset" {{ action "resetFilter" this }}>Reset</a>
+          <a class="" {{ action "closeModalView" this }}>Cancel</a>
+          <a id="create-new-view-confirm" type="" class="" {{ action "confirmFilter" this }}>Confirm</a>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
