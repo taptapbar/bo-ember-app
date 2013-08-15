@@ -86,7 +86,18 @@ App.BigObjectView = DS.Model.extend({
 });
 
 App.BigObjectView.reopenClass({
-  localObjects: {},
+  localObjects : {},
+  tempObject   : null,
+  
+  setTempObject: function(newObject) {
+    this.tempObject = newObject;
+  },
+  
+  deleteTempObject: function() {
+    if (!Ember.isNone(this.tempObject) && Ember.isNone(this.tempObject.get('id'))) {
+      this.tempObject.deleteRecord();
+    }
+  },
   
   deleteLocally: function(objectId) {
     this.localObjects[objectId] = undefined;

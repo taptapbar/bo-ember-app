@@ -69,6 +69,8 @@ App.BigObjectViewRoute = Ember.Route.extend({
   },
   
   renderBigObjectView: function() {
+    App.BigObjectView.deleteTempObject();
+    
     console.log('renderBigObjectView');
     this.render('bigObjectView', {   // the template to render
       into: 'big_object_views',      // the template to render into
@@ -88,6 +90,8 @@ App.BigObjectViewsNewRoute = Ember.Route.extend({
     var newObject = App.BigObjectView.createRecord();
     newObject.set('filters', {});
     newObject.set('timescope', {});
+    
+    App.BigObjectView.setTempObject(newObject);
     return newObject;
   },
   
