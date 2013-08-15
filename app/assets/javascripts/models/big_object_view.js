@@ -95,7 +95,12 @@ App.BigObjectView.reopenClass({
   
   deleteTempObject: function() {
     if (!Ember.isNone(this.tempObject) && Ember.isNone(this.tempObject.get('id'))) {
-      this.tempObject.deleteRecord();
+      try {
+        this.tempObject.deleteRecord();
+        this.tempObject = null;
+      } catch (err) {
+        // just skip when deleteRecord throws error
+      }
     }
   },
   

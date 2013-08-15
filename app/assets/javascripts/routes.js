@@ -40,6 +40,7 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     //    this.transitionTo('big_object_view', bigObjectView);
     //  }
     //});
+    App.BigObjectView.deleteTempObject();
     
     App.Func.fetchDimensionAndMeasureData(function() {});
     var bigObjectView = App.BigObjectView.find({ limit: 1 });
@@ -58,6 +59,8 @@ App.BigObjectViewRoute = Ember.Route.extend({
   },
   
   renderTemplate: function() {
+    App.BigObjectView.deleteTempObject();
+    
     var self = this;
     if (Ember.isNone(App.formData)) {
       App.Func.fetchDimensionAndMeasureData(function() {
@@ -69,8 +72,6 @@ App.BigObjectViewRoute = Ember.Route.extend({
   },
   
   renderBigObjectView: function() {
-    App.BigObjectView.deleteTempObject();
-    
     console.log('renderBigObjectView');
     this.render('bigObjectView', {   // the template to render
       into: 'big_object_views',      // the template to render into
