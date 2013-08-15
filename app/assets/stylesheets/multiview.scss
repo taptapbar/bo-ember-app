@@ -47,6 +47,7 @@
       &.selected {
         background-color: #e7e7e7;
         border-left: 3px solid #069DB9;
+        padding-left: 22px;
       }
     }
     li.attribute {
@@ -314,13 +315,27 @@
 
 
 .actions-container {
+  float: right;
+  
   .error-message {
+    display: none;
     float: left;
-    line-height: 28px;
     color: #f55;
+    font-size: 16px;
+    margin: -5px 10px 0 0;
+    background: #f6f6f6;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
   }
   .actions {
     float: right;
+    margin-right: 20px;
+    
     .action {
       a {
         color: #fff;
@@ -392,12 +407,17 @@
   }
   
   h3 {
-    color: #000;
+    color: #fff;
     background-color: #7792a2;
     font-size: 14px;
     font-weight: normal;
     line-height: 23px;
     padding: 0 10px 2px;
+    
+    .step-num {
+      font-size: 14px;
+      margin: 0 3px 0 3px;
+    }
   }
   
   .sub-step {
@@ -417,11 +437,11 @@
     height: 460px;
     
     .inner {
-      margin: 20px 5%;
+      margin: 20px 3%;
     }
 
     .half-inner {
-      padding: 20px 10px;
+      padding: 8px 13px;
       height: 300px;
       overflow-y: auto;
     }
@@ -455,6 +475,7 @@
       &[data-sub]:hover {
         background-color: #169ca1;
         border-left: 5px solid #066F83;
+        padding: 0 0 0 5px;
       }
       
       .sub-name {
@@ -556,10 +577,14 @@
     cursor: pointer;
   }
 }
-#sortable-di-selected {
+#sortable-di-selected.selected-options {
   li {
     border-left: 5px solid #069DB9;
     cursor: move;
+    
+    &.option {
+      padding: 0 0 0 5px;
+    }
   }
 }
 

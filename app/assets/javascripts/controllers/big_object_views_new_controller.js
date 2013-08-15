@@ -18,7 +18,7 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
       // console.log('Model: ', model);
       this.transitionToRoute('big_object_view', model);
     } else {
-      $('#create-new-view-container .error-message').html(result.message);
+      $('#create-new-view-container .error-message').html(result.message).show();
       return false;
     }
   },
@@ -80,7 +80,7 @@ App.BigObjectViewsNewController = Ember.ObjectController.extend(App.FilterSectio
       this.reset();
     });
     
-    $('#create-new-view-container .error-message').html('');
+    $('#create-new-view-container .error-message').html('').hide();
   },
   
   getFormAttributes: function() {

@@ -5,12 +5,12 @@
       
       <form>
         <div class="sub-step">
-          <h3>(1) Select up to 3 dimensions</h3>
+          <h3><span class="step-num">1.</span> Select up to 3 dimensions</h3>
           {{ view App.SelectDimensionsView }}
         </div>
     
         <div class="sub-step">
-          <h3>(2) Choose the measure</h3>
+          <h3><span class="step-num">2.</span> Choose the measure</h3>
       
           <div class="half-inner">
             <div class="clearfix">
@@ -21,11 +21,11 @@
               {{/each}}
             </div>
           </div>
-          <h3>(3) Name this view</h3>
+          <h3><span class="step-num">3.</span> Name this view</h3>
 
           <div class="half-inner">
             <div class="clearfix">
-              Title : 
+              Title: 
               <input id="create-new-view-title" type="text" name="title" value="" placeholder="Name the view..." style="width: 190px">
             </div>
           </div>
@@ -44,7 +44,7 @@
         
         <div class="actions-container">
             <div class="error-message"></div>
-            <div class="actions" style="margin-right: 20px;">
+            <div class="actions">
               <div class="action">
                 <a id="create-new-view-reset" type="reset" class="reset" {{ action "resetForm" this }}>Reset</a>
                 <a class="" {{ action "cancelCreateView" this }}>Cancel</a>
