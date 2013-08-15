@@ -59,7 +59,7 @@ class BigObjectViewsController < ApplicationController
           'id'    => request_id,
           'title' => "Graph #{request_id}",
             'measure' => 'Revenue',
-            'dimensions' => ['Age', 'dimension-b', 'dimension-c']
+            'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.dimension-b', 'CATEGORY-A.dimension-c']
         }
       }
     else
