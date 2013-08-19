@@ -1,5 +1,16 @@
-Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(filterOption, filterValues) {
+Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseFilterOption, filterValues) {
+  
+  // parse the filter format from {"CATEGORY-C": ['sub-a','sub-b','sub-c', 'sub-d']}
+  // to { name: 'Dimension-C', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d']}
+  var filterOption = {};
+  $.each(beforeParseFilterOption, function (index, value) { 
+    console.log("index: ", index, "value: ", value);
+    filterOption['name'] = index;
+    filterOption['sub_filters'] = value;
+  });
+
   function subFilters(filterOption) {
+
     var subFilters = filterOption.sub_filters;
     var subHtmlStr = "";
 
