@@ -34,11 +34,39 @@ App.ChartGenerator = Ember.Object.extend({
         // insert other params here
       });
     }
-    console.log("params: ", params)
+    // add redraw callback to move stacklabels to the top
+    chart.set('chart.events', {
+      redraw: function(event) {
+        moveStacklabels("bottom");
+      },
+      load: function(event) {
+        moveStacklabelsInterval = window.setInterval(function() { moveStacklabels("bottom"); }, 400);
+      }
+    });
+    console.log("params: ", params);
     console.log(chart);
     return new Highcharts.Chart(chart);
   }
 });
+
+// javascript function for moving stacklabels
+var moveStacklabelsInterval;
+function moveStacklabels(position) {
+  if (true) {
+    $("g.highcharts-stack-labels").children('text').each(function(index) {
+      var transformStringArray = $(this).attr('transform').split(' ');
+      var y = parseInt($(this).attr('y')) + 20;
+      if(transformStringArray.indexOf("rotate") == -1) {
+        transformStringArray[transformStringArray.length-1] = y + ')';
+        $(this).attr('y', y).attr('transform', transformStringArray.join(' '));
+      }
+      else { $(this).attr('y', y); }
+    });
+    window.clearInterval(moveStacklabelsInterval);
+    //changeTimes += 1;
+  }
+  // else {window.clearInterval(moveStacklabelsInterval);}
+};
 
 // Configs
 App.ChartConfig = Ember.Object.create({
@@ -47,6 +75,7 @@ App.ChartConfig = Ember.Object.create({
   chartType: null,
   series: null,
   categories: null,
+  colors: null,
   initialize: function(data) {
     var chart, title, xAxis, measure;
     var minHeight = appConfig.chartSettings.chart.minHeight;
@@ -70,17 +99,18 @@ App.ChartConfig = Ember.Object.create({
     title = {
       text: this.get('title')
     };
+    colors = appConfig.chartSettings.colors;
     this.set('chart', chart);
     this.set('xAxis', xAxis);
     this.set('yAxis', yAxis);
     this.set('title', title);
+    this.set('colors', colors);
     //implement this function in individual place such as App.ColumnChartConfig
     this.chartTypeRelatedSettings(data);
   },
   credits: {
     enabled: false
-  },
-  colors: ["#2f69bf", "#a2bf2f", "#bf5a2f", "#bfa22f", "#772fbf", "#bf2f2f", "#00337f", "#657f00", "#7f2600", "#7f6500"]
+  }
 });
 
 App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
@@ -98,7 +128,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
       tooltip = {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                      '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                      '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true
@@ -152,15 +182,21 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
       // set the stacked colum label to the first charactor of stack name
       this.set('yAxis.stackLabels', {
         enabled: true,
+        rotation: appConfig.chartSettings.stackLabels.rotation,
+        textAlign: "right",
+        verticalAlign: "bottom",
         style: {
-            fontWeight: 'bold',
-            color: 'gray',
+            'font-size': '10px',
+            color: appConfig.chartSettings.stackLabels.color,
         },
         formatter: function() {
-            return  this.stack.slice(0,1).capitalize();
+            return  this.stack.slice(0,6).capitalize();
         }
       })
       console.log("yAxis: ", yAxis);
+
+      // move xAxis lower to put stackLabels at the bottom
+      this.set('xAxis.offset', 45);
     }
 
     //set the limit of how many series(columns) will be see 
