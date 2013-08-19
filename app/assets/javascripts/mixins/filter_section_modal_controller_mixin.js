@@ -38,7 +38,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
       console.log("listData: ", listData);
       if (Ember.isNone(self.get('model').get('filters.filter_content'))) { self.get("model").set('filters.filter_content', {}).set('filters.filter_method', ""); }
       var filterValues = self.get("model").get('filters.filter_content');
-      var filterMethod = self.get('model').get('filters.filter_method')
+      var filterMethod = self.get('model').get('filters.filter_method');
       modalView = App.FilterModalView.create({
           controller: self,
           baseView: self.get('view'),
@@ -195,10 +195,26 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   },
   
   resetFilter: function() {
-    console.log("resetFilter");
+    //console.log("resetFilter");
+
     $('#filter-window form').each(function (index) {
+      console.log("reset: ", this)
+      // unchosen all autocomplete select, 
+      $(".autocomplete-select").chosen('destroy');
+      // reset the form
       this.reset();
+      //initialize the autocomplete select again
+      $(".autocomplete-select").on('chosen:showing_dropdown', function(evt, params) {
+        console.log(evt, params);
+      }).on('chosen:hiding_dropdown', function(evt, params) {
+        console.log(evt, params);
+      }).chosen({
+        width: "500px",
+        no_results_text: "Oops, nothing found!",
+      });
     });
+    resetFilterModal(this.get('model').get('filters.filter_method'))
+
   },
 
   bindFilterDataToCurrentModal: function() {

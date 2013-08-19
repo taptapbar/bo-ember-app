@@ -23,10 +23,14 @@ App.FilterModalView = Ember.View.extend({
     });
 
     // bind filterMethod value to the radio buttons
-    $('input[name="filter-method"][value="'+this.filterMethod+'"]').prop('checked', true);
-    console.log("filter-method: ", $('input[name="filter-method"][value="'+this.filterMethod+'"]'));
+    resetFilterModal(this.filterMethod);
   }
 });
+
+function resetFilterModal(filterMethod) {
+  $('input[name="filter-method"][value="'+filterMethod+'"]').prop('checked', true);
+  console.log("filter-method: ", $('input[name="filter-method"][value="'+filterMethod+'"]'));
+};
 
 $(document).on('click', "#filter-window div[class*='toggler']", function() {
 	//console.log('checkbox clicked');
