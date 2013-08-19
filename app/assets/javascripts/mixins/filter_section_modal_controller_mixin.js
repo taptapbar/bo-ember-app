@@ -148,7 +148,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
         break;
     };
     
-    return { "time_scope": timeScope };
+    return timeScope;
     //return { 'timescopeA': true, 'timescopeB': false };
   },
   
@@ -196,6 +196,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   bindFilterDataToCurrentModal: function() {
     var filters        = this.get('model').get('filters');
     var isFiltersEmpty = Ember.isEmpty(Ember.keys(filters));
+    console.log("filters: ", filters);
     console.log("bindFilterDataToCurrentModal");
     console.log("isFiltersEmpty: ", isFiltersEmpty);
     if(isFiltersEmpty){

@@ -100,8 +100,8 @@ class BigObjectViewsController < ApplicationController
       'filter_list' => [
         { name: 'Dimension-A', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e','sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e']},
         { name: 'Dimension-B', sub_filters: ['sub-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o','sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o']},
-        { name: 'Dimension-C', sub_filters: ['sub-a', 'sub-b', 'sub-c', 'sub-d']},
-        { name: 'Dimension-D', sub_filters: ['sub-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o','sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o']},
+        { name: 'Dimension-C', sub_filters: ['subaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-a', 'sub-b', 'sub-c', 'sub-d']},
+        { name: 'Dimension-D', sub_filters: ['sub-', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o','sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o']},
         { name: 'Dimension-E', sub_filters: ['sub-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j', 'sub-k', 'sub-l', 'sub-m', 'sub-n', 'sub-o','sub-a', 'sub-b', 'sub-c', 'sub-d', 'sub-e', 'sub-f', 'sub-g', 'sub-h', 'sub-i', 'sub-j']}
       ]
     }

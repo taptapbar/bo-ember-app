@@ -62,7 +62,9 @@ var appConfig = {
 
 		//Request the filter_list for rendering filter fields
 		// :id is a variable which will be replaced by a real id when fetching filter_list at runtime
-		filterListURL: "big_object_views/:id/filter_list"
+		filterListURL: "big_object_views/:id/filter_list",
+
+		zkURL: "multiview/:id/zk"
 
 	},
 

@@ -22,5 +22,23 @@ App.BigObjectViewController = Ember.ObjectController.extend(App.FilterSectionMod
       model.deleteRecord();
       this.transitionToRoute('big_object_views.index');
     }
+  },
+
+  showZkPage: function() {
+    console.log('showZkPage');
+    var model       = this.get('model');
+    var id          = model.get('id');
+    var requestURI  = [appConfig.store.adapter.URL, 
+                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.zkURL.replace(":id", id), '.json'].join('');
+    return $.getJSON(requestURI).then(
+      function(response) {
+        // fetching succeeded
+        console.log("showZkPage succeeded");
+      },
+      function(error) {
+        // fetching failed
+        console.log("showZkPage failed");
+      }
+    );
   }
 });
