@@ -36,15 +36,19 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     var self = this;
     this.get('model').fetchFilterList().then(function (listData) {
       console.log("listData: ", listData);
+      if (Ember.isNone(self.get('model').get('filters.filter_content'))) { self.get("model").set('filters.filter_content', {}).set('filters.filter_method', ""); }
+      var filterValues = self.get("model").get('filters.filter_content');
+      var filterMethod = self.get('model').get('filters.filter_method')
       modalView = App.FilterModalView.create({
           controller: self,
           baseView: self.get('view'),
           model: self.get('model'),
           filterList: listData.filter_list,
-          filterValues: self.get('model').get('filters')
+          filterValues: filterValues,
+          filterMethod: filterMethod
       });
       
-      console.log('showFilterModal: ', self.get('model').get('filters'));
+      console.log('showFilterModal: ', filterValues);
       self.showModalView(modalView);
       self.bindFilterDataToCurrentModal();
     });
@@ -76,11 +80,11 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   confirmFilter: function() {
     // grab attributes
     var model      = this.get('model');
-    var attributes = this.getFilterFormAttributes();
-    console.log("filters: ", attributes);
+    var filters = this.getFilterFormAttributes();
+    console.log("filters: ", filters);
     
     // save into filter property
-    model.set('filters', attributes);
+    model.set('filters', filters);
     console.log('confirmFilter: ', model.get('filters'));
     this.rerenderChart(model.get('id'));
     this.closeModalView();
@@ -156,6 +160,10 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     // return selected filter attributes in hash 
     // ex { dimension-a: [sub-a, sub-b], dimension-b: [sub-c, sub-d] }
     var attributes = {};
+    var filterMethod;
+
+    // get filterMethod value
+    filterMethod = $('input[name=filter-method]:checked').val()
     
     // get checkboxes values
     $(':checkbox:checked').filter('.option').each(function () {
@@ -176,7 +184,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
       }
     });
     console.log("attributes: ", attributes);
-    return attributes;
+    return { 'filter_method': filterMethod,  'filter_content': attributes };
   },
   
   resetTimeScope: function() {
@@ -194,10 +202,9 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   },
 
   bindFilterDataToCurrentModal: function() {
-    var filters        = this.get('model').get('filters');
+    var filters        = this.get('model').get('filters.filter_content');
     var isFiltersEmpty = Ember.isEmpty(Ember.keys(filters));
-    console.log("filters: ", filters);
-    console.log("bindFilterDataToCurrentModal");
+    var filterMethod   = this.get('model').get('filters.filter_method')
     console.log("isFiltersEmpty: ", isFiltersEmpty);
     if(isFiltersEmpty){
       console.log("filters is empty");

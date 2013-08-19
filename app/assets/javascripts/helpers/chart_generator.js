@@ -40,7 +40,8 @@ App.ChartGenerator = Ember.Object.extend({
         moveStacklabels("bottom");
       },
       load: function(event) {
-        moveStacklabelsInterval = window.setInterval(function() { moveStacklabels("bottom"); }, 400);
+        stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'))
+        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
       }
     });
     console.log("params: ", params);
@@ -50,9 +51,9 @@ App.ChartGenerator = Ember.Object.extend({
 });
 
 // javascript function for moving stacklabels
-var moveStacklabelsInterval;
+var stackLabelsOriginY;
 function moveStacklabels(position) {
-  if (true) {
+  if(parseInt($("g.highcharts-stack-labels").children('text').first().attr('y')) < stackLabelsOriginY + 20) {
     $("g.highcharts-stack-labels").children('text').each(function(index) {
       var transformStringArray = $(this).attr('transform').split(' ');
       var y = parseInt($(this).attr('y')) + 20;
@@ -62,10 +63,7 @@ function moveStacklabels(position) {
       }
       else { $(this).attr('y', y); }
     });
-    window.clearInterval(moveStacklabelsInterval);
-    //changeTimes += 1;
   }
-  // else {window.clearInterval(moveStacklabelsInterval);}
 };
 
 // Configs

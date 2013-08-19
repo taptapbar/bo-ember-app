@@ -5,12 +5,14 @@ App.FilterModalView = Ember.View.extend({
   model: null,
   filterList: null,
   filterValues: null,
+  filterMethod: null,
 
   close: function() {
     this.destroy();
   },
 
   didInsertElement: function() {
+    // initialize autocomplete select after all elements are loaded
     $(".autocomplete-select").on('chosen:showing_dropdown', function(evt, params) {
       console.log(evt, params);
     }).on('chosen:hiding_dropdown', function(evt, params) {
@@ -19,6 +21,10 @@ App.FilterModalView = Ember.View.extend({
       width: "500px",
       no_results_text: "Oops, nothing found!",
     });
+
+    // bind filterMethod value to the radio buttons
+    $('input[name="filter-method"][value="'+this.filterMethod+'"]').prop('checked', true);
+    console.log("filter-method: ", $('input[name="filter-method"][value="'+this.filterMethod+'"]'));
   }
 });
 
