@@ -62,13 +62,9 @@ App.BigObjectViewRoute = Ember.Route.extend({
     App.BigObjectView.deleteTempObject();
     
     var self = this;
-    if (Ember.isNone(App.formData)) {
-      App.Func.fetchDimensionAndMeasureData(function() {
-        self.renderBigObjectView();
-      });
-    } else {
+    App.Func.fetchDimensionAndMeasureData(function() {
       self.renderBigObjectView();
-    }    
+    });  
   },
   
   renderBigObjectView: function() {
@@ -98,13 +94,9 @@ App.BigObjectViewsNewRoute = Ember.Route.extend({
   
   renderTemplate: function() {
     var self = this;
-    if (Ember.isNone(App.formData)) {
-      App.Func.fetchDimensionAndMeasureData(function() {
-        self.render({ outlet: 'big_object_views_new' });
-      });
-    } else {
+    App.Func.fetchDimensionAndMeasureData(function() {
       self.render({ outlet: 'big_object_views_new' });
-    }
+    });
   }
 });
 

@@ -25,15 +25,21 @@ Ember.Handlebars.registerBoundHelper('setSelectedMeasure', function(measure) {
 
 App.Func = {
   fetchDimensionAndMeasureData: function(callback) {
-    var requestURI = [appConfig.store.adapter.URL, 
-                      '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.dimensionsAndMeasuresURL, '.json'].join('');
-    $.getJSON(requestURI, function(data) {
-      formData = data;
-      Ember.set('App.formData', formData);
+    if (Ember.isNone(App.formData)) {    
+      var requestURI = [appConfig.store.adapter.URL, 
+                        '/', appConfig.store.adapter.namespace, '/', appConfig.multiview.dimensionsAndMeasuresURL, '.json'].join('');
+      $.getJSON(requestURI, function(data) {
+        formData = data;
+        Ember.set('App.formData', formData);
       
+        if (callback !== undefined) {
+          callback();
+        }
+      })
+    } else {
       if (callback !== undefined) {
         callback();
       }
-    })
+    }
   }
 }
