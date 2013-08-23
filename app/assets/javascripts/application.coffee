@@ -2,6 +2,7 @@
 #= require jquery
 #= require jquery-ui
 #= require handlebars
+#= require chosen.jquery
 #= require ember
 #= require ember-data
 #= require highstock

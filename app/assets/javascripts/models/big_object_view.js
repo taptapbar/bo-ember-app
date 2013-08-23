@@ -65,6 +65,22 @@ App.BigObjectView = DS.Model.extend({
   didUpdate: function() {
     console.log('didUpdate');
   },
+  
+  rerenderChart: function() {
+    var modelId = this.get('id');
+    console.log('rerender chart: ', modelId);
+    var chartGenerator = new App.ChartGenerator();
+    var view = App.BigObjectView.findLocallyAndRemotely(modelId);
+    view.fetchChartData(modelId).then(function (chartData) {
+          chartGenerator.render('highchart', 
+                                'column', 
+                                chartData.get('dataValues'), 
+                                chartData.get('categories'),
+                                chartData.get('params'), 
+                                view.get('title'), 
+                                view.get('measure'))
+    });
+  },
 
   getCurrentAttrs: function(objectId) {
     model = App.BigObjectView.findLocallyAndRemotely(objectId);
