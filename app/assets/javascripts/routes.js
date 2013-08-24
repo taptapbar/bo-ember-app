@@ -43,13 +43,17 @@ App.BigObjectViewsIndexRoute = Ember.Route.extend({
     App.BigObjectView.deleteTempObject();
     
     App.Func.fetchDimensionAndMeasureData(function() {});
-    var bigObjectView = App.BigObjectView.find({ limit: 1 });
-    bigObjectView.one('didLoad', this, function () {
-      var firstObject = this.modelFor('big_object_views').get('firstObject');
-      if (!Ember.isNone(firstObject)) {
-        this.transitionTo('big_object_view', firstObject);   
-      }
-    });
+      
+    var firstObject = this.modelFor('big_object_views').get('firstObject');
+    if (!Ember.isNone(firstObject)) {
+      this.transitionTo('big_object_view', firstObject);   
+    } else {
+      var bigObjectView = App.BigObjectView.find({ limit: 1 });
+      bigObjectView.one('didLoad', this, function () {
+        var firstObject = this.modelFor('big_object_views').get('firstObject');
+        this.transitionTo('big_object_view', firstObject);
+      });
+    }
   }
 });
 
