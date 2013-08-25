@@ -41,6 +41,7 @@ App.ChartGenerator = Ember.Object.extend({
       },
       load: function(event) {
         stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'))
+        $("g.highcharts-stack-labels").attr('display', 'none');
         window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
       }
     });
@@ -64,6 +65,7 @@ function moveStacklabels(position) {
       else { $(this).attr('y', y); }
     });
   }
+  $("g.highcharts-stack-labels").attr('display', 'block');
 };
 
 // Configs
