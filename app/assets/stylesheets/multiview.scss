@@ -340,13 +340,14 @@
   }
   .actions {
     float: right;
-    margin-right: 20px;
+    //margin-right: 20px;
     
     .action {
       a {
         color: #fff;
         font-size: 16px;
-        background-color: #0f6b93;
+        //background-color: #1794CA;
+        background-color: #186EEE;
         margin: 0 10px 0 0;
         &:last-child {
           margin: 0 5px 0 0;
@@ -373,12 +374,43 @@
         transition: border-bottom 0.1s linear, background-color 0.5s ease;
       
         &:hover {
-          background-color: #1794CA;
-          border-bottom: 2px solid #0f6b93;
+          //background-color: #0f6b93;
+          background-color: #1555B4;
+          //border-bottom: 2px solid #1794CA;
         }
 
         &.reset {
           margin-right: 40px;
+        }
+
+        &.btn-delete {
+          background-color: #DD0D0D;
+
+          -webkit-transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -moz-transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -o-transition: border-bottom 0.1s linear, border-bottom 0.5s linear;
+          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.5s ease;
+          transition: border-bottom 0.1s linear, background-color 0.5s ease;
+
+          &:hover {
+            background-color: #AA0909;
+            //border-bottom: 2px solid #DD0D0D;
+          }
+        }
+
+        &.btn-reset {
+          background-color: #F78000;
+
+          -webkit-transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -moz-transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -o-transition: border-bottom 0.1s linear, border-bottom 0.5s linear;
+          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.5s ease;
+          transition: border-bottom 0.1s linear, background-color 0.5s ease;
+
+          &:hover {
+            background-color: #D37005;
+            //border-bottom: 2px solid #F78000;
+          }
         }
       }
     }
@@ -671,4 +703,8 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.new-bo-btns {
+  margin-right: 20px;
 }

@@ -155,10 +155,10 @@
     
     <div class="popup-window-footer actions-container clearfix">
       <div class="error-message"></div>
-      <div class="actions" style="margin-right: 20px;">
+      <div class="actions">
         <div class="action">
-          <a id="create-new-view-reset" type="reset" class="reset" {{ action "resetTimeScope" this }}>Reset</a>
-          <a class="" {{ action "closeModalView" this }}>Cancel</a>
+          <a id="create-new-view-reset" type="reset" class="reset btn-reset" {{ action "resetTimeScope" this }}>Reset</a>
+          <a class="btn-delete" {{ action "closeModalView" this }}>Cancel</a>
           <a id="create-new-view-confirm" type="" class="" {{ action "confirmTimeScope" this }}>Confirm</a>
         </div>
       </div>
