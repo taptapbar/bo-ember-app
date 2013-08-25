@@ -27,9 +27,12 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   showTimescopeModal: function() {
     modalView = App.TimeframeModalView.create({
         controller: this,
-        baseView: this.get('view')
+        baseView: this.get('view'),
+        model: this.get('model'),
+        timescope: this.get('model').get('timescope'),
       });
     this.showModalView(modalView);
+    this.bindTimescopeDataToCurrentModal();
   },
   
   showFilterModal: function() {
@@ -105,7 +108,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
         break;
       case ('week'):
         cycle.repeat.type = "week";
-        cycle.repeat.number = $("input[name=timeframe-cycle-week-repeat-number]").val();
+        cycle.repeat.number = $("#timeframe-cycle-week-repeat-number").val();
         cycle.calendar.weekdays = {};
         cycle.calendar.weekdays.selected_days = $("input[name=timeframe-cycle-week-weekdays-checkbox]:checkbox:checked").map(function () {
           return this.value;
@@ -113,10 +116,10 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
         break;
       case ('month'):
         cycle.repeat.type = "month";
-        if ($("#timeframe-cycle-month-radio-1").is(':checked')) {
+        if ($('#timeframe-container input[type="radio"][name="cycle-month"][value="1"]').is(':checked')) {
           cycle.calendar.days = {};
           cycle.calendar.days.number = $("#timeframe-cycle-month-select-1 option:selected").val();
-          cycle.repeat.number = $("input[name=timeframe-cycle-month-repeat-number-1]").val();
+          cycle.repeat.number = $("#timeframe-cycle-month-repeat-number-1").val();
         }
         else {
           cycle.calendar.weekdays = {};
@@ -124,18 +127,18 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
           cycle.calendar.weekdays.selected_days = $("#timeframe-cycle-month-select-3 option:selected").map(function () {
             return this.value;
           }).get();
-          cycle.repeat.number = $("input[name=timeframe-cycle-month-repeat-number-2]").val();
+          cycle.repeat.number = $("#timeframe-cycle-month-repeat-number-2").val();
         }
         break;
       case ('year'):
         cycle.repeat.type = "year";
-        if ($("#timeframe-cycle-year-radio-1").is(':checked')) {
+        if ($('#timeframe-container input[type="radio"][name="cycle-year"][value="1"]').is(':checked')) {
           cycle.calendar.months = {};
-          cycle.calendar.months.number = $("#timeframe-cycle-year-select-1 option:selected").val();
-          cycle.calendar.months.selected_months = $("#timeframe-cycle-year-select-2 option:selected").map(function () {
+          cycle.calendar.months.selected_months = $("#timeframe-cycle-year-select-1 option:selected").map(function () {
             return this.value;
           }).get();
-          cycle.repeat.number = $("input[name=timeframe-cycle-year-repeat-number-1]").val();
+          cycle.calendar.months.number = $("#timeframe-cycle-year-select-2 option:selected").val();
+          cycle.repeat.number = $("#timeframe-cycle-year-repeat-number-1").val();
         }
         else {
           cycle.calendar.weekdays = {};
@@ -147,7 +150,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
           cycle.calendar.months.selected_months = $("#timeframe-cycle-year-select-5 option:selected").map(function () {
             return this.value;
           }).get();
-          cycle.repeat.number = $("input[name=timeframe-cycle-year-repeat-number-2]").val();
+          cycle.repeat.number = $("#timeframe-cycle-year-repeat-number-2").val();
         }
         break;
     };
@@ -192,6 +195,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     $('#filter-window form').each(function (index) {
       this.reset();
     });
+    bindTimescopeDataToCurrentView(this.get('model').get('timescope'));
   },
   
   resetFilter: function() {
@@ -229,5 +233,9 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
       console.log(filters);
       // bind the filters attributes to the current modal
     }
-  }
+  },
+
+  bindTimescopeDataToCurrentModal: function() {
+
+  },
 });
