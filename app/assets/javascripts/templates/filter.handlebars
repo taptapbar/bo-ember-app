@@ -6,10 +6,10 @@
       <form>
         <section>
           <div class="clearfix">
-            <div class="radio-input clearfix">
+            <div class="radio-input">
               <label class="radio"><input type="radio" name="filter-method"  value="view" checked>View</label>
             </div>
-            <div class="radio-input clearfix">
+            <div class="radio-input">
               <label class="radio"><input type="radio" name="filter-method"  value="exclude">Exclude</label>
             </div>
           </div>
@@ -29,7 +29,7 @@
       <div class="actions">
         <div class="action">
           <a id="create-new-view-reset" type="reset" class="reset btn-reset" {{ action "resetFilter" this }}>Reset</a>
-          <a class="btn-delete" {{ action "closeModalView" this }}>Cancel</a>
+          <a class="btn-cancel" {{ action "closeModalView" this }}>Cancel</a>
           <a id="create-new-view-confirm" type="" class="" {{ action "confirmFilter" this }}>Confirm</a>
         </div>
       </div>

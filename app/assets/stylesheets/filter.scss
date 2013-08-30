@@ -20,6 +20,11 @@
     overflow: auto;
     //margin: 0 0 0 -20%;
     background-color: #fff;
+    -moz-box-shadow:1px 1px 6px 4px #141414;
+    -webkit-box-shadow:1px 1px 6px 4px #141414;
+    -o-box-shadow:1px 1px 6px 4px #141414;
+    -ms-box-shadow:1px 1px 6px 4px #141414;
+    box-shadow:1px 1px 6px 4px #141414;
   }
 }
 
@@ -45,8 +50,11 @@
 .popup-window-header {
   background-color: #6c6c6c;
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 14px;
+  padding-top: 4px;
+  height: 26px;
+  line-height: 26px;
 }
 
 .popup-window-body {
@@ -114,19 +122,25 @@
   }
 
   .select {
+    margin-bottom: 4px;
     width: 90px;
-    height: 19px;
-    background-color: #9da2a4;
+    height: 24px;
+    // background-color: #9da2a4;
   }
 
   .border-box {
     border: 1px solid #9c9c9c;
     padding: 10px 5px 10px 5px;
   }
+
+  .radio-input {
+    margin: 0 10px 8px 0;
+    display: inline-block;
+  }
 }
 
 .popup-window-footer {
-  margin: 14px 14px 14px 14px;
+  margin: 6px 14px 14px 6px;
 
   .btn-popup {
       background-color: #4a4a4a;
@@ -166,5 +180,20 @@ label.inline {
 }
 
 .toggleable-panel {
-  padding: 5px 5px 5px 20px;
+  padding: 10px 5px 10px 20px;
+  background-color: #f6f6f6;
+}
+
+.inline-display {
+  display: inline-block;
+}
+
+.expandable-list-header {
+  background-color: #e6e6e6;
+  border-bottom: 1px solid #fff;
+
+  .list-title {
+    padding: 0 0 0 5px;
+    border-bottom: 1px solid #ddd;
+  }
 }

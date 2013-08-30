@@ -15,7 +15,7 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseF
     var subHtmlStr = "";
 
     if (subFilters.length <= appConfig.filter.maxFiltersPerColumn*4) {
-      var subHtml = '<ul class="inline-block none-style">';
+      var subHtml = '<ul class="inline-block none-style clearfix">';
       $.each(subFilters, function(index, subFilter){
         var checkedHtml = 'checked';
         if ($.inArray(subFilter, filterValues[filterOption.name]) == -1) {
@@ -68,8 +68,8 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseF
   //             '</div>'
   //             ].join('');
 
-  var topLevel = ['<div class="toggler clickable clearfix" data-value="', filterOption.name, '"><div class="', topLevelArrow, ' pull-left"></div><div class="pull-left inline-text-with-icon font-bold">', filterOption.name, "</div></div>"].join('');
-  var html = ['<div class="clearfix">',
+  var topLevel = ['<div class="list-title toggler clickable clearfix" data-value="', filterOption.name, '"><div class="', topLevelArrow, ' pull-left"></div><div class="pull-left inline-text-with-icon font-bold">', filterOption.name, "</div></div>"].join('');
+  var html = ['<div class="clearfix expandable-list-header">',
                 topLevel,
                 '<div class="toggleable-panel" data-panel="', filterOption.name, '" style="', secondLevelCss, '">',
                   subFilters(filterOption),

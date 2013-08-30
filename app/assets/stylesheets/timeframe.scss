@@ -4,23 +4,26 @@
 	padding: 4px 6px 6px 6px;
 
 	input {
-		height: 14px;
-		background-color: #9da2a4;
+		height: 16px;
+		// background-color: #9da2a4;
 		&[type=text] {
 			width: 80px;
 		}
 		&[type="number"]
 		{
-			margin-top: 4px;
-			width: 60px;
+			margin-bottom: 4px;
+			margin-top: 2px;
+			width: 40px;
 			line-height: 14px;
 		}
 	}
 
 	select {
-		height: 22px;
-		margin-top: 4px;
-		background-color: #9da2a4;
+		// background-color: #9da2a4;
+	}
+
+	.inline-span {
+		margin: 4px 4px 4px 0;
 	}
 }
 
@@ -51,7 +54,7 @@ background: url(/assets/glyphicons-halflings.png);
   background-position: -192px -120px;
   width: 14px;
   height: 14px;
-  margin: 8px 4px 8px 0;
+  margin: 7px 4px 8px 2px;
 }
 
 .seperator-right {

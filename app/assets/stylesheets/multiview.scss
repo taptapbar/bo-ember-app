@@ -347,7 +347,7 @@
         color: #fff;
         font-size: 16px;
         //background-color: #1794CA;
-        background-color: #186EEE;
+        background-color: #27AE60; //2ECC71
         margin: 0 10px 0 0;
         &:last-child {
           margin: 0 5px 0 0;
@@ -367,15 +367,15 @@
         -ms-box-shadow:2px 2px 3px #a4b0b4;
         box-shadow:2px 2px 3px #a4b0b4;
 
-        -webkit-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-        -moz-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-        -o-transition: border-bottom 0.1s linear, border-bottom 0.5s linear;
-        -ms-transition: border-bottom 0.1s linear, backgroud-color 0.5s ease;
-        transition: border-bottom 0.1s linear, background-color 0.5s ease;
+        -webkit-transition: border-bottom 0.1s linear, background-color 0.3s ease;
+        -moz-transition: border-bottom 0.1s linear, background-color 0.3s ease;
+        -o-transition: border-bottom 0.1s linear, border-bottom 0.3s linear;
+        -ms-transition: border-bottom 0.1s linear, backgroud-color 0.3s ease;
+        transition: border-bottom 0.1s linear, background-color 0.3s ease;
       
         &:hover {
           //background-color: #0f6b93;
-          background-color: #1555B4;
+          background-color: #2ECC71;
           //border-bottom: 2px solid #1794CA;
         }
 
@@ -384,31 +384,53 @@
         }
 
         &.btn-delete {
-          background-color: #DD0D0D;
+          background-color: #E74C3C;
 
-          -webkit-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-          -moz-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-          -o-transition: border-bottom 0.1s linear, border-bottom 0.5s linear;
-          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.5s ease;
-          transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -webkit-transition: border-bottom 0.1s linear, background-color 0.3s ease;
+          -moz-transition: border-bottom 0.1s linear, background-color 0.3s ease;
+          -o-transition: border-bottom 0.1s linear, border-bottom 0.3s linear;
+          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.3s ease;
+          transition: border-bottom 0.1s linear, background-color 0.3s ease;
 
           &:hover {
-            background-color: #AA0909;
+            background-color: #FF5E4D;
             //border-bottom: 2px solid #DD0D0D;
           }
         }
 
         &.btn-reset {
-          background-color: #F78000;
+          background-color: #f9f9f9;
+          color: #999;
+          opacity: 0.7;
 
-          -webkit-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-          -moz-transition: border-bottom 0.1s linear, background-color 0.5s ease;
-          -o-transition: border-bottom 0.1s linear, border-bottom 0.5s linear;
-          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.5s ease;
-          transition: border-bottom 0.1s linear, background-color 0.5s ease;
+          -webkit-transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          -moz-transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          -o-transition: border-bottom 0.1s linear, border-bottom 0.3s linear, backgroud-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
 
           &:hover {
-            background-color: #D37005;
+            opacity: 1.0;
+            //background-color: #F1C40F;
+            //color: #fff;
+            //border-bottom: 2px solid #F78000;
+          }
+        }
+
+        &.btn-cancel {
+          background-color: #f9f9f9;
+          color: #999;
+          opacity: 0.7;
+
+          -webkit-transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          -moz-transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          -o-transition: border-bottom 0.1s linear, border-bottom 0.3s linear, opacity 0.2s ease, color 0.2s ease;
+          -ms-transition: border-bottom 0.1s linear, backgroud-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+          transition: border-bottom 0.1s linear, background-color 0.3s ease, opacity 0.2s ease, color 0.2s ease;
+
+          &:hover {
+            opacity: 1.0;
+            //background-color: #ddd;
             //border-bottom: 2px solid #F78000;
           }
         }

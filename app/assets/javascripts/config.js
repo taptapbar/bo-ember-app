@@ -85,6 +85,6 @@ var appConfig = {
 	},
 
 	filter: {
-		maxFiltersPerColumn: 7
+		maxFiltersPerColumn: 4
 	}	
 };
