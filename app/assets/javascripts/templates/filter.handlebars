@@ -6,14 +6,7 @@
     <div class="filter-container">
       <form>
         <section>
-          <div class="clearfix">
-            <div class="radio-input">
-              <label class="radio"><input type="radio" name="filter-method"  value="view" checked>View</label>
-            </div>
-            <div class="radio-input">
-              <label class="radio"><input type="radio" name="filter-method"  value="exclude">Exclude</label>
-            </div>
-          </div>
+          {{ renderFilterMethod modalView.filterMethod}}
         </section>
         <section>
           <!-- Add class="toggler" for the trigger, and add class="toggleable-panel" and corresponding data-panel to the panel div -->

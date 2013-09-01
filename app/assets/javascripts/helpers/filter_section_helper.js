@@ -1,3 +1,26 @@
+Ember.Handlebars.registerBoundHelper('renderFilterMethod', function(filterMethod) {
+  var radioClass = ["",""];
+  var isChecked = ["",""];
+  var value = ["view", "exclude"];
+  var text = ["View", "Exclude"];
+  if(filterMethod == "exclude") {
+    radioClass[1] = "radio-pill-selected";
+    isChecked[1] = "checked";
+  } else {
+    radioClass[0] = "radio-pill-selected";
+    isChecked[0] = "checked";
+  }
+  var html = '<div class="clearfix">';
+  for(var i=0;i<=1;i++) {
+    html += ['<div class="radio-input inline-block">',
+              '<label class="radio radio-pill ', radioClass[i], '"><input type="radio" name="filter-method"  value="', value[i], '" ', isChecked[i], '>', text[i], '</label>',
+            '</div>'].join('');
+  }
+  html += '</div>';
+  return new Handlebars.SafeString(html);
+});
+
+
 Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseFilterOption, filterValues) {
   
   // parse the filter format from {"CATEGORY-C": ['sub-a','sub-b','sub-c', 'sub-d']}

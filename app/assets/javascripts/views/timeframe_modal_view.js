@@ -51,6 +51,7 @@ $(document).on('click', "input[type='radio'][name='cycle']", function() {
 	targetPanel.css('display', 'block');
 });
 
+// initialization for radio-pills
 $(document).on('click', "input[type='radio']", function() {
   // style selected labels
   selectedLabel = $(this).closest('label');

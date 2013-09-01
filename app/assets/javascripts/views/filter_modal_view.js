@@ -32,7 +32,8 @@ App.FilterModalView = Ember.View.extend({
 });
 
 function resetFilterModal(filterMethod) {
-  $('input[name="filter-method"][value="'+filterMethod+'"]').prop('checked', true);
+  filterMethod = (filterMethod == "exclude") ? "exclude" : "view";
+  $('input[name="filter-method"][value="'+filterMethod+'"]').click();
   console.log("filter-method: ", $('input[name="filter-method"][value="'+filterMethod+'"]'));
 };
 
