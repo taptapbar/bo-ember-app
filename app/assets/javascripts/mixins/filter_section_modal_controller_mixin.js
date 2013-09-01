@@ -12,6 +12,7 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
   closeModalView: function() {
     if (this.modalView) {
       this.modalView.close();
+      $('body').css('overflow-y', 'visible');
     }
   },
 
@@ -20,7 +21,8 @@ App.FilterSectionModalControllerMixin = Ember.Mixin.create({
     this.closeModalView();
     this.modalView = customModalView;
     if (this.modalView) {
-      this.modalView.append(); 
+      this.modalView.append();
+      $('body').css('overflow-y', 'hidden');
     }
   },
   

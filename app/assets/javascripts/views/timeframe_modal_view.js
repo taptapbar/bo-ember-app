@@ -13,6 +13,9 @@ App.TimeframeModalView = Ember.View.extend({
   	console.log("didInsertElement: ", 'TimeframeView');
     activateDatePicker();
     bindTimescopeDataToCurrentView(this.timescope);
+
+    //initialize popup-body max-height
+    $(".popup-window-body").css('max-height', ($(".popup-window-bg").height()*0.8 - $(".popup-window-header").height() - $(".popup-window-footer").height() - 56));
   }
 });
 
@@ -38,12 +41,23 @@ function activateDatePicker(selector) {
 };
 
 $(document).on('click', "input[type='radio'][name='cycle']", function() {
-	self = $(this);
+	// switch selected panel
+  self = $(this);
 	targetPanel = $('#'+self.data('panel'));
 	targetPanel.siblings().each(function () {
 		$(this).css('display', 'none');
 	});
 	targetPanel.css('display', 'block');
+});
+
+$(document).on('click', "input[type='radio']", function() {
+  // style selected labels
+  selectedLabel = $(this).closest('label');
+  if($(selectedLabel).hasClass('radio-pill')) {
+    var selectedRadioName= $(this).attr('name');
+    $('input[type="radio"][name="'+selectedRadioName+'"]').closest('label').removeClass('radio-pill-selected');
+    $(selectedLabel).addClass('radio-pill-selected');
+  }
 });
 
 function bindTimescopeDataToCurrentView(timescope) {

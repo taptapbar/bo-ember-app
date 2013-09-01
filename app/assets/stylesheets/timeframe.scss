@@ -1,5 +1,5 @@
 #timeframe-container {
-	border: 1px solid #000;
+	//border: 1px solid #000;
 	border-radius: 6px;
 	padding: 4px 6px 6px 6px;
 
@@ -24,6 +24,10 @@
 
 	.inline-span {
 		margin: 4px 4px 4px 0;
+	}
+
+	div[name="cycle-panel"] {
+		margin: 10px 0 10px 20px;
 	}
 }
 
@@ -65,4 +69,30 @@ background: url(/assets/glyphicons-halflings.png);
 .seperator-left {
 	border-left: 1px solid;
 	padding-left: 20px;
+}
+
+.radio-pill {
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	line-height: 20px;
+	padding: 6px 13px 6px 30px;
+	position: relative;
+	vertical-align: middle;
+	display: block;
+	zoom: 1;
+}
+
+.radio-pill-selected {
+	color: #ffffff;
+	background-color: #1abc9c;
+
+	-webkit-transition: 0.14s linear;
+	-moz-transition: 0.14s linear;
+	-ms-transition: 0.14s linear;
+	-o-transition: 0.14s linear;
+	transition: 0.14s linear;
+	-webkit-backface-visibility: hidden;
 }
