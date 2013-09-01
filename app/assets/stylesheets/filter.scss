@@ -25,26 +25,26 @@
     -o-box-shadow:1px 1px 6px 4px #141414;
     -ms-box-shadow:1px 1px 6px 4px #141414;
     box-shadow:1px 1px 6px 4px #141414;
+
+    ul.inline-block {
+      li {
+        display: block;
+        float: left;
+        width: 145px;
+        margin: 0 15px 0 0;
+        padding-left: 1px;
+        &:last-child {
+          margin: 0;
+        }
+        overflow-x: hidden;
+      }
+    }
   }
 }
 
 #filter-window {
   width: 720px;
   //height: 80%;
-
-  ul.inline-block {
-    li {
-      display: block;
-      float: left;
-      width: 150px;
-      margin: 0 15px 0 0;
-      padding-left: 1px;
-      &:last-child {
-        margin: 0;
-      }
-      overflow-x: hidden;
-    }
-  }
 }
 
 .popup-window-header {
