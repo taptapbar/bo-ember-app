@@ -14,8 +14,9 @@ App.TimeframeModalView = Ember.View.extend({
     activateDatePicker();
     bindTimescopeDataToCurrentView(this.timescope);
 
-    //initialize popup-body max-height
+    //initialize popup-body max-height & popup-window height
     $(".popup-window-body").css('max-height', ($(".popup-window-bg").height()*0.8 - $(".popup-window-header").height() - $(".popup-window-footer").height() - 56));
+    $('.popup-window-bg').height($('body').height());
   }
 });
 
