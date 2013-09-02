@@ -37,7 +37,8 @@ App.ChartGenerator = Ember.Object.extend({
     // add redraw callback to move stacklabels to the top
     chart.set('chart.events', {
       redraw: function(event) {
-        moveStacklabels("bottom");
+        $("g.highcharts-stack-labels").attr('display', 'none');
+        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
       },
       load: function(event) {
         stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'))
