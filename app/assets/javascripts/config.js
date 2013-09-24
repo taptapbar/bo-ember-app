@@ -39,12 +39,13 @@ var appConfig = {
 
 		groupTooltip: {
 			enabled: true //default tooltip is for individual serie value
+			stackNameLength: 10,
 		},
 
 		stackLabels: {
 			rotation: -40,
 			color: "#08c",
-
+			length: 6,
 		},
 
 		//colors: ["#2f69bf", "#a2bf2f", "#bf5a2f", "#bfa22f", "#772fbf", "#bf2f2f", "#00337f", "#657f00", "#7f2600", "#7f6500"]

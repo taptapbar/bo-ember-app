@@ -191,7 +191,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
             color: appConfig.chartSettings.stackLabels.color,
         },
         formatter: function() {
-            return  this.stack.slice(0,6).capitalize();
+            return  this.stack.slice(0,appConfig.chartSettings.stackLabels.length).capitalize();
         }
       })
       console.log("yAxis: ", yAxis);
