@@ -127,7 +127,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     };
     if(appConfig.chartSettings.groupTooltip.enabled) {
       tooltip = {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        headerFormat: '<span style="font-size:10px">{point.key}</span><hr><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                       '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
         footerFormat: '</table>',
@@ -198,6 +198,19 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
 
       // move xAxis lower to put stackLabels at the bottom
       this.set('xAxis.offset', 45);
+
+      //overwrite grouped tooltip for 3D stacked chart
+      if(appConfig.chartSettings.groupTooltip.enabled) {
+        tooltip = {
+          headerFormat: '<span style="font-size:10px">{point.key}</span><hr><table>',
+          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}({series.options.stack}): </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+        };
+        this.set('tooltip', tooltip);
+      }
     }
 
     //set the limit of how many series(columns) will be see 
