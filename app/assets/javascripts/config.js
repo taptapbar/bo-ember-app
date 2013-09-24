@@ -38,7 +38,7 @@ var appConfig = {
 		},
 
 		groupTooltip: {
-			enabled: true //default tooltip is for individual serie value
+			enabled: true, //default tooltip is for individual serie value
 			stackNameLength: 10,
 		},
 
