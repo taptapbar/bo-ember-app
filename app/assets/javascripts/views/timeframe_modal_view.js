@@ -53,13 +53,17 @@ $(document).on('click', "input[type='radio'][name='cycle']", function() {
 
 // initialization for radio-pills
 $(document).on('click', "input[type='radio']", function() {
-  // style selected labels
-  selectedLabel = $(this).closest('label');
-  if($(selectedLabel).hasClass('radio-pill')) {
-    var selectedRadioName= $(this).attr('name');
-    $('input[type="radio"][name="'+selectedRadioName+'"]').closest('label').removeClass('radio-pill-selected');
-    $(selectedLabel).addClass('radio-pill-selected');
-  }
+  // style selected div
+  selectedDiv = $(this).closest('div[class*="radio-pill"]');
+  var selectedRadioName = $(this).attr('name');
+  $('input[type="radio"][name="'+selectedRadioName+'"]').closest('div[class*="radio-pill"]').removeClass('radio-pill-selected');
+  $(selectedDiv).addClass('radio-pill-selected');
+});
+$(document).on('click', "input[type='number'], input[type='text'], div[class*='radio-pill'] span", function() {
+  $(this).closest('div[class*="radio-pill"]').find('input[type="radio"]').first().click();
+});
+$(document).on('change', "div[class*='radio-pill'] select", function() {
+  $(this).closest('div[class*="radio-pill"]').find('input[type="radio"]').first().click();
 });
 
 function bindTimescopeDataToCurrentView(timescope) {

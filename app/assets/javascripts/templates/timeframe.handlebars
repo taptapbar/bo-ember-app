@@ -9,12 +9,12 @@
             <li class="list-title inline-text">Range</li>
           <div class="list-content">
   				<li>
-  					<label class="radio radio-pill radio-pill-selected">
-              	<input type="radio" name="timeframeRangeRadio" value="all" checked> All the records
-          	</label>
+  					<div class="radio radio-pill radio-pill-selected">
+              	<input type="radio" name="timeframeRangeRadio" value="all" checked> <span>All the records</span>
+          	</div>
           </li>
           <li class="li-datepicker clearfix">
-          	<label class="radio radio-pill pull-left">
+          	<div class="radio radio-pill pull-left">
               <div class="pull-left">
                 <input type="radio" name="timeframeRangeRadio" value="range">
               </div>
@@ -27,7 +27,7 @@
                 <input type="text" id="timeframe-range-to" name="to" class="pull-left">
                 <span class="i-calendar pull-left"></span>
               </div>
-            </label>
+            </div>
           </li>
           </div>
           </div>
@@ -39,18 +39,18 @@
             <li class="clearfix">
               <ul class="none-style">
                 <li class="float-left seperator-right">
-                  <label class="radio radio-pill radio-pill-selected">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-all-panel" value="all" checked> All
-                  </label>
-                  <label class="radio radio-pill">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-week-panel" value="week"> Week
-                  </label>
-                  <label class="radio radio-pill">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-month-panel" value="month"> Month
-                  </label>
-                  <label class="radio radio-pill">
-                    <input type="radio" name="cycle" data-panel="timeframe-cycle-year-panel" value="year"> Year
-                  </label>
+                  <div class="radio radio-pill radio-pill-selected">
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-all-panel" value="all" checked> <span>All</span>
+                  </div>
+                  <div class="radio radio-pill">
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-week-panel" value="week"> <span>Week</span>
+                  </div>
+                  <div class="radio radio-pill">
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-month-panel" value="month"> <span>Month</span>
+                  </div>
+                  <div class="radio radio-pill">
+                    <input type="radio" name="cycle" data-panel="timeframe-cycle-year-panel" value="year"> <span>Year</span>
+                  </div>
                 </li>
                 
                 <li class="float-left">
@@ -100,27 +100,27 @@
                       </li>
                       <br>
                       <li>
-                        <label>
+                        <div>
                           Repeat every
                           <input type="number" id="timeframe-cycle-week-repeat-number" min="1" max="52" >
                           Week
-                        </label>  
+                        </div>  
                       </li>
                     </ul>
                   </div>
                   <div id="timeframe-cycle-month-panel" name="cycle-panel" style="display:none;">
                     <!-- timeframe-cycle-month-panel -->
 
-                        <label class="radio radio-pill">
+                        <div class="radio radio-pill">
                           <input type="radio" id="timeframe-cycle-month-radio-1" name="cycle-month" value="1"> The 
                             <select id="timeframe-cycle-month-select-1" class="select" style="width:60px;">
                               {{ renderNumberSelectOptions ordinal 1 31 }}
                             </select>
                             day <br>Repeat every
                           <input type="number" id="timeframe-cycle-month-repeat-number-1" min="1" max="12" > month
-                        </label>
+                        </div>
                         <br>
-                        <label class="radio radio-pill">
+                        <div class="radio radio-pill">
                           <input type="radio" id="timeframe-cycle-month-radio-2" name="cycle-month" value="2"> The 
                             <select id="timeframe-cycle-month-select-2" class="select" style="width:60px;">
                               {{ renderNumberSelectOptions ordinal 1 5 }}
@@ -130,12 +130,12 @@
                             </select>
                             <br> Repeat every
                             <input type="number" id="timeframe-cycle-month-repeat-number-2" min="1" max="12" > month
-                        </label>
+                        </div>
 
                   </div>
                   <div id="timeframe-cycle-year-panel" name="cycle-panel" style="display:none;">
                     <!-- timeframe-cycle-year-panel -->
-                    <label class="radio radio-pill">
+                    <div class="radio radio-pill">
                       <input type="radio" name="cycle-year" value="1"> The 
                         <select id="timeframe-cycle-year-select-1" class="select" style="width:90px;">
                           {{ renderMonthSelectOptions  }}
@@ -145,9 +145,9 @@
                         </select>
                         <br> Repeat every
                         <input type="number" id="timeframe-cycle-year-repeat-number-1" min="1" max="100" > year
-                    </label>
+                    </div>
                     <br>
-                    <label class="radio radio-pill">
+                    <div class="radio radio-pill">
                       <input type="radio" name="cycle-year" value="2"> The 
                         <select id="timeframe-cycle-year-select-3" class="select" style="width:60px;">
                           {{ renderNumberSelectOptions ordinal 1 5 }}
@@ -161,7 +161,7 @@
                         </select>
                         <br> Repeat every
                         <input type="number" id="timeframe-cycle-year-repeat-number-2" min="1" max="100" > year
-                    </label>
+                    </div>
                   </div>
                 </li>
               </ul>
