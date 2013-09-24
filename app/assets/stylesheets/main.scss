@@ -133,3 +133,12 @@ html, body * {
   float: left;
   margin-left: -19px;
 }
+
+.ajax-loader {
+  position: fixed;
+  background: url(/assets/ajax-loader.gif) no-repeat;
+  top: 48%;
+  left: 48%;
+  width: 64px;
+  height: 64px;
+}

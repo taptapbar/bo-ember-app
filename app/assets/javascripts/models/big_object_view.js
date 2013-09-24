@@ -23,9 +23,12 @@ App.BigObjectView = DS.Model.extend({
     var data = this.getCurrentAttrs(id);
     //console.log("fetchChartData-data: ", data);
     // console.log('requestURI of big_object_view/fetchChartData: ', requestURI);
+    
+    $('#chart-loading').show();
     return $.getJSON(requestURI, data).then(
       function(response) {
         // fetching succeeded
+        $('#chart-loading').hide();
         var chartData = response;
         return App.ChartData.create({
           categories: chartData.xAxis.categories,
@@ -35,6 +38,7 @@ App.BigObjectView = DS.Model.extend({
       },
       function(error) {
         // fetching failed
+        $('#chart-loading').hide();
         console.log("fetchChartData failed");
       }
     );
