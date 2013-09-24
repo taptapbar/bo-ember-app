@@ -61,3 +61,10 @@ $(document).on('click', "#filter-window div[class*='toggler']", function() {
 		}
 	})
 });
+
+$(document).on('click', "#filter-window div[class*='select-all']", function() {
+  $($(this).parent()).siblings('ul').children('li').children('label').children('input').prop('checked', true);
+});
+$(document).on('click', "#filter-window div[class*='select-none']", function() {
+  $($(this).parent()).siblings('ul').children('li').children('label').children('input').prop('checked', false);
+});

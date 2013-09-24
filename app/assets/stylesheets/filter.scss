@@ -47,6 +47,16 @@
 #filter-window {
   width: 720px;
   //height: 80%;
+
+  .select-all, .select-none {
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0 15px 5px 2px;
+
+    &:hover {
+      color: #999;
+    }
+  }
 }
 
 .popup-window-header {

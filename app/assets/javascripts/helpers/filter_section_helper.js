@@ -37,8 +37,10 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseF
     var subFilters = filterOption.sub_filters;
     var subHtmlStr = "";
 
+    // render subfilters in checkboxes
     if (subFilters.length <= appConfig.filter.maxFiltersPerColumn*4) {
-      var subHtml = '<ul class="inline-block none-style clearfix">';
+      var selectAllAndNoneHtml = '<div class="clearfix"><div class="select-all pull-left">All</div><div class="select-none pull-left">None</div></div>';
+      var subHtml = [selectAllAndNoneHtml, '<hr>', '<ul class="inline-block none-style clearfix">'].join('');
       $.each(subFilters, function(index, subFilter){
         var checkedHtml = 'checked';
         if ($.inArray(subFilter, filterValues[filterOption.name]) == -1) {
@@ -57,6 +59,7 @@ Ember.Handlebars.registerBoundHelper('renderFilterGroups', function(beforeParseF
       subHtml += "</ul>";
     }
 
+    // render subfilters in auto-complete field
     else {
       var subHtml = ['<select class="autocomplete-select" data-dimension="', filterOption.name, '" data-placeholder="Select your options" multiple>'].join('');
       $.each(subFilters, function(index, subFilter) {
