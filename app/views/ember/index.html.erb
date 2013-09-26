@@ -4,11 +4,15 @@
   <%= stylesheet_link_tag :application, :media => :all %>
   <%= javascript_include_tag :application %>
   <title>Big Object</title>
+  
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag :iepatch %>
+  <![endif]-->
 </head>
 <body>
   <script type="text/x-handlebars">
     <section id="nav">
-      <section id="top-nav" class="clearfix">
+      <div id="top-nav" class="clearfix">
         <h1 id="logo">{{#linkTo "index"}}<img src='/assets/logo_F.png' alt='Logo'>{{/linkTo}}</h1>
     
         <div id="top-links">
@@ -16,7 +20,7 @@
           <a href="#">admin</a>
           <a href="#" class="last">log-out</a>
         </div>
-      </section>
+      </div>
     
       <section id="menu-nav" class="clearfix">
         <ul id="menu-tabs" class="clearfix">
