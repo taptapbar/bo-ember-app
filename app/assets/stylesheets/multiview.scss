@@ -385,11 +385,12 @@
 #create-new-view-container {
   position: absolute;
   background: #fff;
-  width: -webkit-calc(100% - 20px);
-  width: -o-calc(100% - 20px);
-  width: -moz-calc(100% - 20px);
-  width: -ms-calc(100% - 20px);
-  width: calc(100% - 20px);
+  width: 98%;
+  // width: -webkit-calc(100% - 20px);
+  // width: -o-calc(100% - 20px);
+  // width: -moz-calc(100% - 20px);
+  // width: -ms-calc(100% - 20px);
+  // width: calc(100% - 20px);
   
 }
 

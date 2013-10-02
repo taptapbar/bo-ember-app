@@ -1,3 +1,4 @@
+var ENV = { EXTEND_PROTOTYPES: false }
 
 n() {
 /*global __fail__*/

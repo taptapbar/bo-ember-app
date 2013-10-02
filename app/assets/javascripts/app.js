@@ -20,6 +20,8 @@ App.MultiviewRoute = Ember.Route.extend({
 */
 
 Ember.Handlebars.registerBoundHelper('drawChart', function(id){
+  $('#view-container').css('width', '100%').css('width', '-=200px');
+  
   console.log('draw: ', id);
   var chartGenerator = new App.ChartGenerator();
   var view = App.BigObjectView.findLocallyAndRemotely(id);
@@ -53,6 +55,10 @@ Array.prototype.getUnique = function(){
    }
    return a;
 }
+
+$(window).resize(function() {
+  $('#view-container').css('width', '100%').css('width', '-=170px');
+});
 
 // window.onbeforeunload = function(event)
 // {
