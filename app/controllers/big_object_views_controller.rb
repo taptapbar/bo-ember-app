@@ -44,8 +44,8 @@ class BigObjectViewsController < ApplicationController
         'big_object_view' => {
           'id'    => "8712861876",
           'title' => "Graph From Server",
-            'measure' => 'Revenue',
-            'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.Income', 'CATEGORY-B.Country']
+          'measure' => 'Revenue',
+          'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.Income', 'CATEGORY-B.Country']
         }
       }, status: :ok
     end
@@ -58,8 +58,8 @@ class BigObjectViewsController < ApplicationController
         'big_object_view' => {
           'id'    => request_id,
           'title' => "Graph #{request_id}",
-            'measure' => 'Revenue',
-            'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.dimension-b', 'CATEGORY-A.dimension-c']
+          'measure' => 'Revenue',
+          'dimensions' => ['CATEGORY-A.Age', 'CATEGORY-A.dimension-b', 'CATEGORY-A.dimension-c']
         }
       }
     else
@@ -81,15 +81,9 @@ class BigObjectViewsController < ApplicationController
 
   def dimensions_and_measures
     render json: {
-      #'dimensions' => {
-      #  'CAT-A' => ['a', 'b', 'c', 'd'], 
-      #  'CAT-B' => ['d', 'e', 'f', 'g', 'h', 'i', 'j'], 
-      #  'CAT-C' => ['k', 'l', 'm']
-      #},
       'dimensions' => [
         { name: 'CATEGORY-A', sub_dimensions: ['Age', 'Gender', 'Income', 'Longlonglonglonglonglong']}, 
-        { name: 'CATEGORY-B', sub_dimensions: ['Continent', 'Region', 'Country', 'Age']}, 
-        #{ name: 'CAT-C', sub_dimensions: ['k', 'l', 'm']}
+        { name: 'CATEGORY-B', sub_dimensions: ['Continent', 'Region', 'Country', 'Age']}
       ],
       'measures' => ['Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong', 'Revenue', 'Cost', 'Sales', 'longlonglonglonglonglong']
     }

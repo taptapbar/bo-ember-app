@@ -41,13 +41,13 @@ App.ChartGenerator = Ember.Object.extend({
         window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
       },
       load: function(event) {
-        stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'))
+        stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'));
         $("g.highcharts-stack-labels").attr('display', 'none');
         window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
       }
     });
     console.log("params: ", params);
-    console.log(chart);
+    console.log("chart: ", chart);
     return new Highcharts.Chart(chart);
   }
 });
@@ -85,17 +85,17 @@ App.ChartConfig = Ember.Object.create({
     chart = {
       renderTo: this.get('renderToId'),
       type: this.get('chartType'),
-      height: (calcHeight < minHeight) ? minHeight : calcHeight
+      height: ((calcHeight < minHeight) ? minHeight : calcHeight)
     };
     xAxis = {
-      categories: this.get('categories'),
+      categories: this.get('categories')
       //labels: appConfig.chartSettings.xAxis.labels
       //max: appConfig.chartSettings.xAxis.max
     };
     yAxis = {
       title: {
         text: this.get('measure')
-      },
+      }
     };
     title = {
       text: this.get('title')
@@ -137,9 +137,9 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
       this.set('tooltip', tooltip);
     }
     
-    scrollbar = {
+    var scrollbar = {
       enabled: false
-    },
+    };
     this.set('plotOptions', plotOptions);
     this.set('scrollbar', scrollbar);
     return;
@@ -174,7 +174,7 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
       console.log("this is a 2D chart");
       columnNumber = serieNumber;
       // In order to make it look more comfortable, groupPadding will be set to 0.1 in 2D chart
-      this.set('plotOptions.column.groupPadding', 0.1)
+      this.set('plotOptions.column.groupPadding', 0.1);
     }
     // for 3D
     else {
@@ -187,13 +187,14 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
         textAlign: "right",
         verticalAlign: "bottom",
         style: {
-            'font-size': '10px',
-            color: appConfig.chartSettings.stackLabels.color,
+          'font-size': '10px',
+          color: appConfig.chartSettings.stackLabels.color
         },
         formatter: function() {
-            return  this.stack.slice(0,appConfig.chartSettings.stackLabels.length).capitalize();
+          return this.stack.slice(0,appConfig.chartSettings.stackLabels.length).capitalize();
         }
-      })
+      });
+      
       console.log("yAxis: ", yAxis);
 
       // move xAxis lower to put stackLabels at the bottom
@@ -217,10 +218,10 @@ App.ColumnChartConfig = Ember.Object.extend(App.ChartConfig, {
     //enable the scrollbar if necessary
     if (categoryNumber*columnNumber > maxVisibleSerieNumber && categoryNumber > 1) {
       visibleCatNumber = (maxVisibleSerieNumber<=columnNumber) ? (Math.ceil(maxVisibleSerieNumber/columnNumber)) : (Math.floor(maxVisibleSerieNumber/columnNumber));
-      this.set('xAxis.max', visibleCatNumber );
+      this.set('xAxis.max', visibleCatNumber);
       this.set('scrollbar.enabled', true);
     } else {
-      visibleCatNumber = categoryNumber
+      visibleCatNumber = categoryNumber;
     }
 
     if (visibleCatNumber > appConfig.chartSettings.xAxis.maxGroup) {
