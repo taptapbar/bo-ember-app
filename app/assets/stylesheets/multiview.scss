@@ -385,13 +385,12 @@
 #create-new-view-container {
   position: absolute;
   background: #fff;
-  width: 98%;
-  // width: -webkit-calc(100% - 20px);
-  // width: -o-calc(100% - 20px);
-  // width: -moz-calc(100% - 20px);
-  // width: -ms-calc(100% - 20px);
-  // width: calc(100% - 20px);
-  
+  width: 98%; // fix for IE 8
+  width: -webkit-calc(100% - 20px);
+  width: -o-calc(100% - 20px);
+  width: -moz-calc(100% - 20px);
+  width: -ms-calc(100% - 20px);
+  width: calc(100% - 20px);
 }
 
 #create-view-container, #create-view-filter-container, #create-view-timescope-container {
@@ -429,6 +428,7 @@
     border: 1px solid #7792a2;
     // margin: 2%;
     &:first-child {
+      width: 65%\9; // fix for IE 8
       width: -webkit-calc(100% - 320px);
       width: -o-calc(100% - 320px);
       width: -moz-calc(100% - 320px);
@@ -438,6 +438,7 @@
       margin: 0 10px 10px 0;
     }
     width: 280px;
+    width: 30%\9; // fix for IE 8
     min-width: 280px;
     height: 460px;
     
