@@ -2,6 +2,7 @@
   z-index: 10;
   width: 100%;
   height: 100%;
+  background-color: #000; /* works for IE 8. */
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0px;
@@ -9,22 +10,14 @@
   font-family: corbel;
   
   .popup-window {
-    position: fixed;
-    margin: 0 0 0 -40px;
-    top: 10%;
-    left: 50%;
-    left: -webkit-calc(50% - 330px);
-    left: -o-calc(50% - 330px);
-    left: -moz-calc(50% - 330px);
-    left: -ms-calc(50% - 330px);
-    left: calc(50% - 330px);
-
-    max-height: 80%;
-    -moz-height:80%;
-    height: 80%;
+    position: relative;
+    margin: 5% auto;
+    min-height: 300px;
+    max-height: 60%;
+    -moz-height: 60%;
+    height: 60%;
 
     overflow: auto;
-    //margin: 0 0 0 -20%;
     background-color: #fff;
     -moz-box-shadow:1px 1px 6px 4px #141414;
     -webkit-box-shadow:1px 1px 6px 4px #141414;
