@@ -1,5 +1,21 @@
 App = Ember.Application.create();
 
+if (!history.pushState) {
+  Ember.LinkView.reopen({
+    click: function() {
+      window.location = this.get('href');
+    }
+  });
+
+  Ember.HistoryLocation.reopen({
+    replaceState: function() {}
+  });
+}
+
+App.Router.reopen({
+  location: 'history'
+});
+
 /*
 App.MultiviewRoute = Ember.Route.extend({
   model: function() {

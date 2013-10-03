@@ -27,8 +27,10 @@ BoEmberApp::Application.routes.draw do
     get 'filter_list', on: :member
     get 'fetch_chart_data', on: :member
   end
-  get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
-  get '/', :to => 'ember#index', :constraints => FormatTest.new(:html)
+  
+  get '*foo', :to => 'ember#index'
+  get '/',    :to => 'ember#index'
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
