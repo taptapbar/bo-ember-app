@@ -48,6 +48,33 @@ App.ChartGenerator = Ember.Object.extend({
     });
     console.log("params: ", params);
     console.log("chart: ", chart);
+    
+
+    // IMPORTANT HACK FOR IE ONLY (all funcstion related to chart variable should be added back here again)
+    //===========================================================================================================================
+    // in order to fix the IE JSON.parse bug which couse conflicts with Highcharts and Ember
+    // the parameters pass into Highcharts.Chart() has to be stringify() first.
+    // because stringify() ignores all functions, therefore we have to add functions back before passing into Highcharts.chart()
+    chart = jQuery.parseJSON(JSON.stringify(chart));
+    chart['chart']['events'] = {
+      redraw: function(event) {
+        $("g.highcharts-stack-labels").attr('display', 'none');
+        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
+      },
+      load: function(event) {
+        stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'));
+        $("g.highcharts-stack-labels").attr('display', 'none');
+        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
+      }
+    };
+    if(chart['yAxis'].hasOwnProperty('stackLabels')) {
+      chart['yAxis']['stackLabels']['formatter'] = function() {
+        return this.stack.slice(0,appConfig.chartSettings.stackLabels.length).capitalize();
+      }
+    }
+    console.log("chart_after_parse: ", chart);
+    //===========================================================================================================================
+    
     return new Highcharts.Chart(chart);
   }
 });
