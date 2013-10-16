@@ -59,12 +59,12 @@ App.ChartGenerator = Ember.Object.extend({
     chart['chart']['events'] = {
       redraw: function(event) {
         $("g.highcharts-stack-labels").attr('display', 'none');
-        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
+        window.setTimeout(function() { moveStacklabels("bottom", event); }, 400);
       },
       load: function(event) {
         stackLabelsOriginY = parseInt($("g.highcharts-stack-labels").children('text').first().attr('y'));
         $("g.highcharts-stack-labels").attr('display', 'none');
-        window.setTimeout(function() { moveStacklabels("bottom"); }, 400);
+        window.setTimeout(function() { moveStacklabels("bottom", event); }, 400);
       }
     };
     if(chart['yAxis'].hasOwnProperty('stackLabels')) {
@@ -81,17 +81,34 @@ App.ChartGenerator = Ember.Object.extend({
 
 // javascript function for moving stacklabels
 var stackLabelsOriginY;
-function moveStacklabels(position) {
-  if(parseInt($("g.highcharts-stack-labels").children('text').first().attr('y')) < stackLabelsOriginY + 20) {
-    $("g.highcharts-stack-labels").children('text').each(function(index) {
-      var transformStringArray = $(this).attr('transform').split(' ');
-      var y = parseInt($(this).attr('y')) + 20;
-      if(transformStringArray.indexOf("rotate") == -1) {
-        transformStringArray[transformStringArray.length-1] = y + ')';
-        $(this).attr('y', y).attr('transform', transformStringArray.join(' '));
+function moveStacklabels(position, event) {
+  if(Ember.isNone(document.getElementsByClassName('highcharts-stack-labels')[0].getAttribute('transform')))
+  {
+    // If the browser is IE, then execute this part to move the stacklabels
+    var stackLabelsStyle = document.getElementsByClassName('highcharts-stack-labels')[0].getAttribute('style').split(' ');
+    console.log("stackLabelsStyle 1: ", stackLabelsStyle, "\nfrom:", event);
+    for(var i=0;i<stackLabelsStyle.length;i++) {
+      if(!Ember.isNone(stackLabelsStyle[i].toUpperCase().match("MARGIN-TOP"))) {
+        var marginTop = parseInt(stackLabelsStyle[i+1].match(/\d+/g)) + 10;
+        stackLabelsStyle[i+1] = [marginTop.toString(), "px;"].join('');
       }
-      else { $(this).attr('y', y); }
-    });
+    }
+    console.log("stackLabelsStyle 2: ", stackLabelsStyle, "\nfrom:", event);
+    document.getElementsByClassName('highcharts-stack-labels')[0].setAttribute('style', stackLabelsStyle.join(' '));
+  }
+  else {
+    // If the browser is none-IE, then execute this part to move the stacklabels
+    if(parseInt($("g.highcharts-stack-labels").children('text').first().attr('y')) < stackLabelsOriginY + 20) {
+      $("g.highcharts-stack-labels").children('text').each(function(index) {
+        var transformStringArray = $(this).attr('transform').split(' ');
+        var y = parseInt($(this).attr('y')) + 20;
+        if(transformStringArray.indexOf("rotate") == -1) {
+          transformStringArray[transformStringArray.length-1] = y + ')';
+          $(this).attr('y', y).attr('transform', transformStringArray.join(' '));
+        }
+        else { $(this).attr('y', y); }
+      });
+    }
   }
   $("g.highcharts-stack-labels").attr('display', 'block');
 };
