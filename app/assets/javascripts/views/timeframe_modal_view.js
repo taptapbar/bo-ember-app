@@ -43,8 +43,8 @@ function activateDatePicker(selector) {
 
 $(document).on('click', "input[type='radio'][name='cycle']", function() {
 	// switch selected panel
-  self = $(this);
-	targetPanel = $('#'+self.data('panel'));
+  //self = $(this);
+	targetPanel = $('#'+$(this).data('panel'));
 	targetPanel.siblings().each(function () {
 		$(this).css('display', 'none');
 	});
